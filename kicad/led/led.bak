@@ -1,0 +1,163 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:led-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "LED Boarrd"
+Date "2016-10-23"
+Rev "0.1"
+Comp "Amitesh Singh "
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L LED D1
+U 1 1 580C3B94
+P 6500 3600
+F 0 "D1" H 6500 3355 50  0000 C CNN
+F 1 "LED" H 6500 3446 50  0000 C CNN
+F 2 "LEDs:LED-3MM" H 6500 3600 50  0001 C CNN
+F 3 "" H 6500 3600 50  0000 C CNN
+	1    6500 3600
+	-1   0    0    1   
+$EndComp
+$Comp
+L PWR_FLAG #FLG01
+U 1 1 580C3CA0
+P 7200 3000
+F 0 "#FLG01" H 7200 3095 50  0001 C CNN
+F 1 "PWR_FLAG" H 7200 3224 50  0000 C CNN
+F 2 "" H 7200 3000 50  0000 C CNN
+F 3 "" H 7200 3000 50  0000 C CNN
+	1    7200 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR02
+U 1 1 580C3CB6
+P 6200 3550
+F 0 "#PWR02" H 6200 3400 50  0001 C CNN
+F 1 "+5V" H 6215 3723 50  0000 C CNN
+F 2 "" H 6200 3550 50  0000 C CNN
+F 3 "" H 6200 3550 50  0000 C CNN
+	1    6200 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 580C3CCC
+P 6950 3600
+F 0 "R1" V 6743 3600 50  0000 C CNN
+F 1 "220" V 6834 3600 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 6880 3600 50  0001 C CNN
+F 3 "" H 6950 3600 50  0000 C CNN
+	1    6950 3600
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR03
+U 1 1 580C3D0F
+P 6200 3950
+F 0 "#PWR03" H 6200 3700 50  0001 C CNN
+F 1 "GND" H 6205 3777 50  0000 C CNN
+F 2 "" H 6200 3950 50  0000 C CNN
+F 3 "" H 6200 3950 50  0000 C CNN
+	1    6200 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR04
+U 1 1 580C3D71
+P 7200 3200
+F 0 "#PWR04" H 7200 3050 50  0001 C CNN
+F 1 "+5V" H 7215 3373 50  0000 C CNN
+F 2 "" H 7200 3200 50  0000 C CNN
+F 3 "" H 7200 3200 50  0000 C CNN
+	1    7200 3200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7200 3200 7200 3000
+$Comp
+L PWR_FLAG #FLG05
+U 1 1 580C3DAD
+P 7700 3050
+F 0 "#FLG05" H 7700 3145 50  0001 C CNN
+F 1 "PWR_FLAG" H 7700 3274 50  0000 C CNN
+F 2 "" H 7700 3050 50  0000 C CNN
+F 3 "" H 7700 3050 50  0000 C CNN
+	1    7700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR06
+U 1 1 580C3DC5
+P 7700 3150
+F 0 "#PWR06" H 7700 2900 50  0001 C CNN
+F 1 "GND" H 7705 2977 50  0000 C CNN
+F 2 "" H 7700 3150 50  0000 C CNN
+F 3 "" H 7700 3150 50  0000 C CNN
+	1    7700 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 3050 7700 3150
+$Comp
+L Battery BT1
+U 1 1 580C3E47
+P 6050 3750
+F 0 "BT1" H 6168 3796 50  0000 L CNN
+F 1 "Battery" H 6168 3705 50  0000 L CNN
+F 2 "Battery_Holders:Keystone_103_1x20mm-CoinCell" V 6050 3790 50  0001 C CNN
+F 3 "" V 6050 3790 50  0000 C CNN
+	1    6050 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3600 6300 3600
+Wire Wire Line
+	6700 3600 6800 3600
+Wire Wire Line
+	7100 3600 7100 3900
+Wire Wire Line
+	7100 3900 6050 3900
+Wire Wire Line
+	6200 3950 6200 3900
+Connection ~ 6200 3900
+Wire Wire Line
+	6200 3550 6200 3600
+Connection ~ 6200 3600
+$EndSCHEMATC
