@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ST7735_LCD_Breakout
+D ST7735 controller, SPI TFT LCD Display, 5-pin breakout PCB, 4-pin SD card interface, 5V/3.3V
+K GLCD TFT ILI9341 128x160
+$ENDCMP
+#
+#End Doc Library
