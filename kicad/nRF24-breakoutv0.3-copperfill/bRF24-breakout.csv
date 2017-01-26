@@ -1,0 +1,4 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"C1";"CP_Radial_D5.0mm_P2.50mm";1;"10uF";;;
+2;"P1";"Socket_Strip_Straight_1x08";1;"CONN_01X08";;;
+3;"U1";"nRF24";1;"nRF24";;;
