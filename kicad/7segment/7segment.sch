@@ -1,0 +1,472 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:7segment-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "7 segment"
+Date "2017-01-26"
+Rev "0.1"
+Comp "Amitesh Singh"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_01X05 P1
+U 1 1 588A3BE1
+P 2250 2800
+F 0 "P1" V 2215 2512 50  0000 R CNN
+F 1 "CONN_01X05" V 2124 2512 50  0000 R CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05" H 2250 2800 50  0001 C CNN
+F 3 "" H 2250 2800 50  0001 C CNN
+	1    2250 2800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 7SEGM S1
+U 1 1 588A3D59
+P 7800 4150
+F 0 "S1" H 8377 4196 50  0000 L CNN
+F 1 "7SEGM" H 8377 4105 50  0000 L CNN
+F 2 "Displays_7-Segment:7SegmentLED_LTS6760_LTS6780" H 7800 4150 50  0001 C CNN
+F 3 "" H 7800 4150 50  0001 C CNN
+	1    7800 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74HC595 U1
+U 1 1 588A3EED
+P 2275 4275
+F 0 "U1" H 2275 5041 50  0000 C CNN
+F 1 "74HC595" H 2275 4950 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 2275 4275 50  0001 C CNN
+F 3 "" H 2275 4275 50  0001 C CNN
+	1    2275 4275
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 588A3F9D
+P 4325 3125
+F 0 "R1" V 4325 3100 50  0000 L CNN
+F 1 "220" V 4250 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4255 3125 50  0001 C CNN
+F 3 "" H 4325 3125 50  0001 C CNN
+	1    4325 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 588A40FD
+P 4450 3125
+F 0 "R2" V 4450 3100 50  0000 L CNN
+F 1 "220" V 4375 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4380 3125 50  0001 C CNN
+F 3 "" H 4450 3125 50  0001 C CNN
+	1    4450 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 588A4129
+P 4600 3125
+F 0 "R3" V 4600 3100 50  0000 L CNN
+F 1 "220" V 4525 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4530 3125 50  0001 C CNN
+F 3 "" H 4600 3125 50  0001 C CNN
+	1    4600 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 588A417B
+P 4750 3125
+F 0 "R4" V 4750 3100 50  0000 L CNN
+F 1 "220" V 4675 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4680 3125 50  0001 C CNN
+F 3 "" H 4750 3125 50  0001 C CNN
+	1    4750 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R5
+U 1 1 588A41A8
+P 4900 3125
+F 0 "R5" V 4900 3100 50  0000 L CNN
+F 1 "220" V 4825 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4830 3125 50  0001 C CNN
+F 3 "" H 4900 3125 50  0001 C CNN
+	1    4900 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R6
+U 1 1 588A41D8
+P 5050 3125
+F 0 "R6" V 5050 3100 50  0000 L CNN
+F 1 "220" V 4975 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 4980 3125 50  0001 C CNN
+F 3 "" H 5050 3125 50  0001 C CNN
+	1    5050 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R7
+U 1 1 588A420B
+P 5200 3125
+F 0 "R7" V 5200 3100 50  0000 L CNN
+F 1 "220" V 5125 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 5130 3125 50  0001 C CNN
+F 3 "" H 5200 3125 50  0001 C CNN
+	1    5200 3125
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R8
+U 1 1 588A4241
+P 5350 3125
+F 0 "R8" V 5350 3100 50  0000 L CNN
+F 1 "220" V 5275 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 5280 3125 50  0001 C CNN
+F 3 "" H 5350 3125 50  0001 C CNN
+	1    5350 3125
+	1    0    0    -1  
+$EndComp
+Text Label 2450 3000 0    60   ~ 0
+DATA
+Text Label 1575 4025 0    60   ~ 0
+DATA
+Text Label 2350 3000 0    60   ~ 0
+CLOCK
+Text Label 1575 4325 0    60   ~ 0
+CLOCK
+Text Label 2250 3000 0    60   ~ 0
+LATCH
+Text Label 1575 3825 0    60   ~ 0
+LATCH
+$Comp
+L GND #PWR01
+U 1 1 588A49CE
+P 1475 2800
+F 0 "#PWR01" H 1475 2550 50  0001 C CNN
+F 1 "GND" H 1480 2627 50  0000 C CNN
+F 2 "" H 1475 2800 50  0001 C CNN
+F 3 "" H 1475 2800 50  0001 C CNN
+	1    1475 2800
+	-1   0    0    1   
+$EndComp
+$Comp
+L VCC #PWR02
+U 1 1 588A4A96
+P 1600 2800
+F 0 "#PWR02" H 1600 2650 50  0001 C CNN
+F 1 "VCC" H 1617 2973 50  0000 C CNN
+F 2 "" H 1600 2800 50  0001 C CNN
+F 3 "" H 1600 2800 50  0001 C CNN
+	1    1600 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR03
+U 1 1 588A4CF6
+P 1100 4125
+F 0 "#PWR03" H 1100 3975 50  0001 C CNN
+F 1 "VCC" H 1117 4298 50  0000 C CNN
+F 2 "" H 1100 4125 50  0001 C CNN
+F 3 "" H 1100 4125 50  0001 C CNN
+	1    1100 4125
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 588A4D60
+P 1150 4450
+F 0 "#PWR04" H 1150 4200 50  0001 C CNN
+F 1 "GND" H 1155 4277 50  0000 C CNN
+F 2 "" H 1150 4450 50  0001 C CNN
+F 3 "" H 1150 4450 50  0001 C CNN
+	1    1150 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR05
+U 1 1 588A4F79
+P 6350 3550
+F 0 "#PWR05" H 6350 3400 50  0001 C CNN
+F 1 "VCC" H 6367 3723 50  0000 C CNN
+F 2 "" H 6350 3550 50  0001 C CNN
+F 3 "" H 6350 3550 50  0001 C CNN
+	1    6350 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR06
+U 1 1 588A50E7
+P 6350 4650
+F 0 "#PWR06" H 6350 4400 50  0001 C CNN
+F 1 "GND" H 6355 4477 50  0000 C CNN
+F 2 "" H 6350 4650 50  0001 C CNN
+F 3 "" H 6350 4650 50  0001 C CNN
+	1    6350 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG07
+U 1 1 588A51BC
+P 1750 2925
+F 0 "#FLG07" H 1750 3000 50  0001 C CNN
+F 1 "PWR_FLAG" H 1750 3099 50  0000 C CNN
+F 2 "" H 1750 2925 50  0001 C CNN
+F 3 "" H 1750 2925 50  0001 C CNN
+	1    1750 2925
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG08
+U 1 1 588A5419
+P 1875 2925
+F 0 "#FLG08" H 1875 3000 50  0001 C CNN
+F 1 "PWR_FLAG" H 1875 3099 50  0000 C CNN
+F 2 "" H 1875 2925 50  0001 C CNN
+F 3 "" H 1875 2925 50  0001 C CNN
+	1    1875 2925
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1475 2800 1475 3100
+Wire Wire Line
+	1475 3100 2150 3100
+Wire Wire Line
+	2150 3100 2150 3000
+Wire Wire Line
+	1600 2800 1600 3050
+Wire Wire Line
+	1600 3050 2050 3050
+Wire Wire Line
+	2050 3050 2050 3000
+Wire Wire Line
+	1100 4125 1575 4125
+Wire Wire Line
+	1150 4450 1575 4450
+Wire Wire Line
+	1575 4450 1575 4425
+Wire Wire Line
+	6350 3550 6350 3750
+Wire Wire Line
+	6350 3750 7050 3750
+Wire Wire Line
+	6350 4650 7050 4650
+Wire Wire Line
+	1750 2925 1750 3050
+Connection ~ 1750 3050
+Wire Wire Line
+	1875 2925 1875 3100
+Connection ~ 1875 3100
+Wire Wire Line
+	5350 3275 5350 3850
+Wire Wire Line
+	5350 3850 7050 3850
+Wire Wire Line
+	5200 3275 5200 3950
+Wire Wire Line
+	5200 3950 7050 3950
+Wire Wire Line
+	5050 3275 5050 4050
+Wire Wire Line
+	5050 4050 7050 4050
+Wire Wire Line
+	7050 4150 4900 4150
+Wire Wire Line
+	4900 4150 4900 3275
+Wire Wire Line
+	4750 4250 7050 4250
+Wire Wire Line
+	4750 4250 4750 3275
+Wire Wire Line
+	4600 3275 4600 4350
+Wire Wire Line
+	4600 4350 7050 4350
+Wire Wire Line
+	7050 4450 4450 4450
+Wire Wire Line
+	4450 4450 4450 3275
+Wire Wire Line
+	4325 3275 4325 4550
+Wire Wire Line
+	4325 4550 7050 4550
+Wire Bus Line
+	7000 2800 3850 2800
+Wire Bus Line
+	3850 2800 3850 5400
+Entry Wire Line
+	5250 2800 5350 2900
+Entry Wire Line
+	5075 2800 5175 2900
+Entry Wire Line
+	4900 2800 5000 2900
+Entry Wire Line
+	4750 2800 4850 2900
+Entry Wire Line
+	3750 4900 3850 5000
+Entry Wire Line
+	3750 4775 3850 4875
+Entry Wire Line
+	3750 4700 3850 4800
+Entry Wire Line
+	3750 4625 3850 4725
+Entry Wire Line
+	3750 4550 3850 4650
+Entry Wire Line
+	3750 4475 3850 4575
+Entry Wire Line
+	3750 4400 3850 4500
+Entry Wire Line
+	3750 4325 3850 4425
+Entry Wire Line
+	4325 2800 4425 2900
+Entry Wire Line
+	4225 2800 4325 2900
+Entry Wire Line
+	4450 2800 4550 2900
+Entry Wire Line
+	4625 2800 4725 2900
+Wire Wire Line
+	4325 2900 4325 2975
+Wire Wire Line
+	4425 2900 4425 2975
+Wire Wire Line
+	4425 2975 4450 2975
+Wire Wire Line
+	4550 2900 4550 2975
+Wire Wire Line
+	4550 2975 4600 2975
+Wire Wire Line
+	4725 2900 4725 2975
+Wire Wire Line
+	4725 2975 4750 2975
+Wire Wire Line
+	4850 2900 4850 2975
+Wire Wire Line
+	4850 2975 4900 2975
+Wire Wire Line
+	5000 2900 5050 2900
+Wire Wire Line
+	5050 2900 5050 2975
+Wire Wire Line
+	5175 2900 5175 2975
+Wire Wire Line
+	5175 2975 5200 2975
+Wire Wire Line
+	5350 2900 5350 2975
+Wire Wire Line
+	3750 4325 3750 3825
+Wire Wire Line
+	3750 3825 2975 3825
+Wire Wire Line
+	3750 4400 3350 4400
+Wire Wire Line
+	3350 4400 3350 3925
+Wire Wire Line
+	3350 3925 2975 3925
+Wire Wire Line
+	2975 4025 3300 4025
+Wire Wire Line
+	3300 4025 3300 4475
+Wire Wire Line
+	3300 4475 3750 4475
+Wire Wire Line
+	2975 4125 3250 4125
+Wire Wire Line
+	3250 4125 3250 4550
+Wire Wire Line
+	3250 4550 3750 4550
+Wire Wire Line
+	3750 4625 3200 4625
+Wire Wire Line
+	3200 4625 3200 4225
+Wire Wire Line
+	3200 4225 2975 4225
+Wire Wire Line
+	2975 4325 3150 4325
+Wire Wire Line
+	3150 4325 3150 4700
+Wire Wire Line
+	3150 4700 3750 4700
+Wire Wire Line
+	3750 4775 3125 4775
+Wire Wire Line
+	3125 4775 3125 4425
+Wire Wire Line
+	3125 4425 2975 4425
+Wire Wire Line
+	2975 4525 3100 4525
+Wire Wire Line
+	3100 4525 3100 4900
+Wire Wire Line
+	3100 4900 3750 4900
+NoConn ~ 2975 4725
+Text Label 5350 2900 0    60   ~ 0
+seg0
+Text Label 5175 2900 0    60   ~ 0
+seg1
+Text Label 5050 2900 0    60   ~ 0
+seg2
+Text Label 4850 2900 0    60   ~ 0
+seg3
+Text Label 4725 2900 0    60   ~ 0
+seg4
+Text Label 4550 2900 0    60   ~ 0
+seg5
+Text Label 4425 2900 0    60   ~ 0
+seg6
+Text Label 4325 2900 0    60   ~ 0
+seg7
+Text Label 2975 3825 0    60   ~ 0
+seg0
+Text Label 2975 3925 0    60   ~ 0
+seg1
+Text Label 2975 4025 0    60   ~ 0
+seg2
+Text Label 2975 4125 0    60   ~ 0
+seg3
+Text Label 2975 4225 0    60   ~ 0
+seg4
+Text Label 2975 4325 0    60   ~ 0
+seg5
+Text Label 2975 4425 0    60   ~ 0
+seg6
+Text Label 2975 4525 0    60   ~ 0
+seg7
+$EndSCHEMATC
