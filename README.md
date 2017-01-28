@@ -9,3 +9,7 @@ sabor awesome shift register boards
 - oshpark: 6 dollars per 3 board (5cm x 5cm) - prototype service  
    http://docs.oshpark.com/services/
    * i probably order my first board from here.
+- https://www.elecrow.com/services/pcb-prototyping.html
+-  macrofab https://macrofab.com/
+- seedstudio
+- dirtypcb
