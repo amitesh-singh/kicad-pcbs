@@ -1,0 +1,278 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "attiny13a breakout board"
+Date "2017-01-29"
+Rev "0.1"
+Comp "Amitesh Singh"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATTINY13A-SSU U1
+U 1 1 588CF45A
+P 5300 3200
+F 0 "U1" H 5300 3717 50  0000 C CNN
+F 1 "ATTINY13A-SSU" H 5300 3626 50  0000 C CNN
+F 2 "SO8" H 5900 3200 50  0001 C CIN
+F 3 "" H 4500 3550 50  0001 C CNN
+	1    5300 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X04 P1
+U 1 1 588CF4EE
+P 4925 2300
+F 0 "P1" V 4890 2062 50  0000 R CNN
+F 1 "CONN_01X04" V 4799 2062 50  0000 R CNN
+F 2 "" H 4925 2300 50  0001 C CNN
+F 3 "" H 4925 2300 50  0001 C CNN
+	1    4925 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_01X04 P2
+U 1 1 588CF56F
+P 5950 2300
+F 0 "P2" V 5915 2062 50  0000 R CNN
+F 1 "CONN_01X04" V 5824 2062 50  0000 R CNN
+F 2 "" H 5950 2300 50  0001 C CNN
+F 3 "" H 5950 2300 50  0001 C CNN
+	1    5950 2300
+	0    -1   -1   0   
+$EndComp
+Text Label 5075 2500 0    60   ~ 0
+pb0
+Text Label 4975 2500 0    60   ~ 0
+pb1
+Text Label 4875 2500 0    60   ~ 0
+pb2
+Text Label 4300 2950 0    60   ~ 0
+pb0
+Text Label 4300 3050 0    60   ~ 0
+pb1
+Text Label 4300 3150 0    60   ~ 0
+pb2
+Text Label 6000 2500 0    60   ~ 0
+pb4
+Text Label 5900 2500 0    60   ~ 0
+pb3
+Text Label 5800 2500 0    60   ~ 0
+rst
+Text Label 4300 3250 0    60   ~ 0
+pb3
+Text Label 4300 3350 0    60   ~ 0
+pb4
+Text Label 4300 3450 0    60   ~ 0
+rst
+$Comp
+L VCC #PWR01
+U 1 1 588CF800
+P 4775 2600
+F 0 "#PWR01" H 4775 2450 50  0001 C CNN
+F 1 "VCC" H 4793 2773 50  0000 C CNN
+F 2 "" H 4775 2600 50  0001 C CNN
+F 3 "" H 4775 2600 50  0001 C CNN
+	1    4775 2600
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR02
+U 1 1 588CF81A
+P 6100 2600
+F 0 "#PWR02" H 6100 2350 50  0001 C CNN
+F 1 "GND" H 6105 2427 50  0000 C CNN
+F 2 "" H 6100 2600 50  0001 C CNN
+F 3 "" H 6100 2600 50  0001 C CNN
+	1    6100 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 588CF848
+P 3050 3175
+F 0 "C1" H 3165 3221 50  0000 L CNN
+F 1 "C" H 3165 3130 50  0000 L CNN
+F 2 "" H 3088 3025 50  0001 C CNN
+F 3 "" H 3050 3175 50  0001 C CNN
+	1    3050 3175
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR03
+U 1 1 588CF8A4
+P 3050 2925
+F 0 "#PWR03" H 3050 2775 50  0001 C CNN
+F 1 "VCC" H 3067 3098 50  0000 C CNN
+F 2 "" H 3050 2925 50  0001 C CNN
+F 3 "" H 3050 2925 50  0001 C CNN
+	1    3050 2925
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 588CF8BB
+P 3050 3425
+F 0 "#PWR04" H 3050 3175 50  0001 C CNN
+F 1 "GND" H 3055 3252 50  0000 C CNN
+F 2 "" H 3050 3425 50  0001 C CNN
+F 3 "" H 3050 3425 50  0001 C CNN
+	1    3050 3425
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG05
+U 1 1 588CFAC5
+P 4575 2550
+F 0 "#FLG05" H 4575 2625 50  0001 C CNN
+F 1 "PWR_FLAG" V 4575 2678 50  0000 L CNN
+F 2 "" H 4575 2550 50  0001 C CNN
+F 3 "" H 4575 2550 50  0001 C CNN
+	1    4575 2550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3050 3325 3050 3425
+Wire Wire Line
+	3050 2925 3050 3025
+Wire Wire Line
+	6100 2500 6100 2600
+Wire Wire Line
+	4775 2500 4775 2600
+Wire Wire Line
+	4575 2550 4775 2550
+Connection ~ 4775 2550
+$Comp
+L PWR_FLAG #FLG06
+U 1 1 588CFAF8
+P 5975 2575
+F 0 "#FLG06" H 5975 2650 50  0001 C CNN
+F 1 "PWR_FLAG" V 5975 2703 50  0000 L CNN
+F 2 "" H 5975 2575 50  0001 C CNN
+F 3 "" H 5975 2575 50  0001 C CNN
+	1    5975 2575
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	5975 2575 6100 2575
+Connection ~ 6100 2575
+$Comp
+L VCC #PWR07
+U 1 1 588CFF9B
+P 6550 2950
+F 0 "#PWR07" H 6550 2800 50  0001 C CNN
+F 1 "VCC" H 6567 3123 50  0000 C CNN
+F 2 "" H 6550 2950 50  0001 C CNN
+F 3 "" H 6550 2950 50  0001 C CNN
+	1    6550 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR08
+U 1 1 588CFFBA
+P 6550 3450
+F 0 "#PWR08" H 6550 3200 50  0001 C CNN
+F 1 "GND" H 6555 3277 50  0000 C CNN
+F 2 "" H 6550 3450 50  0001 C CNN
+F 3 "" H 6550 3450 50  0001 C CNN
+	1    6550 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 3450 6300 3450
+Wire Wire Line
+	6550 2950 6300 2950
+Wire Notes Line
+	2900 2700 3250 2700
+Wire Notes Line
+	3250 2700 3250 3650
+Wire Notes Line
+	3250 3650 2900 3650
+Wire Notes Line
+	2900 3650 2900 2700
+Text Notes 2900 2675 0    60   ~ 0
+Bypass capacitor
+$Comp
+L CONN_01X06 P3
+U 1 1 588D05F2
+P 3900 4050
+F 0 "P3" V 3772 4378 50  0000 L CNN
+F 1 "CONN_01X06" V 3863 4378 50  0000 L CNN
+F 2 "" H 3900 4050 50  0001 C CNN
+F 3 "" H 3900 4050 50  0001 C CNN
+	1    3900 4050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4150 3850 4150 2950
+Wire Wire Line
+	4150 2950 4300 2950
+Wire Wire Line
+	4050 3850 4050 3050
+Wire Wire Line
+	4050 3050 4300 3050
+Wire Wire Line
+	3950 3850 3950 3150
+Wire Wire Line
+	3950 3150 4300 3150
+Wire Wire Line
+	3850 3850 3850 3450
+Wire Wire Line
+	3850 3450 4300 3450
+Wire Wire Line
+	3750 3850 6375 3850
+Wire Wire Line
+	6375 3850 6375 2950
+Connection ~ 6375 2950
+Wire Wire Line
+	3650 3850 3650 3700
+Wire Wire Line
+	3650 3700 6425 3700
+Wire Wire Line
+	6425 3700 6425 3450
+Connection ~ 6425 3450
+Wire Notes Line
+	3525 3800 4300 3800
+Wire Notes Line
+	4300 3800 4300 4175
+Wire Notes Line
+	4300 4175 3525 4175
+Wire Notes Line
+	3525 4175 3525 3800
+Text Notes 3525 4275 0    60   ~ 0
+usbasp programmer head
+$EndSCHEMATC
