@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name led2layer)(type KiCad)(uri D:/kicad-pcbs/kicad/led2layer)(options "")(descr ""))
+)
