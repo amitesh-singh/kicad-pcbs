@@ -1,0 +1,165 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:led2layer-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "LED 2 layer"
+Date "2017-01-28"
+Rev "0.1"
+Comp "Amitesh Singh"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L R R1
+U 1 1 588C17AD
+P 6175 4275
+F 0 "R1" V 5968 4275 50  0000 C CNN
+F 1 "R" V 6059 4275 50  0000 C CNN
+F 2 "Resistors_Universal:Resistor_SMDuniversal_0805to1206_HandSoldering" V 6105 4275 50  0001 C CNN
+F 3 "" H 6175 4275 50  0001 C CNN
+	1    6175 4275
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D1
+U 1 1 588C17F9
+P 5725 4275
+F 0 "D1" H 5716 4491 50  0000 C CNN
+F 1 "LED" H 5716 4400 50  0000 C CNN
+F 2 "LEDs:LED_D3.0mm" H 5725 4275 50  0001 C CNN
+F 3 "" H 5725 4275 50  0001 C CNN
+	1    5725 4275
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR4
+U 1 1 588C1835
+P 6450 4200
+F 0 "#PWR4" H 6450 4050 50  0001 C CNN
+F 1 "VCC" H 6467 4373 50  0000 C CNN
+F 2 "" H 6450 4200 50  0001 C CNN
+F 3 "" H 6450 4200 50  0001 C CNN
+	1    6450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR3
+U 1 1 588C184D
+P 5425 4375
+F 0 "#PWR3" H 5425 4125 50  0001 C CNN
+F 1 "GND" H 5430 4202 50  0000 C CNN
+F 2 "" H 5425 4375 50  0001 C CNN
+F 3 "" H 5425 4375 50  0001 C CNN
+	1    5425 4375
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 4200 6450 4275
+Wire Wire Line
+	6450 4275 6325 4275
+Wire Wire Line
+	5875 4275 6025 4275
+Wire Wire Line
+	5575 4275 5425 4275
+Wire Wire Line
+	5425 4275 5425 4375
+$Comp
+L PWR_FLAG #FLG1
+U 1 1 588C18B5
+P 5525 4175
+F 0 "#FLG1" H 5525 4250 50  0001 C CNN
+F 1 "PWR_FLAG" H 5525 4349 50  0000 C CNN
+F 2 "" H 5525 4175 50  0001 C CNN
+F 3 "" H 5525 4175 50  0001 C CNN
+	1    5525 4175
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG2
+U 1 1 588C18CD
+P 6375 4150
+F 0 "#FLG2" H 6375 4225 50  0001 C CNN
+F 1 "PWR_FLAG" H 6375 4324 50  0000 C CNN
+F 2 "" H 6375 4150 50  0001 C CNN
+F 3 "" H 6375 4150 50  0001 C CNN
+	1    6375 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5525 4175 5525 4275
+Connection ~ 5525 4275
+Wire Wire Line
+	6375 4150 6375 4275
+Connection ~ 6375 4275
+$Comp
+L CONN_01X02 P1
+U 1 1 588C1E88
+P 5850 3475
+F 0 "P1" H 5928 3516 50  0000 L CNN
+F 1 "CONN_01X02" H 5928 3425 50  0000 L CNN
+F 2 "Connectors_Harwin:Harwin_LTek-Male_02x2.00mm_Straight_StrainRelief" H 5850 3475 50  0001 C CNN
+F 3 "" H 5850 3475 50  0001 C CNN
+	1    5850 3475
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR1
+U 1 1 588C1EFA
+P 5425 3425
+F 0 "#PWR1" H 5425 3275 50  0001 C CNN
+F 1 "VCC" H 5442 3598 50  0000 C CNN
+F 2 "" H 5425 3425 50  0001 C CNN
+F 3 "" H 5425 3425 50  0001 C CNN
+	1    5425 3425
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR2
+U 1 1 588C1F1A
+P 5425 3525
+F 0 "#PWR2" H 5425 3275 50  0001 C CNN
+F 1 "GND" H 5430 3352 50  0000 C CNN
+F 2 "" H 5425 3525 50  0001 C CNN
+F 3 "" H 5425 3525 50  0001 C CNN
+	1    5425 3525
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5425 3425 5650 3425
+Wire Wire Line
+	5425 3525 5650 3525
+$EndSCHEMATC
