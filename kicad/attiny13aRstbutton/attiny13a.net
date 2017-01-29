@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source D:/kicad-pcbs/kicad/attiny13aRstbutton/attiny13a.sch)
-    (date "01/29/17 20:21:58")
+    (date "01/29/17 21:24:36")
     (tool "Eeschema (2017-01-24 revision 0b6147e)-makepkg")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -47,7 +47,7 @@
       (tstamp 588D05F2))
     (comp (ref SW1)
       (value SWITCH)
-      (footprint Buttons_Switches_ThroughHole:SW_PUSH_SMALL)
+      (footprint Buttons_Switches_ThroughHole:SW_PUSH_6mm)
       (libsource (lib common_devices) (part SWITCH))
       (sheetpath (names /) (tstamps /))
       (tstamp 588DE1C6))
@@ -143,14 +143,14 @@
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive)))))
   (libraries
-    (library (logical conn)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\conn.lib"))
     (library (logical device)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
+    (library (logical common_devices)
+      (uri D:\kicad-pcbs\kicad\library\common_devices.lib))
     (library (logical atmel)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
-    (library (logical common_devices)
-      (uri D:\kicad-pcbs\kicad\library\common_devices.lib)))
+    (library (logical conn)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\conn.lib")))
   (nets
     (net (code 1) (name VCC)
       (node (ref P3) (pin 5))
