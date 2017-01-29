@@ -3,9 +3,9 @@
   (general
     (links 16)
     (no_connects 0)
-    (area 119.558999 83.490999 147.903001 101.421001)
+    (area 119.558999 83.490999 149.8095 101.421001)
     (thickness 1.6)
-    (drawings 27)
+    (drawings 21)
     (tracks 38)
     (zones 0)
     (modules 6)
@@ -215,7 +215,7 @@
     (fp_text reference P1 (at -4.572 -6.604) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value CONN_01X04 (at -1.905 2.413 360) (layer F.Fab) hide
+    (fp_text value CONN_01X04 (at -1.905 2.413) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -1.55 -1.55) (end -1.55 1.55) (layer F.SilkS) (width 0.15))
@@ -416,7 +416,7 @@
       (xy 4.318 -3.386667)) (layer B.SilkS) (width 0.01))
   )
 
-  (gr_text Gnd (at 142.113 87.122) (layer F.SilkS) (tstamp 588DB8D6)
+  (gr_text Gnd (at 142.113 86.106) (layer F.SilkS) (tstamp 588DB8D6)
     (effects (font (size 1 1) (thickness 0.2)))
   )
   (gr_text Vcc (at 142.113 88.9) (layer F.SilkS) (tstamp 588DB8BD)
@@ -434,13 +434,7 @@
   (gr_text Mosi (at 141.732 98.806) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.2)))
   )
-  (gr_line (start 143.256 86.106) (end 142.875 85.725) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_line (start 142.875 86.487) (end 143.256 86.106) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_line (start 143.256 86.106) (end 142.875 86.487) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_line (start 143.129 86.106) (end 143.256 86.106) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_line (start 141.224 86.106) (end 143.129 86.106) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_line (start 140.462 85.344) (end 141.224 86.106) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_text programmer (at 138.938 84.709) (layer F.SilkS)
+  (gr_text ISP (at 141.986 84.709) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.2)))
   )
   (gr_line (start 135.382 88.9) (end 135.382 89.408) (angle 90) (layer F.SilkS) (width 0.2))
