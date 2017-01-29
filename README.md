@@ -13,3 +13,5 @@ sabor awesome shift register boards
 -  macrofab https://macrofab.com/
 - seedstudio
 - dirtypcb : dirtypcb wants *edge.cuts.gm1 into *.gko extension
+- lionscircuits: http://www.lioncircuits.com/ -  looks promising for small number for prototypes.
+
