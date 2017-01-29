@@ -12,4 +12,4 @@ sabor awesome shift register boards
 - https://www.elecrow.com/services/pcb-prototyping.html
 -  macrofab https://macrofab.com/
 - seedstudio
-- dirtypcb
+- dirtypcb : dirtypcb wants *edge.cuts.gm1 into *.gko extension
