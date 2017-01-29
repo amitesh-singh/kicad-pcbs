@@ -1,11 +1,11 @@
 G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(2017-01-24 revision 0b6147e)-makepkg*
-G04 #@! TF.CreationDate,2017-01-29T22:57:48+05:30*
+G04 #@! TF.CreationDate,2017-01-29T23:02:28+05:30*
 G04 #@! TF.ProjectId,attiny13a,617474696E793133612E6B696361645F,0.1*
 G04 #@! TF.FileFunction,Copper,L1,Top,Signal*
 G04 #@! TF.FilePolarity,Positive*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (2017-01-24 revision 0b6147e)-makepkg) date 01/29/17 22:57:48*
+G04 Created by KiCad (PCBNEW (2017-01-24 revision 0b6147e)-makepkg) date 01/29/17 23:02:28*
 %MOMM*%
 %LPD*%
 G01*
