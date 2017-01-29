@@ -227,10 +227,10 @@ Wire Notes Line
 Text Notes 2900 2675 0    60   ~ 0
 Bypass capacitor
 $Comp
-L CONN_01X06 P?
+L CONN_01X06 P3
 U 1 1 588D05F2
 P 3900 4050
-F 0 "P?" V 3772 4378 50  0000 L CNN
+F 0 "P3" V 3772 4378 50  0000 L CNN
 F 1 "CONN_01X06" V 3863 4378 50  0000 L CNN
 F 2 "" H 3900 4050 50  0001 C CNN
 F 3 "" H 3900 4050 50  0001 C CNN
@@ -265,4 +265,14 @@ Wire Wire Line
 Wire Wire Line
 	6425 3700 6425 3450
 Connection ~ 6425 3450
+Wire Notes Line
+	3525 3800 4300 3800
+Wire Notes Line
+	4300 3800 4300 4175
+Wire Notes Line
+	4300 4175 3525 4175
+Wire Notes Line
+	3525 4175 3525 3800
+Text Notes 3525 4275 0    60   ~ 0
+usbasp programmer head
 $EndSCHEMATC
