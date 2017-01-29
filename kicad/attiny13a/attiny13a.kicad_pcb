@@ -3,9 +3,9 @@
   (general
     (links 16)
     (no_connects 0)
-    (area 119.558999 83.490999 149.8095 101.421001)
+    (area 119.558999 83.490999 147.903001 101.421001)
     (thickness 1.6)
-    (drawings 21)
+    (drawings 22)
     (tracks 38)
     (zones 0)
     (modules 6)
@@ -425,6 +425,9 @@
       (xy 4.318 -3.386667)) (layer B.SilkS) (width 0.01))
   )
 
+  (gr_text "t13/85 breakout board" (at 130.175 85.217) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.2)))
+  )
   (gr_text Gnd (at 142.113 86.106) (layer F.SilkS) (tstamp 588DB8D6)
     (effects (font (size 1 1) (thickness 0.2)))
   )
