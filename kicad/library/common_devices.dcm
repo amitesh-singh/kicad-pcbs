@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP POWERED
+D Marks a net as powered.
+$ENDCMP
+#
+$CMP X
+D crystal
+$ENDCMP
+#
+#End Doc Library
