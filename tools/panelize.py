@@ -17,8 +17,16 @@
 import sys
 import traceback
 
-__version__ = "3.0.0-pre2"
-__revision__ = "$Rev$".split()[1]
+__version__ = "3.0.0"
+__revision__ = "$Rev: 881 $ unkown".split()[1]
+
+
+kicad_versions = (
+	"4.0.5",
+	"latest"
+)
+
+compat_4_0_5 = kicad_versions.index( "4.0.5" )
 
 
 class KicadObj:
@@ -357,6 +365,37 @@ class VectorAngle( Vector ):
 			# +++ sin/cos???
 			raise Exception( "unsupported angle" )
 		return Vector( self.obj_name, x, y )
+
+
+class Vector3D( Vector ):
+
+	def __init__( self, name, x=None, y=None, z=None ):
+		Vector.__init__( self, name, x, y )
+		self.z = z
+
+	def tag_value( self, factory, value ):
+		if self.x == None:
+			self.x = float(value)
+		elif self.y == None:
+			self.y = float(value)
+		elif self.z == None:
+			self.z = float(value)
+		else:
+			factory.parse_error( "too many values for '%s'" % self.obj_name )
+
+	def clone( self ):
+		return Vector3D( self.obj_name, self.x, self.y, self.z )
+
+	def write_contents( self, writer ):
+		writer.write_float( self.x )
+		writer.write_float( self.y )
+		if self.a != None:
+			writer.write_float( self.a )
+
+	def __str__( self ):
+		if self.z == None:
+			return "<<<NONE>>>"
+		return "%f/%f/%f" % ( self.x, self.y, self.z )
 
 
 class Area( KicadObj ):
@@ -1097,6 +1136,42 @@ class Pad( KicadFatObj ):
 		return obj
 
 
+class NamedVector3D( KicadFatObj ):
+
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			Vector3D( "xyz" ),
+		) )
+
+
+class Model( KicadFatObj ):
+
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			NamedVector3D( "at" ),
+			NamedVector3D( "scale" ),
+			NamedVector3D( "rotate" ),
+		) )
+		self.filename = None
+
+	def tag_value( self, factory, value ):
+		if self.filename == None:
+			self.filename = value
+		else:
+			factory.parse_error( "too many values for '%s'" % self.obj_name )
+
+	def write( self, writer ):
+		writer.begin( self )
+		self.write_objects( writer, ( "font", "justify" ), False )
+		writer.end()
+
+	def copy( self, trans ):
+		obj = Model( self.obj_name )
+		obj.set( "font", self.font.copy( trans ) )
+		obj.set( "justify", self.justify.copy( trans ) )
+		return obj
+
+
 class Module( KicadFatObj ):
 
 	def __init__( self, name ):
@@ -1111,11 +1186,13 @@ class Module( KicadFatObj ):
 			Text( "descr" ),
 			Text( "tags" ),
 			Text( "path" ),
+			Text( "attr" ),
 			( "fp_text", self.texts, FpText ),
 			( "fp_line", self.lines, FpLine ),
 			( "fp_circle", self.lines, FpCircle ),
 			( "fp_arc", self.lines, FpArc ),
 			( "pad", self.pads, Pad ),
+			Model( "model" ),
 		) )
 		self.name = None
 
@@ -1182,6 +1259,8 @@ class NetClass( KicadFatObj ):
 			Float( "via_drill" ),
 			Float( "uvia_dia" ),
 			Float( "uvia_drill" ),
+			Float( "diff_pair_gap" ), # after 4.0.5
+			Float( "diff_pair_width" ), # after 4.0.5
 			( "add_net", self.nets, Text ),
 		) )
 		self.name = None
@@ -1200,10 +1279,17 @@ class NetClass( KicadFatObj ):
 		writer.write_text( self.name )
 		writer.write_text( self.comment )
 		writer.newline()
-		self.write_objects( writer, (
-			"clearance", "trace_width", "via_dia", "via_drill",
-			"uvia_dia", "uvia_drill", "add_net",
-		) )
+		if writer.compat( compat_4_0_5 ):
+			self.write_objects( writer, (
+				"clearance", "trace_width", "via_dia", "via_drill",
+				"uvia_dia", "uvia_drill", "add_net",
+			) )
+		else:
+			self.write_objects( writer, (
+				"clearance", "trace_width", "via_dia", "via_drill",
+				"uvia_dia", "uvia_drill", "diff_pair_gap", "diff_pair_width",
+				"add_net",
+			) )
 		writer.newline()
 		writer.end()
 		writer.newline()
@@ -1680,12 +1766,16 @@ class KicadPcb( KicadFatObj ):
 
 class Writer:
 
-	def __init__( self, filename ):
+	def __init__( self, filename, compat_index ):
 		self.filename = filename
+		self.compat_index = compat_index
 		print( "writing %s..." % self.filename )
 		self.ofd = open( filename, "w" )
 		self.indent = ""
 		self.need_indent = True
+
+	def compat( self, compat_index ):
+		return compat_index >= self.compat_index
 
 	def close( self ):
 		self.ofd.close()
@@ -2196,6 +2286,14 @@ class Main:
 				( "Filename", ),
 			),
 			(
+				"compat",
+				self.compat,
+				None,
+				( "string", ),
+				"Save files compatible to the specified kicad version.",
+				( "'%s'" % "', '".join( kicad_versions ), ),
+			),
+			(
 				"source-area",
 				self.source_area,
 				None,
@@ -2363,6 +2461,7 @@ class Main:
 		for i in range( 0, len(self.cmd_defs) ):
 			name = self.cmd_defs[i][0]
 			self.cmd_names[name] = i
+		self.compat_index = kicad_versions.index( "latest" )
 
 	def run( self ):
 		if len(sys.argv) == 2 and sys.argv[1] not in ( '-h', '--help' ):
@@ -2537,12 +2636,20 @@ class Main:
 
 	def save( self, cmd, args ):
 		try:
-			writer = Writer( args[0] )
+			writer = Writer( args[0], self.compat_index )
 			self.trans.dst_pcb.write( writer )
 			writer.close()
 		except:
 			print( "Saving PCB failed." )
 			self.print_exc()
+			return False
+		return True
+
+	def compat( self, cmd, args ):
+		try:
+			self.compat_index = kicad_versions.index( args[0] )
+		except:
+			print( "Invalid kicad compat version '%s'." % args[0] )
 			return False
 		return True
 
