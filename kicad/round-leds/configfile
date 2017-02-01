@@ -1,0 +1,8 @@
+# panelize.py configfile
+#
+# area 29.403776 16.068776 51.368224 38.033224
+
+load roundleds.kicad_pcb
+source-area 29.5 16 51.5 38.5
+copy 52.5 16
+save roundleds-panelized.kicad_pcb
