@@ -1,0 +1,11 @@
+# panelize.py configfile
+#
+
+load led.kicad_pcb
+source-area 121 68 161 107
+copy 164 68
+source-area 121 68 161 107
+copy 164 108
+source-area 121 68 161 107
+copy 121 108
+save panelized.kicad_pcb
