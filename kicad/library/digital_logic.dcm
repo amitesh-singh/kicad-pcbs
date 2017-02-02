@@ -1,0 +1,59 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 40106
+D Hex Schmitt Trigger
+$ENDCMP
+#
+$CMP 7400
+D Quad 2 Input Nand
+$ENDCMP
+#
+$CMP 7402
+D Quad 2 Input Nor
+$ENDCMP
+#
+$CMP 7408
+D Quad 2 Input And
+$ENDCMP
+#
+$CMP 7410
+D Triple 3 Input Nand
+$ENDCMP
+#
+$CMP 7411
+D Triple 3 Input And
+$ENDCMP
+#
+$CMP 74132
+D Quad 2 Input Nand with Schmitt Trigger Inputs
+$ENDCMP
+#
+$CMP 74139
+D dual 2 to 4 demultiplexer
+$ENDCMP
+#
+$CMP 7414
+D Hex Inverting Schmitt Trigger
+$ENDCMP
+#
+$CMP 74165
+D 8-bit shift register, parallel in, serial in/out
+$ENDCMP
+#
+$CMP 7427
+D Quad 3 Input Nor
+$ENDCMP
+#
+$CMP 7432
+D Quad 2 Input Or
+$ENDCMP
+#
+$CMP 7474
+D Dual D-Flip-Flop
+$ENDCMP
+#
+$CMP 7486
+D Quad 2 Input Exor
+$ENDCMP
+#
+#End Doc Library
