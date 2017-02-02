@@ -15,3 +15,8 @@ sabor awesome shift register boards
 - dirtypcb : dirtypcb wants *edge.cuts.gm1 into *.gko extension
 - lionscircuits: http://www.lioncircuits.com/ -  looks promising for small number for prototypes.
 
+### Enable menu icons
+On my home PC, the menu icons were absent in kicad somehow.
+running this command fixes those:
+
+$ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/ButtonImages': <1>, 'Gtk/MenuImages': <1>}"
