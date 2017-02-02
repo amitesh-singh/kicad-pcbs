@@ -660,28 +660,6 @@ F 3 "" H 6400 2350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR017
-U 1 1 5893BB10
-P 11100 1150
-F 0 "#PWR017" H 6600 -450 50  0001 C CNN
-F 1 "GND" H 11105 977 50  0000 C CNN
-F 2 "" H 6600 -200 50  0001 C CNN
-F 3 "" H 6600 -200 50  0001 C CNN
-	1    11100 1150
-	-1   0    0    1   
-$EndComp
-$Comp
-L GND #PWR018
-U 1 1 5893BC1C
-P 11150 3350
-F 0 "#PWR018" H 6650 1750 50  0001 C CNN
-F 1 "GND" H 11155 3177 50  0000 C CNN
-F 2 "" H 6650 2000 50  0001 C CNN
-F 3 "" H 6650 2000 50  0001 C CNN
-	1    11150 3350
-	-1   0    0    1   
-$EndComp
-$Comp
 L SWITCH SW1
 U 1 1 5893CBEC
 P 4950 5900
@@ -1083,10 +1061,6 @@ Wire Wire Line
 Wire Wire Line
 	11100 1400 11100 1550
 Wire Wire Line
-	11100 1150 11100 1300
-Wire Wire Line
-	11150 3350 11150 3450
-Wire Wire Line
 	5300 5150 5300 5200
 Wire Wire Line
 	5300 5200 4950 5200
@@ -1220,4 +1194,6 @@ Wire Wire Line
 Connection ~ 3550 6150
 Text Notes 8100 5100 0    60   ~ 0
 TODO: use Transistors to drive LEDs.\n\n74hc595 won't be enough.\n
+NoConn ~ 11150 3450
+NoConn ~ 11100 1300
 $EndSCHEMATC
