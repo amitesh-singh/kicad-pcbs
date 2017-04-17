@@ -20,3 +20,11 @@ On my home PC, the menu icons were absent in kicad somehow.
 running this command fixes those:
 
 $ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/ButtonImages': <1>, 'Gtk/MenuImages': <1>}"
+
+### Panelize PCBs
+- http://projects.borg.ch/electronics/kicad/panelize.html#A%20Bigger%20Example
+
+- put 2.5-3mm space between each pcb as 1mm space would take up by cutter tool.
+#### how to use panelize script
+ panelize.py configfile
+ 
