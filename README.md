@@ -27,4 +27,5 @@ $ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/But
 - put 2.5-3mm space between each pcb as 1mm space would take up by cutter tool.
 #### how to use panelize script
  panelize.py configfile
- 
+### Custom PCBs how to
+ https://andrehessling.de/2016/09/13/getting-a-custom-board-outline-from-an-svg-file-into-kicad/
