@@ -1,0 +1,196 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:AMS1117-3V3
+LIBS:ams1117-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "AMS 1117 adapter board"
+Date "2017-11-10"
+Rev "0.01"
+Comp "Amitesh Singh"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Conn_01x03 J1
+U 1 1 5A0478FA
+P 5700 1650
+F 0 "J1" H 5700 1850 50  0000 C CNN
+F 1 "Conn_01x03" H 5700 1450 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5700 1650 50  0001 C CNN
+F 3 "" H 5700 1650 50  0001 C CNN
+	1    5700 1650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L AMS1117-3V3 U1
+U 1 1 5A047C59
+P 5725 2300
+F 0 "U1" H 5825 2050 50  0000 C CNN
+F 1 "AMS1117-3V3" H 5725 2550 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-223" H 5725 2300 50  0001 C CNN
+F 3 "" H 5825 2050 50  0000 C CNN
+F 4 "LM1117 800-mA Low-Dropout Linear Regulator" H 6125 2350 61  0001 C CNN "DESC"
+F 5 "Texas Instruments" H 5925 2150 61  0001 C CNN "MFG_NAME"
+F 6 "LM1117" H 6025 2250 61  0001 C CNN "MPN"
+	1    5725 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR01
+U 1 1 5A047DAD
+P 4300 2050
+F 0 "#PWR01" H 4300 2275 30  0001 C CNN
+F 1 "+5V" V 4225 2050 30  0001 C CNN
+F 2 "" H 4300 2050 60  0000 C CNN
+F 3 "" H 4300 2050 60  0000 C CNN
+	1    4300 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR02
+U 1 1 5A047DCD
+P 4500 2050
+F 0 "#PWR02" H 4500 2100 30  0001 C CNN
+F 1 "GND" H 4500 1925 30  0001 C CNN
+F 2 "" H 4500 2050 60  0000 C CNN
+F 3 "" H 4500 2050 60  0000 C CNN
+	1    4500 2050
+	-1   0    0    1   
+$EndComp
+$Comp
+L PWR_FLAG #FLG1
+U 1 1 5A047F2A
+P 4300 2125
+F 0 "#FLG1" H 4300 2425 60  0001 C CNN
+F 1 "PWR_FLAG" H 4300 2075 40  0001 C CNN
+F 2 "" H 4200 2325 60  0001 C CNN
+F 3 "" H 4300 2425 60  0001 C CNN
+	1    4300 2125
+	-1   0    0    1   
+$EndComp
+$Comp
+L PWR_FLAG #FLG2
+U 1 1 5A047F42
+P 4500 2125
+F 0 "#FLG2" H 4500 2425 60  0001 C CNN
+F 1 "PWR_FLAG" H 4500 2075 40  0001 C CNN
+F 2 "" H 4400 2325 60  0001 C CNN
+F 3 "" H 4500 2425 60  0001 C CNN
+	1    4500 2125
+	-1   0    0    1   
+$EndComp
+Text Label 4300 2050 0    60   ~ 0
+VIN
+Text Label 4500 2050 0    60   ~ 0
+GND
+Text Label 5600 1850 0    60   ~ 0
+VIN
+Text Label 5800 1850 0    60   ~ 0
+GND
+Text Label 5700 1850 0    60   ~ 0
+VOUT
+NoConn ~ 6025 2200
+$Comp
+L C C1
+U 1 1 5A048031
+P 5200 2575
+F 0 "C1" H 5225 2675 50  0000 L CNN
+F 1 "C" H 5225 2475 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 5238 2425 50  0001 C CNN
+F 3 "" H 5200 2575 50  0001 C CNN
+	1    5200 2575
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 5A048133
+P 6075 2550
+F 0 "C2" H 6100 2650 50  0000 L CNN
+F 1 "C" H 6100 2450 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 6113 2400 50  0001 C CNN
+F 3 "" H 6075 2550 50  0001 C CNN
+	1    6075 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5425 2300 5400 2300
+Wire Wire Line
+	5400 2300 5400 1950
+Wire Wire Line
+	5400 1950 5600 1950
+Wire Wire Line
+	5600 1950 5600 1850
+Wire Wire Line
+	5725 2600 5725 2925
+Wire Wire Line
+	5725 2925 6275 2925
+Wire Wire Line
+	6275 2925 6275 1925
+Wire Wire Line
+	6275 1925 5800 1925
+Wire Wire Line
+	5800 1925 5800 1850
+Wire Wire Line
+	6025 2300 6150 2300
+Wire Wire Line
+	6150 2300 6150 1975
+Wire Wire Line
+	6150 1975 5700 1975
+Wire Wire Line
+	5700 1975 5700 1850
+Wire Wire Line
+	4500 2125 4500 2050
+Wire Wire Line
+	4300 2125 4300 2050
+Wire Wire Line
+	5200 2425 5200 2275
+Wire Wire Line
+	5200 2275 5400 2275
+Connection ~ 5400 2275
+Wire Wire Line
+	6075 2400 6075 2300
+Connection ~ 6075 2300
+Wire Wire Line
+	6075 2700 6075 2925
+Connection ~ 6075 2925
+Wire Wire Line
+	5200 2725 5725 2725
+Connection ~ 5725 2725
+$EndSCHEMATC
