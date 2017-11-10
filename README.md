@@ -29,3 +29,6 @@ $ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/But
  panelize.py configfile
 ### Custom PCBs how to
  https://andrehessling.de/2016/09/13/getting-a-custom-board-outline-from-an-svg-file-into-kicad/
+
+### lib and pretty file for ICs
+ - https://www.snapeda.com/about/import/
