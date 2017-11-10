@@ -1,4 +1,4 @@
-update=Fri 10 Nov 2017 02:56:05 KST
+update=Fri 10 Nov 2017 04:30:29 PM KST
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=/home/ami/repos/kicad-library/library
+LibDir=/home/ami/repos/kicad-library/library;/home/ami/repos/kicad-pcbs/kicad/library
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -62,4 +62,6 @@ LibName30=atmel
 LibName31=contrib
 LibName32=valves
 LibName33=/home/ami/repos/kicad-custom-lib/automote/kicad-library/library/AMS1117-3V3
-LibName34=/home/ami/repos/kicad-custom-lib/automote/kicad-library/library/esp-12e
+LibName34=/home/ami/repos/KiCad/kicad-library/library/device
+LibName35=/home/ami/repos/kicad-pcbs/kicad/library/common_devices
+LibName36=kicad-ESP8266/ESP8266
