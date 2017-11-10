@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:ams1117-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -95,7 +96,7 @@ F 3 "" H 4500 2050 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L PWR_FLAG #FLG1
+L PWR_FLAG-RESCUE-ams1117 #FLG1
 U 1 1 5A047F2A
 P 4300 2125
 F 0 "#FLG1" H 4300 2425 60  0001 C CNN
@@ -106,7 +107,7 @@ F 3 "" H 4300 2425 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L PWR_FLAG #FLG2
+L PWR_FLAG-RESCUE-ams1117 #FLG2
 U 1 1 5A047F42
 P 4500 2125
 F 0 "#FLG2" H 4500 2425 60  0001 C CNN
