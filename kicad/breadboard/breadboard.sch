@@ -41,7 +41,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 3
 Title "ami's breadboard"
 Date "2017-11-12"
 Rev "r1"
@@ -202,8 +202,6 @@ F 3 "" H 7150 900 50  0001 C CNN
 	1    7150 900 
 	0    -1   -1   0   
 $EndComp
-Text Label 7125 550  0    60   ~ 0
-V3.3v
 $Comp
 L C C1
 U 1 1 5A05E403
@@ -286,12 +284,6 @@ F1 "esp12e.sch" 60
 $EndSheet
 Text Notes 9850 3775 0    60   ~ 0
 esp12e board\n
-$Sheet
-S 7125 2650 1400 825 
-U 5A088B98
-F0 "breadboard_2rows" 60
-F1 "breadboard_2rows.sch" 60
-$EndSheet
 $Comp
 L Conn_01x30 J5
 U 1 1 5A0895FE
@@ -458,7 +450,7 @@ Connection ~ 5425 550
 Connection ~ 5625 550 
 Connection ~ 5525 550 
 Wire Wire Line
-	4225 550  7125 550 
+	4225 550  7275 550 
 Wire Wire Line
 	5125 550  5225 550 
 Connection ~ 5125 550 
@@ -508,28 +500,16 @@ Connection ~ 5150 900
 Connection ~ 3700 550 
 Wire Wire Line
 	8875 4150 8875 4025
-Text GLabel 9075 3900 1    60   Input ~ 0
+Text GLabel 7275 550  2    60   Input ~ 0
 V3.3v
-Wire Wire Line
-	9075 3900 9075 3950
-Wire Wire Line
-	9075 3950 8875 3950
 Wire Wire Line
 	8875 4025 9025 4025
 Wire Wire Line
-	9025 4025 9025 3950
+	9025 4025 9025 3800
 Connection ~ 9025 3950
-Text GLabel 5100 5075 0    60   Input ~ 0
-GND
-$Comp
-L GND #PWR013
-U 1 1 5A090AC6
-P 5100 5075
-F 0 "#PWR013" H 5100 4825 50  0001 C CNN
-F 1 "GND" H 5100 4925 50  0000 C CNN
-F 2 "" H 5100 5075 50  0001 C CNN
-F 3 "" H 5100 5075 50  0001 C CNN
-	1    5100 5075
-	0    -1   -1   0   
-$EndComp
+Connection ~ 7125 550 
+Wire Wire Line
+	9025 3950 8875 3950
+Text GLabel 9025 3800 1    60   Input ~ 0
+V3.3v
 $EndSCHEMATC
