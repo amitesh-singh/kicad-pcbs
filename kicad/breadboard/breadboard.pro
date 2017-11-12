@@ -1,4 +1,4 @@
-update=Sun 12 Nov 2017 19:02:27 KST
+update=Sun 12 Nov 2017 19:05:39 KST
 version=1
 last_client=kicad
 [pcbnew]
@@ -66,4 +66,4 @@ LibName34=/home/ami/repos/KiCad/kicad-library/library/device
 LibName35=/home/ami/repos/kicad-pcbs/kicad/library/common_devices
 LibName36=kicad-ESP8266/ESP8266
 LibName37=bboard_3rows
-LibName38=bboard-2rows
+LibName38=bboard_2rows

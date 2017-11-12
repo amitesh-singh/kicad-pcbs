@@ -1,0 +1,306 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:AMS1117-3V3
+LIBS:common_devices
+LIBS:ESP8266
+LIBS:bboard_3rows
+LIBS:bboard_2rows
+LIBS:breadboard-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Conn_01x08 J1
+U 1 1 5A08614A
+P 4400 3425
+F 0 "J1" H 4400 3825 50  0000 C CNN
+F 1 "Conn_01x08" H 4400 2925 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm_SMD_Pin1Right" H 4400 3425 50  0001 C CNN
+F 3 "" H 4400 3425 50  0001 C CNN
+	1    4400 3425
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x08 J3
+U 1 1 5A086151
+P 7350 3525
+F 0 "J3" H 7350 3925 50  0000 C CNN
+F 1 "Conn_01x08" H 7350 3025 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm_SMD_Pin1Right" H 7350 3525 50  0001 C CNN
+F 3 "" H 7350 3525 50  0001 C CNN
+	1    7350 3525
+	1    0    0    1   
+$EndComp
+$Comp
+L C C5
+U 1 1 5A086166
+P 4900 4175
+F 0 "C5" H 4925 4275 50  0000 L CNN
+F 1 "C" H 4925 4075 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 4938 4025 50  0001 C CNN
+F 3 "" H 4900 4175 50  0001 C CNN
+	1    4900 4175
+	0    1    1    0   
+$EndComp
+$Comp
+L R R1
+U 1 1 5A08616D
+P 4600 4175
+F 0 "R1" V 4680 4175 50  0000 C CNN
+F 1 "10k" V 4600 4175 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 4530 4175 50  0001 C CNN
+F 3 "" H 4600 4175 50  0001 C CNN
+	1    4600 4175
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R3
+U 1 1 5A08617A
+P 7050 2725
+F 0 "R3" V 7130 2725 50  0000 C CNN
+F 1 "10k" V 7050 2725 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 6980 2725 50  0001 C CNN
+F 3 "" H 7050 2725 50  0001 C CNN
+	1    7050 2725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R2
+U 1 1 5A086181
+P 6700 2825
+F 0 "R2" V 6780 2825 50  0000 C CNN
+F 1 "10k" V 6700 2825 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 6630 2825 50  0001 C CNN
+F 3 "" H 6700 2825 50  0001 C CNN
+	1    6700 2825
+	1    0    0    -1  
+$EndComp
+$Comp
+L SWITCH SW2
+U 1 1 5A086188
+P 6650 4525
+F 0 "SW2" H 6650 4775 60  0000 C CNN
+F 1 "SWITCH" H 6650 4675 60  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 6650 4525 60  0001 C CNN
+F 3 "" H 6650 4525 60  0000 C CNN
+	1    6650 4525
+	1    0    0    -1  
+$EndComp
+$Comp
+L SWITCH SW1
+U 1 1 5A086195
+P 5050 4525
+F 0 "SW1" H 5050 4775 60  0000 C CNN
+F 1 "SWITCH" H 5050 4675 60  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 5050 4525 60  0001 C CNN
+F 3 "" H 5050 4525 60  0000 C CNN
+	1    5050 4525
+	1    0    0    -1  
+$EndComp
+$Comp
+L ESP-12E U3
+U 1 1 5A08619C
+P 5800 3425
+F 0 "U3" H 5800 3325 50  0000 C CNN
+F 1 "ESP-12E" H 5800 3525 50  0000 C CNN
+F 2 "ESP8266:ESP-12E_SMD" H 5800 3425 50  0001 C CNN
+F 3 "" H 5800 3425 50  0001 C CNN
+	1    5800 3425
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 3125 4900 3125
+Wire Wire Line
+	4600 3225 4900 3225
+Wire Wire Line
+	4600 3325 4900 3325
+Wire Wire Line
+	4600 3525 4900 3525
+Wire Wire Line
+	4600 3425 4900 3425
+Wire Wire Line
+	4600 3625 4900 3625
+Wire Wire Line
+	4600 3725 4900 3725
+Wire Wire Line
+	4600 3825 4900 3825
+Wire Wire Line
+	6700 3125 7150 3125
+Wire Wire Line
+	6700 3225 7150 3225
+Wire Wire Line
+	6700 3325 7150 3325
+Wire Wire Line
+	6700 3425 7150 3425
+Wire Wire Line
+	6700 3525 7150 3525
+Wire Wire Line
+	6700 3625 7150 3625
+Wire Wire Line
+	6700 3725 7150 3725
+Wire Wire Line
+	6700 3825 7150 3825
+Wire Wire Line
+	4750 4175 4750 3825
+Connection ~ 4750 3825
+Wire Wire Line
+	5050 4175 6750 4175
+Wire Wire Line
+	6750 4175 6750 3825
+Connection ~ 6750 3825
+Wire Wire Line
+	4600 4025 4600 3925
+Wire Wire Line
+	4600 3925 4650 3925
+Wire Wire Line
+	4650 3925 4650 3825
+Connection ~ 4650 3825
+Wire Wire Line
+	4600 4425 4600 4325
+Wire Wire Line
+	3900 4425 4600 4425
+Wire Wire Line
+	3900 4425 3900 3425
+Wire Wire Line
+	3900 3425 4300 3425
+Wire Wire Line
+	4300 3425 4300 2875
+Wire Wire Line
+	4300 2875 4700 2875
+Wire Wire Line
+	4700 2875 4700 3125
+Connection ~ 4700 3125
+Wire Wire Line
+	4300 4425 4300 4525
+Wire Wire Line
+	4300 4525 4850 4525
+Connection ~ 4300 4425
+Wire Wire Line
+	6900 2725 6900 3525
+Connection ~ 6900 3525
+Wire Wire Line
+	7200 2725 7200 2575
+Wire Wire Line
+	7200 2575 4850 2575
+Wire Wire Line
+	4850 2575 4850 3825
+Connection ~ 4850 3825
+Wire Wire Line
+	6700 2975 6800 2975
+Wire Wire Line
+	6800 2975 6800 3625
+Connection ~ 6800 3625
+Wire Wire Line
+	6700 2675 4800 2675
+Wire Wire Line
+	4800 2675 4800 3825
+Connection ~ 4800 3825
+Wire Wire Line
+	6450 4525 6450 4325
+Wire Wire Line
+	6450 4325 7700 4325
+Wire Wire Line
+	7700 4325 7700 2975
+Wire Wire Line
+	7700 2975 6900 2975
+Connection ~ 6900 2975
+Text GLabel 4850 3825 0    60   Input ~ 0
+V3.3v
+$Comp
+L GND #PWR014
+U 1 1 5A086174
+P 5250 4525
+F 0 "#PWR014" H 5250 4275 50  0001 C CNN
+F 1 "GND" H 5250 4375 50  0000 C CNN
+F 2 "" H 5250 4525 50  0001 C CNN
+F 3 "" H 5250 4525 50  0001 C CNN
+	1    5250 4525
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR015
+U 1 1 5A08618F
+P 6850 4525
+F 0 "#PWR015" H 6850 4275 50  0001 C CNN
+F 1 "GND" H 6850 4375 50  0000 C CNN
+F 2 "" H 6850 4525 50  0001 C CNN
+F 3 "" H 6850 4525 50  0001 C CNN
+	1    6850 4525
+	1    0    0    -1  
+$EndComp
+Connection ~ 6900 3825
+Wire Wire Line
+	6900 3975 6900 3825
+$Comp
+L GND #PWR016
+U 1 1 5A086160
+P 6900 3975
+F 0 "#PWR016" H 6900 3725 50  0001 C CNN
+F 1 "GND" H 6900 3825 50  0000 C CNN
+F 2 "" H 6900 3975 50  0001 C CNN
+F 3 "" H 6900 3975 50  0001 C CNN
+	1    6900 3975
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5550 4325
+NoConn ~ 5650 4325
+NoConn ~ 5750 4325
+NoConn ~ 5850 4325
+NoConn ~ 5950 4325
+NoConn ~ 6050 4325
+Text GLabel 4950 4850 0    60   Input ~ 0
+GND
+$Comp
+L GND #PWR017
+U 1 1 5A090755
+P 4950 4850
+F 0 "#PWR017" H 4950 4600 50  0001 C CNN
+F 1 "GND" H 4950 4700 50  0000 C CNN
+F 2 "" H 4950 4850 50  0001 C CNN
+F 3 "" H 4950 4850 50  0001 C CNN
+	1    4950 4850
+	0    -1   -1   0   
+$EndComp
+$EndSCHEMATC
