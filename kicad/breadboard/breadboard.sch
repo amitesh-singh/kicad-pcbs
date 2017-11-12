@@ -34,6 +34,7 @@ LIBS:valves
 LIBS:AMS1117-3V3
 LIBS:common_devices
 LIBS:ESP8266
+LIBS:bboard_3rows
 LIBS:breadboard-cache
 EELAYER 25 0
 EELAYER END
@@ -50,1106 +51,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Conn_01x03 J1
-U 1 1 5A0487A8
-P 2550 2875
-F 0 "J1" H 2550 3075 50  0000 C CNN
-F 1 "1" H 2550 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 2550 2875 50  0001 C CNN
-F 3 "" H 2550 2875 50  0001 C CNN
-	1    2550 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J3
-U 1 1 5A048923
-P 2850 2875
-F 0 "J3" H 2850 3075 50  0000 C CNN
-F 1 "2" H 2850 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 2850 2875 50  0001 C CNN
-F 3 "" H 2850 2875 50  0001 C CNN
-	1    2850 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J5
-U 1 1 5A048983
-P 3150 2875
-F 0 "J5" H 3150 3075 50  0000 C CNN
-F 1 "3" H 3150 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3150 2875 50  0001 C CNN
-F 3 "" H 3150 2875 50  0001 C CNN
-	1    3150 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J7
-U 1 1 5A048D09
-P 3450 2875
-F 0 "J7" H 3450 3075 50  0000 C CNN
-F 1 "1" H 3450 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3450 2875 50  0001 C CNN
-F 3 "" H 3450 2875 50  0001 C CNN
-	1    3450 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J9
-U 1 1 5A048D11
-P 3750 2875
-F 0 "J9" H 3750 3075 50  0000 C CNN
-F 1 "2" H 3750 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3750 2875 50  0001 C CNN
-F 3 "" H 3750 2875 50  0001 C CNN
-	1    3750 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J11
-U 1 1 5A048D19
-P 4050 2875
-F 0 "J11" H 4050 3075 50  0000 C CNN
-F 1 "3" H 4050 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4050 2875 50  0001 C CNN
-F 3 "" H 4050 2875 50  0001 C CNN
-	1    4050 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J13
-U 1 1 5A0491BF
-P 4350 2875
-F 0 "J13" H 4350 3075 50  0000 C CNN
-F 1 "1" H 4350 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4350 2875 50  0001 C CNN
-F 3 "" H 4350 2875 50  0001 C CNN
-	1    4350 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J15
-U 1 1 5A0491C7
-P 4650 2875
-F 0 "J15" H 4650 3075 50  0000 C CNN
-F 1 "2" H 4650 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4650 2875 50  0001 C CNN
-F 3 "" H 4650 2875 50  0001 C CNN
-	1    4650 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J17
-U 1 1 5A0491CF
-P 4950 2875
-F 0 "J17" H 4950 3075 50  0000 C CNN
-F 1 "3" H 4950 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4950 2875 50  0001 C CNN
-F 3 "" H 4950 2875 50  0001 C CNN
-	1    4950 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J19
-U 1 1 5A0491D7
-P 5250 2875
-F 0 "J19" H 5250 3075 50  0000 C CNN
-F 1 "1" H 5250 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5250 2875 50  0001 C CNN
-F 3 "" H 5250 2875 50  0001 C CNN
-	1    5250 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J21
-U 1 1 5A0491DF
-P 5550 2875
-F 0 "J21" H 5550 3075 50  0000 C CNN
-F 1 "2" H 5550 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5550 2875 50  0001 C CNN
-F 3 "" H 5550 2875 50  0001 C CNN
-	1    5550 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J23
-U 1 1 5A0491E7
-P 5850 2875
-F 0 "J23" H 5850 3075 50  0000 C CNN
-F 1 "3" H 5850 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5850 2875 50  0001 C CNN
-F 3 "" H 5850 2875 50  0001 C CNN
-	1    5850 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J2
-U 1 1 5A049A23
-P 2575 3350
-F 0 "J2" H 2575 3550 50  0000 C CNN
-F 1 "1" H 2575 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 2575 3350 50  0001 C CNN
-F 3 "" H 2575 3350 50  0001 C CNN
-	1    2575 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J4
-U 1 1 5A049A2B
-P 2875 3350
-F 0 "J4" H 2875 3550 50  0000 C CNN
-F 1 "2" H 2875 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 2875 3350 50  0001 C CNN
-F 3 "" H 2875 3350 50  0001 C CNN
-	1    2875 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J6
-U 1 1 5A049A33
-P 3175 3350
-F 0 "J6" H 3175 3550 50  0000 C CNN
-F 1 "3" H 3175 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3175 3350 50  0001 C CNN
-F 3 "" H 3175 3350 50  0001 C CNN
-	1    3175 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J8
-U 1 1 5A049A3B
-P 3475 3350
-F 0 "J8" H 3475 3550 50  0000 C CNN
-F 1 "1" H 3475 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3475 3350 50  0001 C CNN
-F 3 "" H 3475 3350 50  0001 C CNN
-	1    3475 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J10
-U 1 1 5A049A43
-P 3775 3350
-F 0 "J10" H 3775 3550 50  0000 C CNN
-F 1 "2" H 3775 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 3775 3350 50  0001 C CNN
-F 3 "" H 3775 3350 50  0001 C CNN
-	1    3775 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J12
-U 1 1 5A049A4B
-P 4075 3350
-F 0 "J12" H 4075 3550 50  0000 C CNN
-F 1 "3" H 4075 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4075 3350 50  0001 C CNN
-F 3 "" H 4075 3350 50  0001 C CNN
-	1    4075 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J14
-U 1 1 5A049A53
-P 4375 3350
-F 0 "J14" H 4375 3550 50  0000 C CNN
-F 1 "1" H 4375 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4375 3350 50  0001 C CNN
-F 3 "" H 4375 3350 50  0001 C CNN
-	1    4375 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J16
-U 1 1 5A049A5B
-P 4675 3350
-F 0 "J16" H 4675 3550 50  0000 C CNN
-F 1 "2" H 4675 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4675 3350 50  0001 C CNN
-F 3 "" H 4675 3350 50  0001 C CNN
-	1    4675 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J18
-U 1 1 5A049A63
-P 4975 3350
-F 0 "J18" H 4975 3550 50  0000 C CNN
-F 1 "3" H 4975 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 4975 3350 50  0001 C CNN
-F 3 "" H 4975 3350 50  0001 C CNN
-	1    4975 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J20
-U 1 1 5A049A6B
-P 5275 3350
-F 0 "J20" H 5275 3550 50  0000 C CNN
-F 1 "1" H 5275 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5275 3350 50  0001 C CNN
-F 3 "" H 5275 3350 50  0001 C CNN
-	1    5275 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J22
-U 1 1 5A049A73
-P 5575 3350
-F 0 "J22" H 5575 3550 50  0000 C CNN
-F 1 "2" H 5575 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5575 3350 50  0001 C CNN
-F 3 "" H 5575 3350 50  0001 C CNN
-	1    5575 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J24
-U 1 1 5A049A7B
-P 5875 3350
-F 0 "J24" H 5875 3550 50  0000 C CNN
-F 1 "3" H 5875 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5875 3350 50  0001 C CNN
-F 3 "" H 5875 3350 50  0001 C CNN
-	1    5875 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J25
-U 1 1 5A04A45B
-P 6150 2875
-F 0 "J25" H 6150 3075 50  0000 C CNN
-F 1 "1" H 6150 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6150 2875 50  0001 C CNN
-F 3 "" H 6150 2875 50  0001 C CNN
-	1    6150 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J27
-U 1 1 5A04A463
-P 6450 2875
-F 0 "J27" H 6450 3075 50  0000 C CNN
-F 1 "2" H 6450 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6450 2875 50  0001 C CNN
-F 3 "" H 6450 2875 50  0001 C CNN
-	1    6450 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J29
-U 1 1 5A04A46B
-P 6750 2875
-F 0 "J29" H 6750 3075 50  0000 C CNN
-F 1 "3" H 6750 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6750 2875 50  0001 C CNN
-F 3 "" H 6750 2875 50  0001 C CNN
-	1    6750 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J31
-U 1 1 5A04A473
-P 7050 2875
-F 0 "J31" H 7050 3075 50  0000 C CNN
-F 1 "1" H 7050 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7050 2875 50  0001 C CNN
-F 3 "" H 7050 2875 50  0001 C CNN
-	1    7050 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J33
-U 1 1 5A04A47B
-P 7350 2875
-F 0 "J33" H 7350 3075 50  0000 C CNN
-F 1 "2" H 7350 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7350 2875 50  0001 C CNN
-F 3 "" H 7350 2875 50  0001 C CNN
-	1    7350 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J35
-U 1 1 5A04A483
-P 7650 2875
-F 0 "J35" H 7650 3075 50  0000 C CNN
-F 1 "3" H 7650 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7650 2875 50  0001 C CNN
-F 3 "" H 7650 2875 50  0001 C CNN
-	1    7650 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J37
-U 1 1 5A04A48B
-P 7950 2875
-F 0 "J37" H 7950 3075 50  0000 C CNN
-F 1 "1" H 7950 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7950 2875 50  0001 C CNN
-F 3 "" H 7950 2875 50  0001 C CNN
-	1    7950 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J39
-U 1 1 5A04A493
-P 8250 2875
-F 0 "J39" H 8250 3075 50  0000 C CNN
-F 1 "2" H 8250 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8250 2875 50  0001 C CNN
-F 3 "" H 8250 2875 50  0001 C CNN
-	1    8250 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J41
-U 1 1 5A04A49B
-P 8550 2875
-F 0 "J41" H 8550 3075 50  0000 C CNN
-F 1 "3" H 8550 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8550 2875 50  0001 C CNN
-F 3 "" H 8550 2875 50  0001 C CNN
-	1    8550 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J43
-U 1 1 5A04A4A3
-P 8850 2875
-F 0 "J43" H 8850 3075 50  0000 C CNN
-F 1 "1" H 8850 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8850 2875 50  0001 C CNN
-F 3 "" H 8850 2875 50  0001 C CNN
-	1    8850 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J45
-U 1 1 5A04A4AB
-P 9150 2875
-F 0 "J45" H 9150 3075 50  0000 C CNN
-F 1 "2" H 9150 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 9150 2875 50  0001 C CNN
-F 3 "" H 9150 2875 50  0001 C CNN
-	1    9150 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J47
-U 1 1 5A04A4B3
-P 9450 2875
-F 0 "J47" H 9450 3075 50  0000 C CNN
-F 1 "3" H 9450 2675 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 9450 2875 50  0001 C CNN
-F 3 "" H 9450 2875 50  0001 C CNN
-	1    9450 2875
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J26
-U 1 1 5A04AB57
-P 6175 3350
-F 0 "J26" H 6175 3550 50  0000 C CNN
-F 1 "1" H 6175 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6175 3350 50  0001 C CNN
-F 3 "" H 6175 3350 50  0001 C CNN
-	1    6175 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J28
-U 1 1 5A04AB5F
-P 6475 3350
-F 0 "J28" H 6475 3550 50  0000 C CNN
-F 1 "2" H 6475 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6475 3350 50  0001 C CNN
-F 3 "" H 6475 3350 50  0001 C CNN
-	1    6475 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J30
-U 1 1 5A04AB67
-P 6775 3350
-F 0 "J30" H 6775 3550 50  0000 C CNN
-F 1 "3" H 6775 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 6775 3350 50  0001 C CNN
-F 3 "" H 6775 3350 50  0001 C CNN
-	1    6775 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J32
-U 1 1 5A04AB6F
-P 7075 3350
-F 0 "J32" H 7075 3550 50  0000 C CNN
-F 1 "1" H 7075 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7075 3350 50  0001 C CNN
-F 3 "" H 7075 3350 50  0001 C CNN
-	1    7075 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J34
-U 1 1 5A04AB77
-P 7375 3350
-F 0 "J34" H 7375 3550 50  0000 C CNN
-F 1 "2" H 7375 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7375 3350 50  0001 C CNN
-F 3 "" H 7375 3350 50  0001 C CNN
-	1    7375 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J36
-U 1 1 5A04AB7F
-P 7675 3350
-F 0 "J36" H 7675 3550 50  0000 C CNN
-F 1 "3" H 7675 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7675 3350 50  0001 C CNN
-F 3 "" H 7675 3350 50  0001 C CNN
-	1    7675 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J38
-U 1 1 5A04AB87
-P 7975 3350
-F 0 "J38" H 7975 3550 50  0000 C CNN
-F 1 "1" H 7975 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 7975 3350 50  0001 C CNN
-F 3 "" H 7975 3350 50  0001 C CNN
-	1    7975 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J40
-U 1 1 5A04AB8F
-P 8275 3350
-F 0 "J40" H 8275 3550 50  0000 C CNN
-F 1 "2" H 8275 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8275 3350 50  0001 C CNN
-F 3 "" H 8275 3350 50  0001 C CNN
-	1    8275 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J42
-U 1 1 5A04AB97
-P 8575 3350
-F 0 "J42" H 8575 3550 50  0000 C CNN
-F 1 "3" H 8575 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8575 3350 50  0001 C CNN
-F 3 "" H 8575 3350 50  0001 C CNN
-	1    8575 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J44
-U 1 1 5A04AB9F
-P 8875 3350
-F 0 "J44" H 8875 3550 50  0000 C CNN
-F 1 "1" H 8875 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 8875 3350 50  0001 C CNN
-F 3 "" H 8875 3350 50  0001 C CNN
-	1    8875 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J46
-U 1 1 5A04ABA7
-P 9175 3350
-F 0 "J46" H 9175 3550 50  0000 C CNN
-F 1 "2" H 9175 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 9175 3350 50  0001 C CNN
-F 3 "" H 9175 3350 50  0001 C CNN
-	1    9175 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x03 J48
-U 1 1 5A04ABAF
-P 9475 3350
-F 0 "J48" H 9475 3550 50  0000 C CNN
-F 1 "3" H 9475 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 9475 3350 50  0001 C CNN
-F 3 "" H 9475 3350 50  0001 C CNN
-	1    9475 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J50
-U 1 1 5A04AD7A
-P 2550 2300
-F 0 "J50" H 2550 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 2550 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 2550 2300 50  0001 C CNN
-F 3 "" H 2550 2300 50  0001 C CNN
-	1    2550 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J52
-U 1 1 5A04B252
-P 2825 2300
-F 0 "J52" H 2825 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 2825 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 2825 2300 50  0001 C CNN
-F 3 "" H 2825 2300 50  0001 C CNN
-	1    2825 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J54
-U 1 1 5A04B38B
-P 3100 2300
-F 0 "J54" H 3100 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 3100 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3100 2300 50  0001 C CNN
-F 3 "" H 3100 2300 50  0001 C CNN
-	1    3100 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J56
-U 1 1 5A04B392
-P 3375 2300
-F 0 "J56" H 3375 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 3375 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3375 2300 50  0001 C CNN
-F 3 "" H 3375 2300 50  0001 C CNN
-	1    3375 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J58
-U 1 1 5A04B5C5
-P 3650 2300
-F 0 "J58" H 3650 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 3650 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3650 2300 50  0001 C CNN
-F 3 "" H 3650 2300 50  0001 C CNN
-	1    3650 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J60
-U 1 1 5A04B5CC
-P 3925 2300
-F 0 "J60" H 3925 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 3925 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3925 2300 50  0001 C CNN
-F 3 "" H 3925 2300 50  0001 C CNN
-	1    3925 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J62
-U 1 1 5A04B5D3
-P 4200 2300
-F 0 "J62" H 4200 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 4200 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4200 2300 50  0001 C CNN
-F 3 "" H 4200 2300 50  0001 C CNN
-	1    4200 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J66
-U 1 1 5A04B5DA
-P 4475 2300
-F 0 "J66" H 4475 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 4475 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4475 2300 50  0001 C CNN
-F 3 "" H 4475 2300 50  0001 C CNN
-	1    4475 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J68
-U 1 1 5A04C689
-P 4750 2300
-F 0 "J68" H 4750 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 4750 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4750 2300 50  0001 C CNN
-F 3 "" H 4750 2300 50  0001 C CNN
-	1    4750 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J70
-U 1 1 5A04C690
-P 5025 2300
-F 0 "J70" H 5025 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 5025 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5025 2300 50  0001 C CNN
-F 3 "" H 5025 2300 50  0001 C CNN
-	1    5025 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J72
-U 1 1 5A04C697
-P 5300 2300
-F 0 "J72" H 5300 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 5300 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5300 2300 50  0001 C CNN
-F 3 "" H 5300 2300 50  0001 C CNN
-	1    5300 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J74
-U 1 1 5A04C69E
-P 5575 2300
-F 0 "J74" H 5575 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 5575 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5575 2300 50  0001 C CNN
-F 3 "" H 5575 2300 50  0001 C CNN
-	1    5575 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J76
-U 1 1 5A04C6A5
-P 5850 2300
-F 0 "J76" H 5850 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 5850 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5850 2300 50  0001 C CNN
-F 3 "" H 5850 2300 50  0001 C CNN
-	1    5850 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J78
-U 1 1 5A04C6AC
-P 6125 2300
-F 0 "J78" H 6125 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 6125 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6125 2300 50  0001 C CNN
-F 3 "" H 6125 2300 50  0001 C CNN
-	1    6125 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J80
-U 1 1 5A04C6B3
-P 6400 2300
-F 0 "J80" H 6400 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 6400 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6400 2300 50  0001 C CNN
-F 3 "" H 6400 2300 50  0001 C CNN
-	1    6400 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J82
-U 1 1 5A04C6BA
-P 6675 2300
-F 0 "J82" H 6675 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 6675 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6675 2300 50  0001 C CNN
-F 3 "" H 6675 2300 50  0001 C CNN
-	1    6675 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J51
-U 1 1 5A04D2E1
-P 2550 3775
-F 0 "J51" H 2550 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 2550 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 2550 3775 50  0001 C CNN
-F 3 "" H 2550 3775 50  0001 C CNN
-	1    2550 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J53
-U 1 1 5A04D2E8
-P 2825 3775
-F 0 "J53" H 2825 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 2825 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 2825 3775 50  0001 C CNN
-F 3 "" H 2825 3775 50  0001 C CNN
-	1    2825 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J55
-U 1 1 5A04D2EF
-P 3100 3775
-F 0 "J55" H 3100 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 3100 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3100 3775 50  0001 C CNN
-F 3 "" H 3100 3775 50  0001 C CNN
-	1    3100 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J57
-U 1 1 5A04D2F6
-P 3375 3775
-F 0 "J57" H 3375 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 3375 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3375 3775 50  0001 C CNN
-F 3 "" H 3375 3775 50  0001 C CNN
-	1    3375 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J59
-U 1 1 5A04D2FD
-P 3650 3775
-F 0 "J59" H 3650 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 3650 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3650 3775 50  0001 C CNN
-F 3 "" H 3650 3775 50  0001 C CNN
-	1    3650 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J61
-U 1 1 5A04D304
-P 3925 3775
-F 0 "J61" H 3925 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 3925 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 3925 3775 50  0001 C CNN
-F 3 "" H 3925 3775 50  0001 C CNN
-	1    3925 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J63
-U 1 1 5A04D30B
-P 4200 3775
-F 0 "J63" H 4200 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 4200 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4200 3775 50  0001 C CNN
-F 3 "" H 4200 3775 50  0001 C CNN
-	1    4200 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J67
-U 1 1 5A04D312
-P 4475 3775
-F 0 "J67" H 4475 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 4475 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4475 3775 50  0001 C CNN
-F 3 "" H 4475 3775 50  0001 C CNN
-	1    4475 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J69
-U 1 1 5A04D319
-P 4750 3775
-F 0 "J69" H 4750 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 4750 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 4750 3775 50  0001 C CNN
-F 3 "" H 4750 3775 50  0001 C CNN
-	1    4750 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J71
-U 1 1 5A04D320
-P 5025 3775
-F 0 "J71" H 5025 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 5025 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5025 3775 50  0001 C CNN
-F 3 "" H 5025 3775 50  0001 C CNN
-	1    5025 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J73
-U 1 1 5A04D327
-P 5300 3775
-F 0 "J73" H 5300 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 5300 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5300 3775 50  0001 C CNN
-F 3 "" H 5300 3775 50  0001 C CNN
-	1    5300 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J75
-U 1 1 5A04D32E
-P 5575 3775
-F 0 "J75" H 5575 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 5575 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5575 3775 50  0001 C CNN
-F 3 "" H 5575 3775 50  0001 C CNN
-	1    5575 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J77
-U 1 1 5A04D335
-P 5850 3775
-F 0 "J77" H 5850 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 5850 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 5850 3775 50  0001 C CNN
-F 3 "" H 5850 3775 50  0001 C CNN
-	1    5850 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J79
-U 1 1 5A04D33C
-P 6125 3775
-F 0 "J79" H 6125 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 6125 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6125 3775 50  0001 C CNN
-F 3 "" H 6125 3775 50  0001 C CNN
-	1    6125 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J81
-U 1 1 5A04D343
-P 6400 3775
-F 0 "J81" H 6400 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 6400 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6400 3775 50  0001 C CNN
-F 3 "" H 6400 3775 50  0001 C CNN
-	1    6400 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J83
-U 1 1 5A04D34A
-P 6675 3775
-F 0 "J83" H 6675 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 6675 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6675 3775 50  0001 C CNN
-F 3 "" H 6675 3775 50  0001 C CNN
-	1    6675 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J84
-U 1 1 5A04D8C9
-P 6975 2300
-F 0 "J84" H 6975 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 6975 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6975 2300 50  0001 C CNN
-F 3 "" H 6975 2300 50  0001 C CNN
-	1    6975 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J86
-U 1 1 5A04D8CF
-P 7250 2300
-F 0 "J86" H 7250 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 7250 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7250 2300 50  0001 C CNN
-F 3 "" H 7250 2300 50  0001 C CNN
-	1    7250 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J88
-U 1 1 5A04D8D6
-P 7525 2300
-F 0 "J88" H 7525 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 7525 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7525 2300 50  0001 C CNN
-F 3 "" H 7525 2300 50  0001 C CNN
-	1    7525 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J90
-U 1 1 5A04D8DD
-P 7800 2300
-F 0 "J90" H 7800 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 7800 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7800 2300 50  0001 C CNN
-F 3 "" H 7800 2300 50  0001 C CNN
-	1    7800 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J92
-U 1 1 5A04D8E4
-P 8075 2300
-F 0 "J92" H 8075 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 8075 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8075 2300 50  0001 C CNN
-F 3 "" H 8075 2300 50  0001 C CNN
-	1    8075 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J94
-U 1 1 5A04D8EB
-P 8350 2300
-F 0 "J94" H 8350 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 8350 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8350 2300 50  0001 C CNN
-F 3 "" H 8350 2300 50  0001 C CNN
-	1    8350 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J96
-U 1 1 5A04D8F2
-P 8625 2300
-F 0 "J96" H 8625 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 8625 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8625 2300 50  0001 C CNN
-F 3 "" H 8625 2300 50  0001 C CNN
-	1    8625 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J98
-U 1 1 5A04D8F9
-P 8900 2300
-F 0 "J98" H 8900 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 8900 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8900 2300 50  0001 C CNN
-F 3 "" H 8900 2300 50  0001 C CNN
-	1    8900 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J100
-U 1 1 5A04D900
-P 9175 2300
-F 0 "J100" H 9175 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 9175 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 9175 2300 50  0001 C CNN
-F 3 "" H 9175 2300 50  0001 C CNN
-	1    9175 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J102
-U 1 1 5A04D907
-P 9450 2300
-F 0 "J102" H 9450 2400 50  0000 C CNN
-F 1 "Conn_01x02" H 9450 2100 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 9450 2300 50  0001 C CNN
-F 3 "" H 9450 2300 50  0001 C CNN
-	1    9450 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J85
-U 1 1 5A04DE6A
-P 6975 3775
-F 0 "J85" H 6975 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 6975 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 6975 3775 50  0001 C CNN
-F 3 "" H 6975 3775 50  0001 C CNN
-	1    6975 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J87
-U 1 1 5A04DE70
-P 7250 3775
-F 0 "J87" H 7250 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 7250 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7250 3775 50  0001 C CNN
-F 3 "" H 7250 3775 50  0001 C CNN
-	1    7250 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J89
-U 1 1 5A04DE77
-P 7525 3775
-F 0 "J89" H 7525 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 7525 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7525 3775 50  0001 C CNN
-F 3 "" H 7525 3775 50  0001 C CNN
-	1    7525 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J91
-U 1 1 5A04DE7E
-P 7800 3775
-F 0 "J91" H 7800 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 7800 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 7800 3775 50  0001 C CNN
-F 3 "" H 7800 3775 50  0001 C CNN
-	1    7800 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J93
-U 1 1 5A04DE85
-P 8075 3775
-F 0 "J93" H 8075 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 8075 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8075 3775 50  0001 C CNN
-F 3 "" H 8075 3775 50  0001 C CNN
-	1    8075 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J95
-U 1 1 5A04DE8C
-P 8350 3775
-F 0 "J95" H 8350 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 8350 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8350 3775 50  0001 C CNN
-F 3 "" H 8350 3775 50  0001 C CNN
-	1    8350 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J97
-U 1 1 5A04DE93
-P 8625 3775
-F 0 "J97" H 8625 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 8625 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8625 3775 50  0001 C CNN
-F 3 "" H 8625 3775 50  0001 C CNN
-	1    8625 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J99
-U 1 1 5A04DE9A
-P 8900 3775
-F 0 "J99" H 8900 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 8900 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 8900 3775 50  0001 C CNN
-F 3 "" H 8900 3775 50  0001 C CNN
-	1    8900 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J101
-U 1 1 5A04DEA1
-P 9175 3775
-F 0 "J101" H 9175 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 9175 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 9175 3775 50  0001 C CNN
-F 3 "" H 9175 3775 50  0001 C CNN
-	1    9175 3775
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_01x02 J103
-U 1 1 5A04DEA8
-P 9450 3775
-F 0 "J103" H 9450 3875 50  0000 C CNN
-F 1 "Conn_01x02" H 9450 3575 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch1.27mm" H 9450 3775 50  0001 C CNN
-F 3 "" H 9450 3775 50  0001 C CNN
-	1    9450 3775
-	1    0    0    -1  
-$EndComp
-$Comp
 L Barrel_Jack J49
 U 1 1 5A055AEF
 P 2475 5500
@@ -1161,10 +62,10 @@ F 3 "" H 2525 5460 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L GND #PWR2
 U 1 1 5A055BF4
 P 2900 5625
-F 0 "#PWR01" H 2900 5375 50  0001 C CNN
+F 0 "#PWR2" H 2900 5375 50  0001 C CNN
 F 1 "GND" H 2900 5475 50  0000 C CNN
 F 2 "" H 2900 5625 50  0001 C CNN
 F 3 "" H 2900 5625 50  0001 C CNN
@@ -1172,7 +73,7 @@ F 3 "" H 2900 5625 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #FLG1
+L PWR_FLAG-RESCUE-breadboard #FLG1
 U 1 1 5A0492BE
 P 4200 5525
 F 0 "#FLG1" H 4200 5600 50  0001 C CNN
@@ -1183,10 +84,10 @@ F 3 "" H 4200 5525 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR02
+L VCC #PWR5
 U 1 1 5A049614
 P 4200 5525
-F 0 "#PWR02" H 4200 5375 50  0001 C CNN
+F 0 "#PWR5" H 4200 5375 50  0001 C CNN
 F 1 "VCC" H 4200 5675 50  0000 C CNN
 F 2 "" H 4200 5525 50  0001 C CNN
 F 3 "" H 4200 5525 50  0001 C CNN
@@ -1194,7 +95,7 @@ F 3 "" H 4200 5525 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L PWR_FLAG #FLG2
+L PWR_FLAG-RESCUE-breadboard #FLG2
 U 1 1 5A049C2F
 P 4600 5525
 F 0 "#FLG2" H 4600 5600 50  0001 C CNN
@@ -1205,10 +106,10 @@ F 3 "" H 4600 5525 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L GND #PWR6
 U 1 1 5A049D6F
 P 4600 5525
-F 0 "#PWR03" H 4600 5275 50  0001 C CNN
+F 0 "#PWR6" H 4600 5275 50  0001 C CNN
 F 1 "GND" H 4600 5375 50  0000 C CNN
 F 2 "" H 4600 5525 50  0001 C CNN
 F 3 "" H 4600 5525 50  0001 C CNN
@@ -1216,10 +117,10 @@ F 3 "" H 4600 5525 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR04
+L VCC #PWR1
 U 1 1 5A04A257
 P 2900 5400
-F 0 "#PWR04" H 2900 5250 50  0001 C CNN
+F 0 "#PWR1" H 2900 5250 50  0001 C CNN
 F 1 "VCC" H 2900 5550 50  0000 C CNN
 F 2 "" H 2900 5400 50  0001 C CNN
 F 3 "" H 2900 5400 50  0001 C CNN
@@ -1238,10 +139,10 @@ F 3 "" H 5400 5325 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR05
+L VCC #PWR7
 U 1 1 5A04E4E5
 P 4900 5375
-F 0 "#PWR05" H 4900 5225 50  0001 C CNN
+F 0 "#PWR7" H 4900 5225 50  0001 C CNN
 F 1 "VCC" H 4900 5525 50  0000 C CNN
 F 2 "" H 4900 5375 50  0001 C CNN
 F 3 "" H 4900 5375 50  0001 C CNN
@@ -1251,10 +152,10 @@ $EndComp
 Text Label 5700 5375 0    60   ~ 0
 V5v
 $Comp
-L GND #PWR06
+L GND #PWR8
 U 1 1 5A04E9FD
 P 5400 5800
-F 0 "#PWR06" H 5400 5550 50  0001 C CNN
+F 0 "#PWR8" H 5400 5550 50  0001 C CNN
 F 1 "GND" H 5400 5650 50  0000 C CNN
 F 2 "" H 5400 5800 50  0001 C CNN
 F 3 "" H 5400 5800 50  0001 C CNN
@@ -1276,10 +177,10 @@ F 6 "LM1117" H 3850 5475 61  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L VCC #PWR07
+L VCC #PWR3
 U 1 1 5A04F07D
 P 3125 5525
-F 0 "#PWR07" H 3125 5375 50  0001 C CNN
+F 0 "#PWR3" H 3125 5375 50  0001 C CNN
 F 1 "VCC" H 3125 5675 50  0000 C CNN
 F 2 "" H 3125 5525 50  0001 C CNN
 F 3 "" H 3125 5525 50  0001 C CNN
@@ -1289,10 +190,10 @@ $EndComp
 Text Label 3850 5525 0    60   ~ 0
 V3.3v
 $Comp
-L GND #PWR08
+L GND #PWR4
 U 1 1 5A04F653
 P 3550 6100
-F 0 "#PWR08" H 3550 5850 50  0001 C CNN
+F 0 "#PWR4" H 3550 5850 50  0001 C CNN
 F 1 "GND" H 3550 5950 50  0000 C CNN
 F 2 "" H 3550 6100 50  0001 C CNN
 F 3 "" H 3550 6100 50  0001 C CNN
@@ -1311,260 +212,271 @@ F 3 "" H 4500 1350 50  0001 C CNN
 	1    4500 1350
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	2350 2775 2350 2975
-Connection ~ 2350 2875
-Wire Wire Line
-	2650 2775 2650 2975
-Connection ~ 2650 2875
-Wire Wire Line
-	2950 2775 2950 2975
-Connection ~ 2950 2875
-Wire Wire Line
-	3250 2775 3250 2975
-Connection ~ 3250 2875
-Wire Wire Line
-	3550 2775 3550 2975
-Connection ~ 3550 2875
-Wire Wire Line
-	3850 2775 3850 2975
-Connection ~ 3850 2875
-Wire Wire Line
-	4150 2775 4150 2975
-Connection ~ 4150 2875
-Wire Wire Line
-	4450 2775 4450 2975
-Connection ~ 4450 2875
-Wire Wire Line
-	4750 2775 4750 2975
-Connection ~ 4750 2875
-Wire Wire Line
-	5050 2775 5050 2975
-Connection ~ 5050 2875
-Wire Wire Line
-	5350 2775 5350 2975
-Connection ~ 5350 2875
-Wire Wire Line
-	5650 2775 5650 2975
-Connection ~ 5650 2875
-Wire Wire Line
-	2375 3250 2375 3450
-Connection ~ 2375 3350
-Wire Wire Line
-	2675 3250 2675 3450
-Connection ~ 2675 3350
-Wire Wire Line
-	2975 3250 2975 3450
-Connection ~ 2975 3350
-Wire Wire Line
-	3275 3250 3275 3450
-Connection ~ 3275 3350
-Wire Wire Line
-	3575 3250 3575 3450
-Connection ~ 3575 3350
-Wire Wire Line
-	3875 3250 3875 3450
-Connection ~ 3875 3350
-Wire Wire Line
-	4175 3250 4175 3450
-Connection ~ 4175 3350
-Wire Wire Line
-	4475 3250 4475 3450
-Connection ~ 4475 3350
-Wire Wire Line
-	4775 3250 4775 3450
-Connection ~ 4775 3350
-Wire Wire Line
-	5075 3250 5075 3450
-Connection ~ 5075 3350
-Wire Wire Line
-	5375 3250 5375 3450
-Connection ~ 5375 3350
-Wire Wire Line
-	5675 3250 5675 3450
-Connection ~ 5675 3350
-Wire Wire Line
-	5950 2775 5950 2975
-Connection ~ 5950 2875
-Wire Wire Line
-	6250 2775 6250 2975
-Connection ~ 6250 2875
-Wire Wire Line
-	6550 2775 6550 2975
-Connection ~ 6550 2875
-Wire Wire Line
-	6850 2775 6850 2975
-Connection ~ 6850 2875
-Wire Wire Line
-	7150 2775 7150 2975
-Connection ~ 7150 2875
-Wire Wire Line
-	7450 2775 7450 2975
-Connection ~ 7450 2875
-Wire Wire Line
-	7750 2775 7750 2975
-Connection ~ 7750 2875
-Wire Wire Line
-	8050 2775 8050 2975
-Connection ~ 8050 2875
-Wire Wire Line
-	8350 2775 8350 2975
-Connection ~ 8350 2875
-Wire Wire Line
-	8650 2775 8650 2975
-Connection ~ 8650 2875
-Wire Wire Line
-	8950 2775 8950 2975
-Connection ~ 8950 2875
-Wire Wire Line
-	9250 2775 9250 2975
-Connection ~ 9250 2875
-Wire Wire Line
-	5975 3250 5975 3450
-Connection ~ 5975 3350
-Wire Wire Line
-	6275 3250 6275 3450
-Connection ~ 6275 3350
-Wire Wire Line
-	6575 3250 6575 3450
-Connection ~ 6575 3350
-Wire Wire Line
-	6875 3250 6875 3450
-Connection ~ 6875 3350
-Wire Wire Line
-	7175 3250 7175 3450
-Connection ~ 7175 3350
-Wire Wire Line
-	7475 3250 7475 3450
-Connection ~ 7475 3350
-Wire Wire Line
-	7775 3250 7775 3450
-Connection ~ 7775 3350
-Wire Wire Line
-	8075 3250 8075 3450
-Connection ~ 8075 3350
-Wire Wire Line
-	8375 3250 8375 3450
-Connection ~ 8375 3350
-Wire Wire Line
-	8675 3250 8675 3450
-Connection ~ 8675 3350
-Wire Wire Line
-	8975 3250 8975 3450
-Connection ~ 8975 3350
-Wire Wire Line
-	9275 3250 9275 3450
-Connection ~ 9275 3350
-Wire Wire Line
-	2350 2300 2350 2400
-Wire Wire Line
-	2625 2300 2625 2400
-Wire Wire Line
-	2900 2300 2900 2400
-Wire Wire Line
-	3175 2300 3175 2400
-Wire Wire Line
-	3450 2300 3450 2400
-Wire Wire Line
-	3725 2300 3725 2400
-Wire Wire Line
-	4000 2300 4000 2400
-Wire Wire Line
-	4275 2300 4275 2400
-Wire Wire Line
-	4550 2300 4550 2400
-Wire Wire Line
-	4825 2300 4825 2400
-Wire Wire Line
-	5100 2300 5100 2400
-Wire Wire Line
-	5375 2300 5375 2400
-Wire Wire Line
-	5650 2300 5650 2400
-Wire Wire Line
-	5925 2300 5925 2400
-Wire Wire Line
-	6200 2300 6200 2400
-Wire Wire Line
-	6475 2300 6475 2400
-Wire Wire Line
-	2350 3775 2350 3875
-Wire Wire Line
-	2625 3775 2625 3875
-Wire Wire Line
-	2900 3775 2900 3875
-Wire Wire Line
-	3175 3775 3175 3875
-Wire Wire Line
-	3450 3775 3450 3875
-Wire Wire Line
-	3725 3775 3725 3875
-Wire Wire Line
-	4000 3775 4000 3875
-Wire Wire Line
-	4275 3775 4275 3875
-Wire Wire Line
-	4550 3775 4550 3875
-Wire Wire Line
-	4825 3775 4825 3875
-Wire Wire Line
-	5100 3775 5100 3875
-Wire Wire Line
-	5375 3775 5375 3875
-Wire Wire Line
-	5650 3775 5650 3875
-Wire Wire Line
-	5925 3775 5925 3875
-Wire Wire Line
-	6200 3775 6200 3875
-Wire Wire Line
-	6475 3775 6475 3875
-Wire Wire Line
-	7050 2300 7050 2400
-Wire Wire Line
-	7325 2300 7325 2400
-Wire Wire Line
-	7600 2300 7600 2400
-Wire Wire Line
-	7875 2300 7875 2400
-Wire Wire Line
-	8150 2300 8150 2400
-Wire Wire Line
-	8425 2300 8425 2400
-Wire Wire Line
-	8700 2300 8700 2400
-Wire Wire Line
-	8975 2300 8975 2400
-Wire Wire Line
-	9250 2300 9250 2400
-Wire Wire Line
-	7050 3775 7050 3875
-Wire Wire Line
-	7325 3775 7325 3875
-Wire Wire Line
-	7600 3775 7600 3875
-Wire Wire Line
-	7875 3775 7875 3875
-Wire Wire Line
-	8150 3775 8150 3875
-Wire Wire Line
-	8425 3775 8425 3875
-Wire Wire Line
-	8700 3775 8700 3875
-Wire Wire Line
-	8975 3775 8975 3875
-Wire Wire Line
-	9250 3775 9250 3875
+$Comp
+L GND #PWR10
+U 1 1 5A05925D
+P 6600 1175
+F 0 "#PWR10" H 6600 925 50  0001 C CNN
+F 1 "GND" H 6600 1025 50  0000 C CNN
+F 2 "" H 6600 1175 50  0001 C CNN
+F 3 "" H 6600 1175 50  0001 C CNN
+	1    6600 1175
+	0    -1   -1   0   
+$EndComp
+Text Label 6375 1500 0    60   ~ 0
+V5v
+$Comp
+L Conn_01x40 J64
+U 1 1 5A059C2F
+P 4475 1700
+F 0 "J64" H 4475 3700 50  0000 C CNN
+F 1 "Conn_01x40" H 4475 -400 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4475 1700 50  0001 C CNN
+F 3 "" H 4475 1700 50  0001 C CNN
+	1    4475 1700
+	0    1    1    0   
+$EndComp
+$Comp
+L Conn_01x40 J105
+U 1 1 5A05A9C9
+P 4450 4375
+F 0 "J105" H 4450 6375 50  0000 C CNN
+F 1 "Conn_01x40" H 4450 2275 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4450 4375 50  0001 C CNN
+F 3 "" H 4450 4375 50  0001 C CNN
+	1    4450 4375
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR9
+U 1 1 5A05A9F6
+P 6325 4525
+F 0 "#PWR9" H 6325 4275 50  0001 C CNN
+F 1 "GND" H 6325 4375 50  0000 C CNN
+F 2 "" H 6325 4525 50  0001 C CNN
+F 3 "" H 6325 4525 50  0001 C CNN
+	1    6325 4525
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Conn_01x40 J65
+U 1 1 5A05A9FD
+P 4425 4725
+F 0 "J65" H 4425 6725 50  0000 C CNN
+F 1 "Conn_01x40" H 4425 2625 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4425 4725 50  0001 C CNN
+F 3 "" H 4425 4725 50  0001 C CNN
+	1    4425 4725
+	0    1    1    0   
+$EndComp
+Text Label 6350 4175 0    60   ~ 0
+V3.3v
+$Comp
+L C C1
+U 1 1 5A05E403
+P 3200 5850
+F 0 "C1" H 3225 5950 50  0000 L CNN
+F 1 "C" H 3225 5750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 3238 5700 50  0001 C CNN
+F 3 "" H 3200 5850 50  0001 C CNN
+	1    3200 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C3
+U 1 1 5A05EC1D
+P 5025 5600
+F 0 "C3" H 5050 5700 50  0000 L CNN
+F 1 "C" H 5050 5500 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 5063 5450 50  0001 C CNN
+F 3 "" H 5025 5600 50  0001 C CNN
+	1    5025 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 5A05F1F0
+P 3850 5875
+F 0 "C2" H 3875 5975 50  0000 L CNN
+F 1 "C" H 3875 5775 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 3888 5725 50  0001 C CNN
+F 3 "" H 3850 5875 50  0001 C CNN
+	1    3850 5875
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 5A05F6E8
+P 5725 5650
+F 0 "C4" H 5750 5750 50  0000 L CNN
+F 1 "C" H 5750 5550 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 5763 5500 50  0001 C CNN
+F 3 "" H 5725 5650 50  0001 C CNN
+	1    5725 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x08 J106
+U 1 1 5A0553DD
+P 6650 4950
+F 0 "J106" H 6650 5350 50  0000 C CNN
+F 1 "Conn_01x08" H 6650 4450 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch1.27mm" H 6650 4950 50  0001 C CNN
+F 3 "" H 6650 4950 50  0001 C CNN
+	1    6650 4950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Conn_01x08 J108
+U 1 1 5A05597D
+P 9600 5050
+F 0 "J108" H 9600 5450 50  0000 C CNN
+F 1 "Conn_01x08" H 9600 4550 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch1.27mm" H 9600 5050 50  0001 C CNN
+F 3 "" H 9600 5050 50  0001 C CNN
+	1    9600 5050
+	1    0    0    1   
+$EndComp
+$Comp
+L Conn_01x06 J107
+U 1 1 5A055C10
+P 8100 6150
+F 0 "J107" H 8100 6450 50  0000 C CNN
+F 1 "Conn_01x06" H 8100 5750 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch1.27mm" H 8100 6150 50  0001 C CNN
+F 3 "" H 8100 6150 50  0001 C CNN
+	1    8100 6150
+	0    1    1    0   
+$EndComp
+Text Label 7150 5350 0    60   ~ 0
+V3.3v
+$Comp
+L GND #PWR13
+U 1 1 5A05F0CA
+P 9150 5500
+F 0 "#PWR13" H 9150 5250 50  0001 C CNN
+F 1 "GND" H 9150 5350 50  0000 C CNN
+F 2 "" H 9150 5500 50  0001 C CNN
+F 3 "" H 9150 5500 50  0001 C CNN
+	1    9150 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C5
+U 1 1 5A0600A7
+P 7150 5700
+F 0 "C5" H 7175 5800 50  0000 L CNN
+F 1 "C" H 7175 5600 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 7188 5550 50  0001 C CNN
+F 3 "" H 7150 5700 50  0001 C CNN
+	1    7150 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L R R1
+U 1 1 5A0629F7
+P 6850 5700
+F 0 "R1" V 6930 5700 50  0000 C CNN
+F 1 "10k" V 6850 5700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 6780 5700 50  0001 C CNN
+F 3 "" H 6850 5700 50  0001 C CNN
+	1    6850 5700
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR11
+U 1 1 5A063B60
+P 7500 6050
+F 0 "#PWR11" H 7500 5800 50  0001 C CNN
+F 1 "GND" H 7500 5900 50  0000 C CNN
+F 2 "" H 7500 6050 50  0001 C CNN
+F 3 "" H 7500 6050 50  0001 C CNN
+	1    7500 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 5A0648F5
+P 9300 4250
+F 0 "R3" V 9380 4250 50  0000 C CNN
+F 1 "10k" V 9300 4250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 9230 4250 50  0001 C CNN
+F 3 "" H 9300 4250 50  0001 C CNN
+	1    9300 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R2
+U 1 1 5A06516A
+P 8950 4350
+F 0 "R2" V 9030 4350 50  0000 C CNN
+F 1 "10k" V 8950 4350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 8880 4350 50  0001 C CNN
+F 3 "" H 8950 4350 50  0001 C CNN
+	1    8950 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L SWITCH SW2
+U 1 1 5A075B3B
+P 8900 6050
+F 0 "SW2" H 8900 6300 60  0000 C CNN
+F 1 "SWITCH" H 8900 6200 60  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 8900 6050 60  0001 C CNN
+F 3 "" H 8900 6050 60  0000 C CNN
+	1    8900 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR12
+U 1 1 5A076267
+P 9100 6050
+F 0 "#PWR12" H 9100 5800 50  0001 C CNN
+F 1 "GND" H 9100 5900 50  0000 C CNN
+F 2 "" H 9100 6050 50  0001 C CNN
+F 3 "" H 9100 6050 50  0001 C CNN
+	1    9100 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L SWITCH SW1
+U 1 1 5A076B74
+P 7300 6050
+F 0 "SW1" H 7300 6300 60  0000 C CNN
+F 1 "SWITCH" H 7300 6200 60  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 7300 6050 60  0001 C CNN
+F 3 "" H 7300 6050 60  0000 C CNN
+	1    7300 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L ESP-12E U3
+U 1 1 5A057C17
+P 8050 4950
+F 0 "U3" H 8050 4850 50  0000 C CNN
+F 1 "ESP-12E" H 8050 5050 50  0000 C CNN
+F 2 "ESP8266:ESP-12E_SMD" H 8050 4950 50  0001 C CNN
+F 3 "" H 8050 4950 50  0001 C CNN
+	1    8050 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L bboard_3rows U4
+U 1 1 5A09A385
+P 4675 2800
+F 0 "U4" H 4675 400 60  0000 C CNN
+F 1 "bboard_3rows" H 4725 5150 60  0000 C CNN
+F 2 "" H 4675 2350 60  0001 C CNN
+F 3 "" H 4675 2350 60  0001 C CNN
+	1    4675 2800
+	0    1    1    0   
+$EndComp
 Wire Wire Line
 	2900 5625 2900 5500
 Wire Wire Line
 	2900 5500 2775 5500
 Wire Wire Line
 	2900 5400 2775 5400
-Wire Wire Line
-	6775 2300 6775 2400
-Wire Wire Line
-	6775 3775 6775 3875
 Wire Wire Line
 	2775 5600 2900 5600
 Connection ~ 2900 5600
@@ -1614,30 +526,6 @@ Connection ~ 6000 1150
 Connection ~ 6100 1150
 Connection ~ 6200 1150
 Connection ~ 6300 1150
-$Comp
-L GND #PWR09
-U 1 1 5A05925D
-P 6600 1175
-F 0 "#PWR09" H 6600 925 50  0001 C CNN
-F 1 "GND" H 6600 1025 50  0000 C CNN
-F 2 "" H 6600 1175 50  0001 C CNN
-F 3 "" H 6600 1175 50  0001 C CNN
-	1    6600 1175
-	0    -1   -1   0   
-$EndComp
-Text Label 6375 1500 0    60   ~ 0
-V5v
-$Comp
-L Conn_01x40 J64
-U 1 1 5A059C2F
-P 4475 1700
-F 0 "J64" H 4475 3700 50  0000 C CNN
-F 1 "Conn_01x40" H 4475 -400 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4475 1700 50  0001 C CNN
-F 3 "" H 4475 1700 50  0001 C CNN
-	1    4475 1700
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	2475 1500 6375 1500
 Connection ~ 2575 1500
@@ -1683,17 +571,6 @@ Wire Wire Line
 Wire Wire Line
 	6500 1175 6500 1150
 Connection ~ 6400 1150
-$Comp
-L Conn_01x40 J105
-U 1 1 5A05A9C9
-P 4450 4375
-F 0 "J105" H 4450 6375 50  0000 C CNN
-F 1 "Conn_01x40" H 4450 2275 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4450 4375 50  0001 C CNN
-F 3 "" H 4450 4375 50  0001 C CNN
-	1    4450 4375
-	0    1    1    0   
-$EndComp
 Connection ~ 2550 4175
 Connection ~ 2650 4175
 Connection ~ 2750 4175
@@ -1732,28 +609,6 @@ Connection ~ 5950 4175
 Connection ~ 6050 4175
 Connection ~ 6150 4175
 Connection ~ 6250 4175
-$Comp
-L GND #PWR010
-U 1 1 5A05A9F6
-P 6325 4525
-F 0 "#PWR010" H 6325 4275 50  0001 C CNN
-F 1 "GND" H 6325 4375 50  0000 C CNN
-F 2 "" H 6325 4525 50  0001 C CNN
-F 3 "" H 6325 4525 50  0001 C CNN
-	1    6325 4525
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Conn_01x40 J65
-U 1 1 5A05A9FD
-P 4425 4725
-F 0 "J65" H 4425 6725 50  0000 C CNN
-F 1 "Conn_01x40" H 4425 2625 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x40_Pitch1.27mm" H 4425 4725 50  0001 C CNN
-F 3 "" H 4425 4725 50  0001 C CNN
-	1    4425 4725
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	2425 4525 6325 4525
 Connection ~ 2525 4525
@@ -1796,19 +651,6 @@ Connection ~ 6125 4525
 Connection ~ 6225 4525
 Wire Wire Line
 	2450 4175 6450 4175
-Text Label 6350 4175 0    60   ~ 0
-V3.3v
-$Comp
-L C C1
-U 1 1 5A05E403
-P 3200 5850
-F 0 "C1" H 3225 5950 50  0000 L CNN
-F 1 "C" H 3225 5750 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 3238 5700 50  0001 C CNN
-F 3 "" H 3200 5850 50  0001 C CNN
-	1    3200 5850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3200 5700 3200 5525
 Connection ~ 3200 5525
@@ -1817,51 +659,18 @@ Wire Wire Line
 Wire Wire Line
 	3550 5825 3550 6100
 Connection ~ 3550 6000
-$Comp
-L C C3
-U 1 1 5A05EC1D
-P 5025 5600
-F 0 "C3" H 5050 5700 50  0000 L CNN
-F 1 "C" H 5050 5500 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 5063 5450 50  0001 C CNN
-F 3 "" H 5025 5600 50  0001 C CNN
-	1    5025 5600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5025 5450 5025 5375
 Connection ~ 5025 5375
 Wire Wire Line
 	5025 5750 5475 5750
 Connection ~ 5400 5750
-$Comp
-L C C2
-U 1 1 5A05F1F0
-P 3850 5875
-F 0 "C2" H 3875 5975 50  0000 L CNN
-F 1 "C" H 3875 5775 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 3888 5725 50  0001 C CNN
-F 3 "" H 3850 5875 50  0001 C CNN
-	1    3850 5875
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3850 5525 3850 5725
 Wire Wire Line
 	3850 6025 3650 6025
 Wire Wire Line
 	3650 6025 3650 6000
-$Comp
-L C C4
-U 1 1 5A05F6E8
-P 5725 5650
-F 0 "C4" H 5750 5750 50  0000 L CNN
-F 1 "C" H 5750 5550 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 5763 5500 50  0001 C CNN
-F 3 "" H 5725 5650 50  0001 C CNN
-	1    5725 5650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5700 5375 5700 5500
 Wire Wire Line
@@ -1870,39 +679,6 @@ Wire Wire Line
 	5725 5800 5475 5800
 Wire Wire Line
 	5475 5800 5475 5750
-$Comp
-L Conn_01x08 J106
-U 1 1 5A0553DD
-P 6650 4950
-F 0 "J106" H 6650 5350 50  0000 C CNN
-F 1 "Conn_01x08" H 6650 4450 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch1.27mm" H 6650 4950 50  0001 C CNN
-F 3 "" H 6650 4950 50  0001 C CNN
-	1    6650 4950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Conn_01x08 J108
-U 1 1 5A05597D
-P 9600 5050
-F 0 "J108" H 9600 5450 50  0000 C CNN
-F 1 "Conn_01x08" H 9600 4550 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch1.27mm" H 9600 5050 50  0001 C CNN
-F 3 "" H 9600 5050 50  0001 C CNN
-	1    9600 5050
-	1    0    0    1   
-$EndComp
-$Comp
-L Conn_01x06 J107
-U 1 1 5A055C10
-P 8100 6150
-F 0 "J107" H 8100 6450 50  0000 C CNN
-F 1 "Conn_01x06" H 8100 5750 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch1.27mm" H 8100 6150 50  0001 C CNN
-F 3 "" H 8100 6150 50  0001 C CNN
-	1    8100 6150
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	6850 4650 7150 4650
 Wire Wire Line
@@ -1947,33 +723,9 @@ Wire Wire Line
 	8200 5950 8200 5850
 Wire Wire Line
 	8300 5950 8300 5850
-Text Label 7150 5350 0    60   ~ 0
-V3.3v
-$Comp
-L GND #PWR011
-U 1 1 5A05F0CA
-P 9150 5500
-F 0 "#PWR011" H 9150 5250 50  0001 C CNN
-F 1 "GND" H 9150 5350 50  0000 C CNN
-F 2 "" H 9150 5500 50  0001 C CNN
-F 3 "" H 9150 5500 50  0001 C CNN
-	1    9150 5500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9150 5500 9150 5350
 Connection ~ 9150 5350
-$Comp
-L C C5
-U 1 1 5A0600A7
-P 7150 5700
-F 0 "C5" H 7175 5800 50  0000 L CNN
-F 1 "C" H 7175 5600 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 7188 5550 50  0001 C CNN
-F 3 "" H 7150 5700 50  0001 C CNN
-	1    7150 5700
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	7000 5700 7000 5350
 Connection ~ 7000 5350
@@ -1982,17 +734,6 @@ Wire Wire Line
 Wire Wire Line
 	9000 5700 9000 5350
 Connection ~ 9000 5350
-$Comp
-L R R1
-U 1 1 5A0629F7
-P 6850 5700
-F 0 "R1" V 6930 5700 50  0000 C CNN
-F 1 "10k" V 6850 5700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6780 5700 50  0001 C CNN
-F 3 "" H 6850 5700 50  0001 C CNN
-	1    6850 5700
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	6850 5550 6850 5450
 Wire Wire Line
@@ -2020,28 +761,6 @@ Wire Wire Line
 Wire Wire Line
 	6550 6050 7100 6050
 Connection ~ 6550 5950
-$Comp
-L GND #PWR012
-U 1 1 5A063B60
-P 7500 6050
-F 0 "#PWR012" H 7500 5800 50  0001 C CNN
-F 1 "GND" H 7500 5900 50  0000 C CNN
-F 2 "" H 7500 6050 50  0001 C CNN
-F 3 "" H 7500 6050 50  0001 C CNN
-	1    7500 6050
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R3
-U 1 1 5A0648F5
-P 9300 4250
-F 0 "R3" V 9380 4250 50  0000 C CNN
-F 1 "10k" V 9300 4250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 9230 4250 50  0001 C CNN
-F 3 "" H 9300 4250 50  0001 C CNN
-	1    9300 4250
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	9150 5050 9150 4250
 Connection ~ 9150 5050
@@ -2052,17 +771,6 @@ Wire Wire Line
 Wire Wire Line
 	7100 4100 7100 5350
 Connection ~ 7100 5350
-$Comp
-L R R2
-U 1 1 5A06516A
-P 8950 4350
-F 0 "R2" V 9030 4350 50  0000 C CNN
-F 1 "10k" V 8950 4350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8880 4350 50  0001 C CNN
-F 3 "" H 8950 4350 50  0001 C CNN
-	1    8950 4350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8950 4500 9050 4500
 Wire Wire Line
@@ -2082,48 +790,544 @@ Wire Wire Line
 Wire Wire Line
 	9950 4500 9150 4500
 Connection ~ 9150 4500
-$Comp
-L SWITCH SW2
-U 1 1 5A075B3B
-P 8900 6050
-F 0 "SW2" H 8900 6300 60  0000 C CNN
-F 1 "SWITCH" H 8900 6200 60  0000 C CNN
-F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 8900 6050 60  0001 C CNN
-F 3 "" H 8900 6050 60  0000 C CNN
-	1    8900 6050
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR013
-U 1 1 5A076267
-P 9100 6050
-F 0 "#PWR013" H 9100 5800 50  0001 C CNN
-F 1 "GND" H 9100 5900 50  0000 C CNN
-F 2 "" H 9100 6050 50  0001 C CNN
-F 3 "" H 9100 6050 50  0001 C CNN
-	1    9100 6050
-	1    0    0    -1  
-$EndComp
-$Comp
-L SWITCH SW1
-U 1 1 5A076B74
-P 7300 6050
-F 0 "SW1" H 7300 6300 60  0000 C CNN
-F 1 "SWITCH" H 7300 6200 60  0000 C CNN
-F 2 "Buttons_Switches_THT:SW_PUSH_6mm" H 7300 6050 60  0001 C CNN
-F 3 "" H 7300 6050 60  0000 C CNN
-	1    7300 6050
-	1    0    0    -1  
-$EndComp
-$Comp
-L ESP-12E U3
-U 1 1 5A057C17
-P 8050 4950
-F 0 "U3" H 8050 4850 50  0000 C CNN
-F 1 "ESP-12E" H 8050 5050 50  0000 C CNN
-F 2 "ESP8266:ESP-12E_SMD" H 8050 4950 50  0001 C CNN
-F 3 "" H 8050 4950 50  0001 C CNN
-	1    8050 4950
-	1    0    0    -1  
-$EndComp
+Wire Wire Line
+	6775 3300 6775 3350
+Wire Wire Line
+	6775 3350 6875 3350
+Wire Wire Line
+	6825 3350 6825 3300
+Wire Wire Line
+	6875 3350 6875 3300
+Connection ~ 6825 3350
+Wire Wire Line
+	6625 3300 6625 3350
+Wire Wire Line
+	6625 3350 6725 3350
+Wire Wire Line
+	6675 3350 6675 3300
+Wire Wire Line
+	6725 3350 6725 3300
+Connection ~ 6675 3350
+Wire Wire Line
+	6475 3300 6475 3350
+Wire Wire Line
+	6475 3350 6575 3350
+Wire Wire Line
+	6525 3350 6525 3300
+Wire Wire Line
+	6575 3350 6575 3300
+Connection ~ 6525 3350
+Wire Wire Line
+	6325 3300 6325 3350
+Wire Wire Line
+	6325 3350 6425 3350
+Wire Wire Line
+	6375 3350 6375 3300
+Wire Wire Line
+	6425 3350 6425 3300
+Connection ~ 6375 3350
+Wire Wire Line
+	6175 3300 6175 3350
+Wire Wire Line
+	6175 3350 6275 3350
+Wire Wire Line
+	6225 3350 6225 3300
+Wire Wire Line
+	6275 3350 6275 3300
+Connection ~ 6225 3350
+Wire Wire Line
+	6025 3300 6025 3350
+Wire Wire Line
+	6025 3350 6125 3350
+Wire Wire Line
+	6075 3350 6075 3300
+Wire Wire Line
+	6125 3350 6125 3300
+Connection ~ 6075 3350
+Wire Wire Line
+	5875 3300 5875 3350
+Wire Wire Line
+	5875 3350 5975 3350
+Wire Wire Line
+	5925 3350 5925 3300
+Wire Wire Line
+	5975 3350 5975 3300
+Connection ~ 5925 3350
+Wire Wire Line
+	5725 3300 5725 3350
+Wire Wire Line
+	5725 3350 5825 3350
+Wire Wire Line
+	5775 3350 5775 3300
+Wire Wire Line
+	5825 3350 5825 3300
+Connection ~ 5775 3350
+Wire Wire Line
+	5575 3300 5575 3350
+Wire Wire Line
+	5575 3350 5675 3350
+Wire Wire Line
+	5625 3350 5625 3300
+Wire Wire Line
+	5675 3350 5675 3300
+Connection ~ 5625 3350
+Wire Wire Line
+	5425 3300 5425 3350
+Wire Wire Line
+	5425 3350 5525 3350
+Wire Wire Line
+	5475 3350 5475 3300
+Wire Wire Line
+	5525 3350 5525 3300
+Connection ~ 5475 3350
+Wire Wire Line
+	5275 3300 5275 3350
+Wire Wire Line
+	5275 3350 5375 3350
+Wire Wire Line
+	5325 3350 5325 3300
+Wire Wire Line
+	5375 3350 5375 3300
+Connection ~ 5325 3350
+Wire Wire Line
+	5125 3300 5125 3350
+Wire Wire Line
+	5125 3350 5225 3350
+Wire Wire Line
+	5175 3350 5175 3300
+Wire Wire Line
+	5225 3350 5225 3300
+Connection ~ 5175 3350
+Wire Wire Line
+	4975 3300 4975 3350
+Wire Wire Line
+	4975 3350 5075 3350
+Wire Wire Line
+	5025 3350 5025 3300
+Wire Wire Line
+	5075 3350 5075 3300
+Connection ~ 5025 3350
+Wire Wire Line
+	4825 3300 4825 3350
+Wire Wire Line
+	4825 3350 4925 3350
+Wire Wire Line
+	4875 3350 4875 3300
+Wire Wire Line
+	4925 3350 4925 3300
+Connection ~ 4875 3350
+Wire Wire Line
+	4675 3300 4675 3350
+Wire Wire Line
+	4675 3350 4775 3350
+Wire Wire Line
+	4725 3350 4725 3300
+Wire Wire Line
+	4775 3350 4775 3300
+Connection ~ 4725 3350
+Wire Wire Line
+	4525 3300 4525 3350
+Wire Wire Line
+	4525 3350 4625 3350
+Wire Wire Line
+	4575 3350 4575 3300
+Wire Wire Line
+	4625 3350 4625 3300
+Connection ~ 4575 3350
+Wire Wire Line
+	4375 3300 4375 3350
+Wire Wire Line
+	4375 3350 4475 3350
+Wire Wire Line
+	4425 3350 4425 3300
+Wire Wire Line
+	4475 3350 4475 3300
+Connection ~ 4425 3350
+Wire Wire Line
+	2425 3300 2425 3350
+Wire Wire Line
+	2425 3350 2525 3350
+Wire Wire Line
+	2475 3350 2475 3300
+Wire Wire Line
+	2525 3350 2525 3300
+Connection ~ 2475 3350
+Wire Wire Line
+	2575 3300 2575 3350
+Wire Wire Line
+	2575 3350 2675 3350
+Wire Wire Line
+	2625 3350 2625 3300
+Wire Wire Line
+	2675 3350 2675 3300
+Connection ~ 2625 3350
+Wire Wire Line
+	2725 3300 2725 3350
+Wire Wire Line
+	2725 3350 2825 3350
+Wire Wire Line
+	2775 3350 2775 3300
+Wire Wire Line
+	2825 3350 2825 3300
+Connection ~ 2775 3350
+Wire Wire Line
+	2875 3300 2875 3350
+Wire Wire Line
+	2875 3350 2975 3350
+Wire Wire Line
+	2925 3350 2925 3300
+Wire Wire Line
+	2975 3350 2975 3300
+Connection ~ 2925 3350
+Wire Wire Line
+	3025 3300 3025 3350
+Wire Wire Line
+	3025 3350 3125 3350
+Wire Wire Line
+	3075 3350 3075 3300
+Wire Wire Line
+	3125 3350 3125 3300
+Connection ~ 3075 3350
+Wire Wire Line
+	3175 3300 3175 3350
+Wire Wire Line
+	3175 3350 3275 3350
+Wire Wire Line
+	3225 3350 3225 3300
+Wire Wire Line
+	3275 3350 3275 3300
+Connection ~ 3225 3350
+Wire Wire Line
+	3325 3300 3325 3350
+Wire Wire Line
+	3325 3350 3425 3350
+Wire Wire Line
+	3375 3350 3375 3300
+Wire Wire Line
+	3425 3350 3425 3300
+Connection ~ 3375 3350
+Wire Wire Line
+	3475 3300 3475 3350
+Wire Wire Line
+	3475 3350 3575 3350
+Wire Wire Line
+	3525 3350 3525 3300
+Wire Wire Line
+	3575 3350 3575 3300
+Connection ~ 3525 3350
+Wire Wire Line
+	3625 3300 3625 3350
+Wire Wire Line
+	3625 3350 3725 3350
+Wire Wire Line
+	3675 3350 3675 3300
+Wire Wire Line
+	3725 3350 3725 3300
+Connection ~ 3675 3350
+Wire Wire Line
+	3775 3300 3775 3350
+Wire Wire Line
+	3775 3350 3875 3350
+Wire Wire Line
+	3825 3350 3825 3300
+Wire Wire Line
+	3875 3350 3875 3300
+Connection ~ 3825 3350
+Wire Wire Line
+	3925 3300 3925 3350
+Wire Wire Line
+	3925 3350 4025 3350
+Wire Wire Line
+	3975 3350 3975 3300
+Wire Wire Line
+	4025 3350 4025 3300
+Connection ~ 3975 3350
+Wire Wire Line
+	4075 3300 4075 3350
+Wire Wire Line
+	4075 3350 4175 3350
+Wire Wire Line
+	4125 3350 4125 3300
+Wire Wire Line
+	4175 3350 4175 3300
+Connection ~ 4125 3350
+Wire Wire Line
+	4225 3300 4225 3350
+Wire Wire Line
+	4225 3350 4325 3350
+Wire Wire Line
+	4275 3350 4275 3300
+Wire Wire Line
+	4325 3350 4325 3300
+Connection ~ 4275 3350
+Wire Wire Line
+	2425 2300 2425 2250
+Wire Wire Line
+	2425 2250 2525 2250
+Wire Wire Line
+	2475 2250 2475 2300
+Wire Wire Line
+	2525 2250 2525 2300
+Connection ~ 2475 2250
+Wire Wire Line
+	2575 2300 2575 2250
+Wire Wire Line
+	2575 2250 2675 2250
+Wire Wire Line
+	2625 2250 2625 2300
+Wire Wire Line
+	2675 2250 2675 2300
+Connection ~ 2625 2250
+Wire Wire Line
+	2725 2300 2725 2250
+Wire Wire Line
+	2725 2250 2825 2250
+Wire Wire Line
+	2825 2250 2825 2300
+Wire Wire Line
+	2775 2300 2775 2250
+Connection ~ 2775 2250
+Wire Wire Line
+	2875 2300 2875 2250
+Wire Wire Line
+	2875 2250 2975 2250
+Wire Wire Line
+	2975 2250 2975 2300
+Wire Wire Line
+	2925 2300 2925 2250
+Connection ~ 2925 2250
+Wire Wire Line
+	3025 2300 3025 2250
+Wire Wire Line
+	3025 2250 3125 2250
+Wire Wire Line
+	3125 2250 3125 2300
+Wire Wire Line
+	3075 2300 3075 2250
+Connection ~ 3075 2250
+Wire Wire Line
+	3175 2300 3175 2250
+Wire Wire Line
+	3175 2250 3275 2250
+Wire Wire Line
+	3275 2250 3275 2300
+Wire Wire Line
+	3225 2300 3225 2250
+Connection ~ 3225 2250
+Wire Wire Line
+	3325 2300 3325 2250
+Wire Wire Line
+	3325 2250 3425 2250
+Wire Wire Line
+	3425 2250 3425 2300
+Wire Wire Line
+	3375 2300 3375 2250
+Connection ~ 3375 2250
+Wire Wire Line
+	3475 2300 3475 2250
+Wire Wire Line
+	3475 2250 3575 2250
+Wire Wire Line
+	3575 2250 3575 2300
+Wire Wire Line
+	3525 2300 3525 2250
+Connection ~ 3525 2250
+Wire Wire Line
+	3625 2300 3625 2250
+Wire Wire Line
+	3625 2250 3725 2250
+Wire Wire Line
+	3725 2250 3725 2300
+Wire Wire Line
+	3675 2300 3675 2250
+Connection ~ 3675 2250
+Wire Wire Line
+	3775 2300 3775 2250
+Wire Wire Line
+	3775 2250 3875 2250
+Wire Wire Line
+	3875 2250 3875 2300
+Wire Wire Line
+	3825 2300 3825 2250
+Connection ~ 3825 2250
+Wire Wire Line
+	4075 2300 4075 2250
+Wire Wire Line
+	4075 2250 4175 2250
+Wire Wire Line
+	4175 2250 4175 2300
+Wire Wire Line
+	4125 2300 4125 2250
+Connection ~ 4125 2250
+Wire Wire Line
+	4225 2300 4225 2250
+Wire Wire Line
+	4225 2250 4325 2250
+Wire Wire Line
+	4325 2250 4325 2300
+Wire Wire Line
+	4275 2300 4275 2250
+Connection ~ 4275 2250
+Wire Wire Line
+	4375 2300 4375 2250
+Wire Wire Line
+	4375 2250 4475 2250
+Wire Wire Line
+	4475 2250 4475 2300
+Wire Wire Line
+	4425 2300 4425 2250
+Connection ~ 4425 2250
+Wire Wire Line
+	4525 2300 4525 2250
+Wire Wire Line
+	4525 2250 4625 2250
+Wire Wire Line
+	4625 2250 4625 2300
+Wire Wire Line
+	4575 2300 4575 2250
+Connection ~ 4575 2250
+Wire Wire Line
+	4675 2300 4675 2250
+Wire Wire Line
+	4675 2250 4775 2250
+Wire Wire Line
+	4775 2250 4775 2300
+Wire Wire Line
+	4725 2300 4725 2250
+Connection ~ 4725 2250
+Wire Wire Line
+	4825 2300 4825 2250
+Wire Wire Line
+	4825 2250 4925 2250
+Wire Wire Line
+	4925 2250 4925 2300
+Wire Wire Line
+	4875 2300 4875 2250
+Connection ~ 4875 2250
+Wire Wire Line
+	4975 2300 4975 2250
+Wire Wire Line
+	4975 2250 5075 2250
+Wire Wire Line
+	5075 2250 5075 2300
+Wire Wire Line
+	5025 2300 5025 2250
+Connection ~ 5025 2250
+Wire Wire Line
+	5125 2300 5125 2250
+Wire Wire Line
+	5125 2250 5225 2250
+Wire Wire Line
+	5225 2250 5225 2300
+Wire Wire Line
+	5175 2300 5175 2250
+Connection ~ 5175 2250
+Wire Wire Line
+	5275 2300 5275 2250
+Wire Wire Line
+	5275 2250 5375 2250
+Wire Wire Line
+	5375 2250 5375 2300
+Wire Wire Line
+	5325 2300 5325 2250
+Connection ~ 5325 2250
+Wire Wire Line
+	5425 2300 5425 2250
+Wire Wire Line
+	5425 2250 5525 2250
+Wire Wire Line
+	5525 2250 5525 2300
+Wire Wire Line
+	5475 2300 5475 2250
+Connection ~ 5475 2250
+Wire Wire Line
+	5575 2300 5575 2250
+Wire Wire Line
+	5575 2250 5675 2250
+Wire Wire Line
+	5675 2250 5675 2300
+Wire Wire Line
+	5625 2300 5625 2250
+Connection ~ 5625 2250
+Wire Wire Line
+	5725 2300 5725 2250
+Wire Wire Line
+	5725 2250 5825 2250
+Wire Wire Line
+	5825 2250 5825 2300
+Wire Wire Line
+	5775 2300 5775 2250
+Connection ~ 5775 2250
+Wire Wire Line
+	5875 2300 5875 2250
+Wire Wire Line
+	5875 2250 5975 2250
+Wire Wire Line
+	5975 2250 5975 2300
+Wire Wire Line
+	5925 2300 5925 2250
+Connection ~ 5925 2250
+Wire Wire Line
+	6025 2300 6025 2250
+Wire Wire Line
+	6025 2250 6125 2250
+Wire Wire Line
+	6125 2250 6125 2300
+Wire Wire Line
+	6075 2300 6075 2250
+Connection ~ 6075 2250
+Wire Wire Line
+	6175 2300 6175 2250
+Wire Wire Line
+	6175 2250 6275 2250
+Wire Wire Line
+	6275 2250 6275 2300
+Wire Wire Line
+	6225 2300 6225 2250
+Connection ~ 6225 2250
+Wire Wire Line
+	6325 2300 6325 2250
+Wire Wire Line
+	6325 2250 6425 2250
+Wire Wire Line
+	6425 2250 6425 2300
+Wire Wire Line
+	6375 2300 6375 2250
+Connection ~ 6375 2250
+Wire Wire Line
+	6475 2300 6475 2250
+Wire Wire Line
+	6475 2250 6575 2250
+Wire Wire Line
+	6575 2250 6575 2300
+Wire Wire Line
+	6525 2300 6525 2250
+Connection ~ 6525 2250
+Wire Wire Line
+	6725 2300 6725 2250
+Wire Wire Line
+	6725 2250 6625 2250
+Wire Wire Line
+	6625 2250 6625 2300
+Wire Wire Line
+	6675 2300 6675 2250
+Connection ~ 6675 2250
+Wire Wire Line
+	6775 2300 6775 2250
+Wire Wire Line
+	6775 2250 6875 2250
+Wire Wire Line
+	6875 2250 6875 2300
+Wire Wire Line
+	6825 2300 6825 2250
+Connection ~ 6825 2250
+Wire Wire Line
+	3925 2300 3925 2250
+Wire Wire Line
+	3925 2250 4025 2250
+Wire Wire Line
+	4025 2250 4025 2300
+Wire Wire Line
+	3975 2300 3975 2250
+Connection ~ 3975 2250
 $EndSCHEMATC
