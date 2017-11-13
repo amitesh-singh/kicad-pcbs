@@ -32,3 +32,28 @@ $ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/But
 
 ### lib and pretty file for ICs
  - https://www.snapeda.com/about/import/
+
+### how to use github kicad libraries
+
+one time setup.  
+
+- create a dir named "Kicad" in ~/repos/
+- cd Kicad
+- git clone https://github.com/KiCad/kicad-library
+- git clone https://github.com/KiCad/kicad-packages3D
+- git clone https://github.com/KiCad/kicad-footprints
+- open Kicad  
+   Go to Preferences -> Configure path ->  
+   KICAD_PTEMPLATES -> /home/ami/repos/KiCad/kicad-library/template    
+   KIGITHUB -> https://github.com/KiCad  
+   KISYS3DMOD -> /home/ami/repos/KiCad/kicad-packages3D  
+   KISYSMOD -> /home/ami/repos/KiCad/kicad-library/modules  
+- open any sch file and do following things  
+  Preferences -> component libraries  
+  delete all components library files
+  click add -> go to /home/ami/repos/KiCad/kicad-library/library and selet all .lib files.  
+
+- open any kicad_pcb files and Preferences -> Footprint libraries manager & delete all the libraries  
+  click append with Wizard -> Files on computer -> Next -> /home/ami/repos/KiCad/kicad-footprints and select all the folders
+  
+
