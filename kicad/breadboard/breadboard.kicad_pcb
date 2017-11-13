@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.7)
+(kicad_pcb (version 4) (host pcbnew 4.0.7-e2-6376~58~ubuntu16.04.1)
 
   (general
     (links 407)
     (no_connects 0)
-    (area 84.924999 32.424999 185.075001 132.575001)
+    (area 84.924999 30.81238 185.075001 133.017619)
     (thickness 1.6)
     (drawings 7)
     (tracks 548)
@@ -389,6 +389,15 @@
     (add_net "Net-(U5-Pad97)")
     (add_net V3.3v)
     (add_net VCC)
+  )
+
+  (net_class Power ""
+    (clearance 0.25)
+    (trace_width 0.381)
+    (via_dia 0.4)
+    (via_drill 0.3)
+    (uvia_dia 0.3)
+    (uvia_drill 0.1)
   )
 
   (module breadboard:bboard_3rows_footprint (layer F.Cu) (tedit 5A085069) (tstamp 5A09A754)
