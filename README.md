@@ -33,9 +33,11 @@ $ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/But
 ### lib and pretty file for ICs
  - https://www.snapeda.com/about/import/
 
-### how to use github kicad libraries
+### Kicad setup guide
 
-one time setup.  
+#### first time setup.  
+
+1. Setting folders for lib,footprints and 3d shapes.
 
 - create a dir named "Kicad" in ~/repos/
 - cd Kicad
@@ -56,4 +58,25 @@ one time setup.
 - open any kicad_pcb files and Preferences -> Footprint libraries manager & delete all the libraries  
   click append with Wizard -> Files on computer -> Next -> /home/ami/repos/KiCad/kicad-footprints and select all the folders
   
+
+#### setting traces size
+
+PCBNew -> Design rules -> Global design tab
+
+Add track1 - 0.1524  
+    track2 - 0.254   
+    track3 - 0.381  
+    track4 - 0.508
+    track5 - 0.8128
+
+    For digital circuits 5v/3.3v, we generally use Track width size 0.381mm
+
+Adding generic Net classes for Power  
+Click-> Add -> New Net Class Name -> Power ->  
+Clerance -> 0.25  
+Track Width -> 0.38  
+Via Dia -> 0.4  
+Via Drill -> 0.3  
+uVia Dia -> 0.3  
+uVia Drill -> 0.1  
 
