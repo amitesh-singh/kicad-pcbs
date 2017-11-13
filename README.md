@@ -80,3 +80,6 @@ Via Drill -> 0.3
 uVia Dia -> 0.3  
 uVia Drill -> 0.1  
 
+Go on left side and select Vcc/5v/3.3v/GND and let them use Power Net Class.
+
+
