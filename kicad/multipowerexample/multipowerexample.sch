@@ -1,0 +1,378 @@
+EESchema Schematic File Version 2
+LIBS:Zilog
+LIBS:zetex
+LIBS:xilinx
+LIBS:Xicor
+LIBS:Worldsemi
+LIBS:wiznet
+LIBS:video
+LIBS:Valve
+LIBS:triac_thyristor
+LIBS:Transistor
+LIBS:Transformer
+LIBS:texas
+LIBS:Switch
+LIBS:supertex
+LIBS:siliconi
+LIBS:silabs
+LIBS:sensors
+LIBS:Sensor_Current
+LIBS:RFSolutions
+LIBS:rfcom
+LIBS:Relay
+LIBS:regul
+LIBS:references
+LIBS:pspice
+LIBS:Power_Management
+LIBS:powerint
+LIBS:power
+LIBS:philips
+LIBS:Oscillators
+LIBS:opto
+LIBS:onsemi
+LIBS:nxp
+LIBS:nordicsemi
+LIBS:motorola
+LIBS:motor_drivers
+LIBS:Motor
+LIBS:modules
+LIBS:microcontrollers
+LIBS:microchip
+LIBS:memory
+LIBS:Mechanical
+LIBS:MCU_Texas_MSP430
+LIBS:MCU_ST_STM32
+LIBS:MCU_ST_STM8
+LIBS:MCU_Parallax
+LIBS:MCU_NXP_S08
+LIBS:MCU_NXP_LPC
+LIBS:MCU_NXP_Kinetis
+LIBS:MCU_Microchip_PIC32
+LIBS:MCU_Microchip_PIC24
+LIBS:MCU_Microchip_PIC18
+LIBS:MCU_Microchip_PIC16
+LIBS:MCU_Microchip_PIC12
+LIBS:MCU_Microchip_PIC10
+LIBS:maxim
+LIBS:Logic_TTL_IEEE
+LIBS:logic_programmable
+LIBS:Logic_CMOS_IEEE
+LIBS:Logic_CMOS_4000
+LIBS:Logic_74xx
+LIBS:Logic_74xgxx
+LIBS:linear
+LIBS:LEM
+LIBS:LED
+LIBS:Lattice
+LIBS:ir
+LIBS:intersil
+LIBS:interface
+LIBS:intel
+LIBS:infineon
+LIBS:hc11
+LIBS:Graphic
+LIBS:gennum
+LIBS:ftdi
+LIBS:FPGA_Actel
+LIBS:Espressif
+LIBS:ESD_Protection
+LIBS:elec-unifil
+LIBS:DSP_Microchip_DSPIC33
+LIBS:dsp
+LIBS:driver_gate
+LIBS:Display
+LIBS:Diode
+LIBS:digital-audio
+LIBS:device
+LIBS:dc-dc
+LIBS:cypress
+LIBS:contrib
+LIBS:Connector
+LIBS:brooktre
+LIBS:Bosch
+LIBS:bbd
+LIBS:Battery_Management
+LIBS:audio
+LIBS:atmel
+LIBS:analog_switches
+LIBS:analog_devices
+LIBS:Altera
+LIBS:adc-dac
+LIBS:ac-dc
+LIBS:power2
+LIBS:valves
+LIBS:ttl_ieee
+LIBS:transistors
+LIBS:transf
+LIBS:switches
+LIBS:stm32
+LIBS:stm8
+LIBS:relays
+LIBS:nxp_armmcu
+LIBS:msp430
+LIBS:motors
+LIBS:microchip_pic32mcu
+LIBS:microchip_pic24mcu
+LIBS:microchip_pic18mcu
+LIBS:microchip_pic16mcu
+LIBS:microchip_pic12mcu
+LIBS:microchip_pic10mcu
+LIBS:microchip_dspic33dsc
+LIBS:mechanical
+LIBS:leds
+LIBS:graphic_symbols
+LIBS:display
+LIBS:diode
+LIBS:conn
+LIBS:cmos_ieee
+LIBS:cmos4000
+LIBS:bosch
+LIBS:battery_management
+LIBS:allegro
+LIBS:actel
+LIBS:74xx
+LIBS:74xgxx
+LIBS:multipowerexample-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L VCC2 #PWR01
+U 1 1 5A0AF049
+P 5125 1600
+F 0 "#PWR01" H 5125 1450 50  0001 C CNN
+F 1 "VCC2" H 5125 1750 50  0000 C CNN
+F 2 "" H 5125 1600 50  0001 C CNN
+F 3 "" H 5125 1600 50  0001 C CNN
+	1    5125 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND2 #PWR02
+U 1 1 5A0AF303
+P 4500 1600
+F 0 "#PWR02" H 4500 1350 50  0001 C CNN
+F 1 "GND2" H 4500 1450 50  0000 C CNN
+F 2 "" H 4500 1600 50  0001 C CNN
+F 3 "" H 4500 1600 50  0001 C CNN
+	1    4500 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR03
+U 1 1 5A0AF321
+P 5425 1575
+F 0 "#PWR03" H 5425 1425 50  0001 C CNN
+F 1 "VCC" H 5425 1725 50  0000 C CNN
+F 2 "" H 5425 1575 50  0001 C CNN
+F 3 "" H 5425 1575 50  0001 C CNN
+	1    5425 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 5A0AF335
+P 6225 1575
+F 0 "#PWR04" H 6225 1325 50  0001 C CNN
+F 1 "GND" H 6225 1425 50  0000 C CNN
+F 2 "" H 6225 1575 50  0001 C CNN
+F 3 "" H 6225 1575 50  0001 C CNN
+	1    6225 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 5A0AF353
+P 5825 1575
+F 0 "R2" V 5905 1575 50  0000 C CNN
+F 1 "R" V 5825 1575 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" H 5825 1575 50  0001 C CNN
+F 3 "" H 5825 1575 50  0001 C CNN
+	1    5825 1575
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5425 1575 5575 1575
+Wire Wire Line
+	6075 1575 6225 1575
+$Comp
+L R R1
+U 1 1 5A0AF3BB
+P 4825 1600
+F 0 "R1" V 4905 1600 50  0000 C CNN
+F 1 "R" V 4825 1600 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" H 4825 1600 50  0001 C CNN
+F 3 "" H 4825 1600 50  0001 C CNN
+	1    4825 1600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4500 1600 4575 1600
+Wire Wire Line
+	5075 1600 5125 1600
+$Comp
+L PWR_FLAG #FLG05
+U 1 1 5A0AF44A
+P 3425 1500
+F 0 "#FLG05" H 3425 1575 50  0001 C CNN
+F 1 "PWR_FLAG" H 3425 1650 50  0000 C CNN
+F 2 "" H 3425 1500 50  0001 C CNN
+F 3 "" H 3425 1500 50  0001 C CNN
+	1    3425 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC2 #PWR06
+U 1 1 5A0AF48A
+P 3425 1500
+F 0 "#PWR06" H 3425 1350 50  0001 C CNN
+F 1 "VCC2" H 3425 1650 50  0000 C CNN
+F 2 "" H 3425 1500 50  0001 C CNN
+F 3 "" H 3425 1500 50  0001 C CNN
+	1    3425 1500
+	-1   0    0    1   
+$EndComp
+$Comp
+L PWR_FLAG #FLG07
+U 1 1 5A0AF49D
+P 3700 1500
+F 0 "#FLG07" H 3700 1575 50  0001 C CNN
+F 1 "PWR_FLAG" H 3700 1650 50  0000 C CNN
+F 2 "" H 3700 1500 50  0001 C CNN
+F 3 "" H 3700 1500 50  0001 C CNN
+	1    3700 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND2 #PWR08
+U 1 1 5A0AF4BA
+P 3700 1500
+F 0 "#PWR08" H 3700 1250 50  0001 C CNN
+F 1 "GND2" H 3700 1350 50  0000 C CNN
+F 2 "" H 3700 1500 50  0001 C CNN
+F 3 "" H 3700 1500 50  0001 C CNN
+	1    3700 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR09
+U 1 1 5A0AF51B
+P 3375 2075
+F 0 "#PWR09" H 3375 1925 50  0001 C CNN
+F 1 "VCC" H 3375 2225 50  0000 C CNN
+F 2 "" H 3375 2075 50  0001 C CNN
+F 3 "" H 3375 2075 50  0001 C CNN
+	1    3375 2075
+	-1   0    0    1   
+$EndComp
+$Comp
+L PWR_FLAG #FLG010
+U 1 1 5A0AF52C
+P 3375 2075
+F 0 "#FLG010" H 3375 2150 50  0001 C CNN
+F 1 "PWR_FLAG" H 3375 2225 50  0000 C CNN
+F 2 "" H 3375 2075 50  0001 C CNN
+F 3 "" H 3375 2075 50  0001 C CNN
+	1    3375 2075
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG011
+U 1 1 5A0AF54F
+P 3725 2075
+F 0 "#FLG011" H 3725 2150 50  0001 C CNN
+F 1 "PWR_FLAG" H 3725 2225 50  0000 C CNN
+F 2 "" H 3725 2075 50  0001 C CNN
+F 3 "" H 3725 2075 50  0001 C CNN
+	1    3725 2075
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR012
+U 1 1 5A0AF560
+P 3725 2075
+F 0 "#PWR012" H 3725 1825 50  0001 C CNN
+F 1 "GND" H 3725 1925 50  0000 C CNN
+F 2 "" H 3725 2075 50  0001 C CNN
+F 3 "" H 3725 2075 50  0001 C CNN
+	1    3725 2075
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x02 J1
+U 1 1 5A0AF658
+P 6500 2575
+F 0 "J1" H 6500 2675 50  0000 C CNN
+F 1 "Conn_01x02" H 6500 2375 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x02_Pitch2.54mm" H 6500 2575 50  0001 C CNN
+F 3 "" H 6500 2575 50  0001 C CNN
+	1    6500 2575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x02 J2
+U 1 1 5A0AF6C0
+P 7250 2575
+F 0 "J2" H 7250 2675 50  0000 C CNN
+F 1 "Conn_01x02" H 7250 2375 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x02_Pitch2.54mm" H 7250 2575 50  0001 C CNN
+F 3 "" H 7250 2575 50  0001 C CNN
+	1    7250 2575
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC2 #PWR013
+U 1 1 5A0AF6F8
+P 6300 2575
+F 0 "#PWR013" H 6300 2425 50  0001 C CNN
+F 1 "VCC2" H 6300 2725 50  0000 C CNN
+F 2 "" H 6300 2575 50  0001 C CNN
+F 3 "" H 6300 2575 50  0001 C CNN
+	1    6300 2575
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND2 #PWR014
+U 1 1 5A0AF70F
+P 6300 2675
+F 0 "#PWR014" H 6300 2425 50  0001 C CNN
+F 1 "GND2" H 6300 2525 50  0000 C CNN
+F 2 "" H 6300 2675 50  0001 C CNN
+F 3 "" H 6300 2675 50  0001 C CNN
+	1    6300 2675
+	0    1    1    0   
+$EndComp
+$Comp
+L VCC #PWR015
+U 1 1 5A0AF738
+P 7050 2575
+F 0 "#PWR015" H 7050 2425 50  0001 C CNN
+F 1 "VCC" H 7050 2725 50  0000 C CNN
+F 2 "" H 7050 2575 50  0001 C CNN
+F 3 "" H 7050 2575 50  0001 C CNN
+	1    7050 2575
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR016
+U 1 1 5A0AF767
+P 7050 2675
+F 0 "#PWR016" H 7050 2425 50  0001 C CNN
+F 1 "GND" H 7050 2525 50  0000 C CNN
+F 2 "" H 7050 2675 50  0001 C CNN
+F 3 "" H 7050 2675 50  0001 C CNN
+	1    7050 2675
+	0    1    1    0   
+$EndComp
+$EndSCHEMATC
