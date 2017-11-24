@@ -83,3 +83,5 @@ uVia Drill -> 0.1
 Go on left side and select Vcc/5v/3.3v/GND and let them use Power Net Class.
 
 
+Generate good looking PCB artwork from KiCAD 
+- https://onetransistor.blogspot.kr/2017/04/kicad-pcb-artwork-display.html?m=1
