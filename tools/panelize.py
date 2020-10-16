@@ -1,24 +1,28 @@
 #!/usr/bin/python3
 #
 # This file is part of Tin's Kicad Tools.
-# Copyright (c) 2016, Martin Furter
+# Copyright (c) 2016, Martin Furter <mf@borg.ch>
 # All rights reserved.
-# 
+#
+# Homepage:  https://projects.borg.ch/electronics/kicad/panelize.html
+# SVN Repos: https://repos.borg.ch/projects/kicad/trunk/tools
+#
 # ANY-LICENSE:
 # You can use this software under any license approved by the
 # Open Source Initiative as long as the license you choose is
 # compatible to the dependencies of Tin's Kicad Tools.
-# 
+#
 # See http://www.opensource.org/licenses/ for a list of
 # approved licenses.
-# 
+#
 #-------------------------------------------------------------------------------
 
+import math
 import sys
 import traceback
 
-__version__ = "3.0.0"
-__revision__ = "$Rev: 881 $ unkown".split()[1]
+__version__ = "3.1.6"
+__revision__ = "$Rev: 998 $ unkown".split()[1]
 
 
 kicad_versions = (
@@ -29,10 +33,22 @@ kicad_versions = (
 compat_4_0_5 = kicad_versions.index( "4.0.5" )
 
 
+def check_instance( inst, cls ):
+	if isinstance( inst, cls ):
+		return
+	cname = cls.__name__
+	iname = type(inst).__name__
+	raise Exception( "Expected class '%s' but got an instance of '%s'." %
+			( cname, iname ) )
+
+
 class KicadObj:
 
 	def __init__( self, name ):
 		self.obj_name = name
+
+	def clone( self ):
+		raise Exception( "KicadObj.clone() has not been overridden by '%s'" % self.__class__.__name__ )
 
 	def tag_start( self, factory, name ):
 		factory.parse_error( "unexpected tag '%s' in '%s'" % ( name, self.obj_name ) )
@@ -64,12 +80,38 @@ class KicadFatObj( KicadObj ):
 		self.object_type_dict = {}
 		for ot in object_types:
 			if type(ot) is tuple:
-				name = ot[0]
+				typename = ot[0]
 			else:
-				name = ot.obj_name
-				setattr( self, name, ot )
-			self.object_type_names.append( name )
-			self.object_type_dict[name] = ot
+				typename = ot.obj_name
+				setattr( self, typename, ot )
+			self.object_type_names.append( typename )
+			self.object_type_dict[typename] = ot
+
+	def clone( self ):
+		obj = type(self)( self.obj_name )
+		for typename, ot in self.object_type_dict.items():
+			if type(ot) == tuple:
+				v = ot[1]
+			else:
+				v = getattr( self, typename )
+			v = self.clone_obj( v )
+			setattr( obj, typename, v )
+		return obj
+
+	def clone_obj( self, obj ):
+		if obj == None:
+			return obj
+		if isinstance( obj, KicadObj ):
+			return obj.clone()
+		t = type(obj)
+		if t in ( int, str ):
+			return obj
+		if t is list:
+			l = []
+			for o in obj:
+				l.append( self.clone_obj( o ) )
+			return l
+		raise Exception( "don't know how to clone a '%s'." % type(obj).__name__ )
 
 	def tag_start( self, factory, name ):
 		if name in self.object_type_dict:
@@ -92,8 +134,7 @@ class KicadFatObj( KicadObj ):
 	def set( self, name, value ):
 		if name in self.object_type_dict:
 			ot = self.object_type_dict[name]
-			if not issubclass( ot.__class__, KicadObj ):
-				raise Exception( "set(): invalid object type" )
+			check_instance( ot, KicadObj )
 			self.object_type_dict[name] = value
 		setattr( self, name, value )
 
@@ -129,7 +170,10 @@ class Int( KicadObj ):
 		self.value = value
 
 	def tag_value( self, factory, value ):
-		self.value = int(value)
+		try:
+			self.value = int(value)
+		except:
+			factory.parse_error( "invalid value '%s' for int '%s'" % ( value, self.obj_name ) )
 
 	def clone( self ):
 		return Int( self.obj_name, self.value )
@@ -153,7 +197,10 @@ class Float( KicadObj ):
 		self.value = value
 
 	def tag_value( self, factory, value ):
-		self.value = float(value)
+		try:
+			self.value = float(value)
+		except:
+			factory.parse_error( "invalid value '%s' for float '%s'" % ( value, self.obj_name ) )
 
 	def clone( self ):
 		return Float( self.obj_name, self.value )
@@ -307,6 +354,29 @@ class Vector( KicadObj ):
 	def unrot( self ):
 		return self
 
+	def get_angle( self ):
+		return 0
+
+	def rotate( self, angle ):
+		x = self.x
+		y = self.y
+		if angle == 0:
+			pass
+		elif angle == 90:
+			x, y = y, -x
+		elif angle == 180:
+			x, y = -x, -y
+		elif angle == 270:
+			x, y = -y, x
+		else:
+			# +++ sin/cos???
+			# raise Exception( "unsupported angle" )
+			ra = math.radians( angle )
+			sa = math.sin( ra )
+			ca = math.cos( ra )
+			x, y = x * ca + y * sa, x * sa - y * ca
+		return Vector( self.obj_name, x, y )
+
 
 class VectorAngle( Vector ):
 
@@ -332,7 +402,7 @@ class VectorAngle( Vector ):
 	def write_contents( self, writer ):
 		writer.write_float( self.x )
 		writer.write_float( self.y )
-		if self.a != None:
+		if self.a != None and self.a != 0:
 			writer.write_float( self.a )
 
 	def __add__( self, v ):
@@ -351,20 +421,24 @@ class VectorAngle( Vector ):
 		return "%f/%f@%f" % ( self.x, self.y, self.a )
 
 	def unrot( self ):
-		x = self.x
-		y = self.y
-		if self.a == 0:
-			pass
-		elif self.a == 90:
-			x, y = y, -x
-		elif self.a == 180:
-			x, y = -x, -y
-		elif self.a == 270:
-			x, y = -y, x
-		else:
-			# +++ sin/cos???
-			raise Exception( "unsupported angle" )
-		return Vector( self.obj_name, x, y )
+		#x = self.x
+		#y = self.y
+		#if self.a == 0:
+		#	pass
+		#elif self.a == 90:
+		#	x, y = y, -x
+		#elif self.a == 180:
+		#	x, y = -x, -y
+		#elif self.a == 270:
+		#	x, y = -y, x
+		#else:
+		#	# +++ sin/cos???
+		#	raise Exception( "unsupported angle" )
+		#return Vector( self.obj_name, x, y )
+		return self.rotate( self.a )
+
+	def get_angle( self ):
+		return self.a or 0
 
 
 class Vector3D( Vector ):
@@ -454,17 +528,17 @@ class Area( KicadObj ):
 				vect.y <= self.vector2.y)
 
 	def __add__( self, v ):
-		if issubclass( v.__class__, Vector ):
+		if isinstance( v, Vector ):
 			return Area( self.obj_name, self.vector1 + v, self.vector2 + v )
-		elif issubclass( v.__class__, Area ):
+		elif isinstance( v, Area ):
 			return Area( self.obj_name, self.vector1 + v, self.vector2 + v )
 		else:
 			raise Exception( "invalid class" )
 
 	def __sub__( self, v ):
-		if issubclass( v.__class__, Vector ):
+		if isinstance( v, Vector ):
 			return Area( self.obj_name, self.vector1 - v, self.vector2 - v )
-		elif issubclass( v.__class__, Area ):
+		elif isinstance( v, Area ):
 			return Area( self.obj_name, self.vector1 - v.vector1, self.vector2 - v.vector2 )
 		else:
 			raise Exception( "invalid class" )
@@ -495,6 +569,32 @@ class List( KicadObj ):
 		for value in self.values:
 			writer.write_text( value )
 
+class Keepout( KicadFatObj ):
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			Text( "tracks" ),
+			Text( "vias" ),
+			Text( "copperpour" ),
+		) )
+		self.opt = None
+
+	def tag_value( self, factory, value ):
+		if self.opt == None:
+			self.opt = value
+		else:
+			factory.parse_error( "too many values for '%s'" % self.obj_name )
+
+	def write_contents( self, writer ):
+		if self.opt != None:
+			writer.write_text( self.opt )
+		self.write_objects( writer, (
+			"tracks",
+			"vias",
+			"copperpour",
+		), False )
+
+	def is_set( self ):
+		return self.tracks.is_set() and self.vias.is_set() and self.copperpour.is_set()
 
 class Fill( KicadFatObj ):
 
@@ -511,14 +611,6 @@ class Fill( KicadFatObj ):
 			self.opt = value
 		else:
 			factory.parse_error( "too many values for '%s'" % self.obj_name )
-
-	def clone( self ):
-		obj = Fill( self.obj_name )
-		obj.opt = self.opt
-		obj.set( "arc_segments", self.arc_segments.clone() )
-		obj.set( "thermal_gap", self.thermal_gap.clone() )
-		obj.set( "thermal_bridge_width", self.thermal_bridge_width.clone() )
-		return obj
 
 	def write_contents( self, writer ):
 		if self.opt != None:
@@ -544,12 +636,6 @@ class ConnectPads( KicadFatObj ):
 		else:
 			factory.parse_error( "too many values for '%s'" % self.obj_name )
 
-	def clone( self ):
-		obj = ConnectPads( self.obj_name )
-		obj.opt = self.opt
-		obj.set( "clearance", self.clearance.clone() )
-		return obj
-
 	def write_contents( self, writer ):
 		if self.opt != None:
 			writer.write_text( self.opt )
@@ -570,7 +656,9 @@ class Zone( KicadFatObj ):
 			List( "hatch" ),
 			ConnectPads( "connect_pads" ),
 			Float( "min_thickness" ),
+			Keepout( "keepout" ),
 			Fill( "fill" ),
+			Int( "priority"),
 			( "polygon", self.polygons, ListOfPoints ),
 			( "filled_polygon", self.polygons, ListOfPoints ),
 		) )
@@ -588,6 +676,12 @@ class Zone( KicadFatObj ):
 			"fill",
 			"polygon",
 		), False )
+		if self.keepout.is_set():
+			writer.newline()
+			self.write_objects( writer, ( "keepout", ), False)
+		if self.priority.is_set():
+			writer.newline()
+			self.write_objects( writer, ( "priority", ), False)
 
 	def is_inside( self, area ):
 		for poly in self.polygons:
@@ -605,6 +699,8 @@ class Zone( KicadFatObj ):
 		obj.set( "hatch", self.hatch.clone() )
 		obj.set( "connect_pads", self.connect_pads.clone() )
 		obj.set( "min_thickness", self.min_thickness.clone() )
+		obj.set( "keepout", self.keepout.clone() )
+		obj.set( "priority", self.priority.clone() )
 		obj.set( "fill", self.fill.clone() )
 		for p in self.polygons:
 			obj.polygons.append( p.copy( trans ) )
@@ -621,6 +717,7 @@ class Via( KicadFatObj ):
 			List( "layers" ),
 			Int( "net" ),
 			Text( "tstamp" ),
+			Text( "status" ),
 		) )
 
 	def is_inside( self, area ):
@@ -634,6 +731,7 @@ class Via( KicadFatObj ):
 		obj.set( "layers", self.layers.clone() )
 		obj.set( "net", trans.net( self.net ) )
 		obj.set( "tstamp", self.tstamp.clone() )
+		obj.set( "status", self.status.clone() )
 		return obj
 
 
@@ -661,7 +759,7 @@ class Segment( KicadFatObj ):
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "net", trans.net( self.net ) )
 		obj.set( "tstamp", self.tstamp.clone() )
-		obj.set( "status", self.tstamp.clone() )
+		obj.set( "status", self.status.clone() )
 		return obj
 
 
@@ -699,6 +797,14 @@ class ListOfPoints( KicadObj ):
 	def write( self, writer ):
 		n = len(self.points)
 		writer.begin( self.obj_name )
+		self._write(writer)
+		writer.end()
+		if n > 2:
+			writer.newline()
+
+	def _write( self, writer ):
+		n = len(self.points)
+		#writer.begin( self.obj_name )
 		if n > 2:
 			writer.newline()
 		writer.begin( "pts" )
@@ -714,9 +820,9 @@ class ListOfPoints( KicadObj ):
 		writer.end()
 		if n > 2:
 			writer.newline()
-		writer.end()
-		if n > 2:
-			writer.newline()
+		#writer.end()
+		#if n > 2:
+		#	writer.newline()
 
 	def is_inside( self, area ):
 		for p in self.points:
@@ -729,6 +835,13 @@ class ListOfPoints( KicadObj ):
 		obj.pts_started = False
 		for p in self.points:
 			obj.points.append( trans.vector( p ) )
+		return obj
+
+	def _copy(self):
+		obj = ListOfPoints( self.obj_name )
+		obj.pts_started = False
+		for p in self.points:
+			obj.points.append( p )
 		return obj
 
 
@@ -777,6 +890,29 @@ class Dimension( KicadFatObj ):
 		), False )
 
 
+class GrCircle( KicadFatObj ):
+
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			Vector( "center" ),
+			Vector( "end" ),
+			Text( "layer" ),
+			Float( "width" ),
+			Text( "tstamp" ),
+		) )
+
+	def is_inside( self, area ):
+		return area.is_inside( self.center )
+
+	def copy( self, trans ):
+		obj = GrCircle( self.obj_name )
+		obj.set( "center", trans.vector( self.center ) )
+		obj.set( "end", trans.vector( self.end ) )
+		obj.set( "layer", trans.layer( self.layer ) )
+		obj.set( "width", self.width.clone() )
+		return obj
+
+
 class GrArc( KicadFatObj ):
 
 	def __init__( self, name ):
@@ -796,7 +932,7 @@ class GrArc( KicadFatObj ):
 		obj = GrArc( self.obj_name )
 		obj.set( "start", trans.vector( self.start ) )
 		obj.set( "end", trans.vector( self.end ) )
-		obj.set( "angle", self.angle.clone() )
+		obj.set( "angle", trans.arc_angle( self.angle ) )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "width", self.width.clone() )
 		obj.set( "tstamp", self.tstamp.clone() )
@@ -892,11 +1028,9 @@ class FpArc( KicadFatObj ):
 
 	def copy( self, trans ):
 		obj = FpArc( self.obj_name )
-		# obj.set( "start", trans.rel_vector( self.start ) )
-		# obj.set( "end", trans.rel_vector( self.end ) )
-		obj.set( "start", self.start.clone() )
-		obj.set( "end", self.end.clone() )
-		obj.set( "angle", self.angle.clone() )
+		obj.set( "start", trans.add_flip_rot( self.start ) )
+		obj.set( "end", trans.add_flip_rot( self.end ) )
+		obj.set( "angle", trans.arc_angle( self.angle ) )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "width", self.width.clone() )
 		return obj
@@ -922,10 +1056,8 @@ class FpCircle( KicadFatObj ):
 
 	def copy( self, trans ):
 		obj = FpCircle( self.obj_name )
-		# obj.set( "center", trans.rel_vector( self.center ) )
-		# obj.set( "end", trans.rel_vector( self.end ) )
-		obj.set( "center", self.center.clone() )
-		obj.set( "end", self.end.clone() )
+		obj.set( "center", trans.add_flip_rot( self.center ) )
+		obj.set( "end", trans.add_flip_rot( self.end ) )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "width", self.width.clone() )
 		return obj
@@ -951,10 +1083,36 @@ class FpLine( KicadFatObj ):
 
 	def copy( self, trans ):
 		obj = FpLine( self.obj_name )
-		# obj.set( "start", trans.rel_vector( self.start ) )
-		# obj.set( "end", trans.rel_vector( self.end ) )
-		obj.set( "start", self.start.clone() )
-		obj.set( "end", self.end.clone() )
+		obj.set( "start", trans.add_flip_rot( self.start ) )
+		obj.set( "end", trans.add_flip_rot( self.end ) )
+		obj.set( "layer", trans.layer( self.layer ) )
+		obj.set( "width", self.width.clone() )
+		return obj
+
+
+class FpPoly( KicadFatObj ):
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			ListOfPoints("pts"),
+			Text( "layer" ),
+			Float( "width" ),
+		) )
+		self.pts.pts_started= True # Reuse code of ListOfPoints
+
+
+	def write( self, writer ):
+		writer.begin( self )
+		self.pts._write(writer)
+		self.write_objects( writer, (
+			"layer", "width",
+		), False )
+		writer.end()
+
+	def copy( self, trans ):
+		obj = FpPoly( self.obj_name )
+		#obj.set( "pts", self.pts.copy(trans) )
+		#obj.set( "pts", self.pts._copy() )
+		obj.set( "pts", self.pts.copy(transformer_none) )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "width", self.width.clone() )
 		return obj
@@ -1000,9 +1158,7 @@ class FpText( KicadFatObj ):
 		obj.set( "kind", self.kind )
 		obj.set( "name", self.name )
 		obj.set( "hide", self.hide )
-		obj.set( "at", trans.add_rotation( self.at ) )
-		# obj.set( "at", trans.rel_vector( self.at ) )
-		# obj.set( "at", self.at.clone() )
+		obj.set( "at", trans.add_flip_rot( self.at ) )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "effects", self.effects.copy( trans ) )
 		return obj
@@ -1014,17 +1170,28 @@ class Font( KicadFatObj ):
 		KicadFatObj.__init__( self, name, (
 			Vector( "size" ),
 			Float( "thickness" ),
+			# Flag( "italic" ),
 		) )
+		self.italic = False
+
+	def tag_value( self, factory, value ):
+		if value == "italic":
+			self.italic = True
+		else:
+			raise Exception( "Font.tag_value( '%s' )." % value )
 
 	def write( self, writer ):
 		writer.begin( self )
 		self.write_objects( writer, ( "size", "thickness" ), False )
+		if self.italic:
+			writer.write_text( "italic" )
 		writer.end()
 
 	def copy( self, trans ):
 		obj = Font( self.obj_name )
 		obj.set( "size", self.size.clone() )
 		obj.set( "thickness", self.thickness.clone() )
+		obj.italic = self.italic
 		return obj
 
 
@@ -1069,16 +1236,75 @@ class Effects( KicadFatObj ):
 		return obj
 
 
+class Drill( KicadFatObj ):
+
+	def __init__( self, name ):
+		KicadFatObj.__init__( self, name, (
+			Vector( "offset" ),
+		) )
+		self.shape = None
+		self.size = None
+		self.sizeh = None 
+
+	def tag_value( self, factory, value ):
+		if self.size == None and self.shape == None: # LDV
+			if value == "oval":
+				self.shape = value
+			else:
+				self.size = value
+		elif self.shape == "oval":
+			if self.size == None:
+				self.size = value
+			elif self.sizeh == None:
+				self.sizeh = value
+			else:
+				factory.parse_error( " too many values for '%s'" % self.obj_name)
+		else:
+			factory.parse_error( " too many values for '%s'" % self.obj_name)
+
+	def write( self, writer ):
+		if self.size or self.offset.is_set():
+			writer.begin( self )
+			if self.shape:
+				writer.write_text( self.shape )
+			if self.size:
+				writer.write_text( self.size )
+			if self.sizeh:
+				writer.write_text( self.sizeh )
+			if self.offset.is_set():
+				self.write_obj( writer, "offset", False )
+			writer.end()
+
+	def copy( self, trans ):
+		obj = Drill( self.obj_name )
+		if self.offset.x != None:
+			obj.set( "offset", trans.add_flip_rot( self.offset ) )
+		if self.shape == None and self.size != None:
+			obj.set( "size", self.size )
+		if self.shape == "oval" and self.size != None and self.sizeh != None:
+			obj.set( "shape", self.shape )
+			obj.set( "size", self.size )
+			obj.set( "sizeh", self.sizeh )
+		return obj
+
+
 class Pad( KicadFatObj ):
 
 	def __init__( self, name ):
 		KicadFatObj.__init__( self, name, (
 			VectorAngle( "at" ),
 			Vector( "size" ),
-			Float( "drill" ),
+			Vector( "rect_delta" ),
+			Drill( "drill" ),
 			List( "layers" ),
-			Float( "clearance" ),
+			Float( "roundrect_rratio" ),
 			Net( "net" ),
+			Float( "solder_mask_margin" ),
+			Float( "solder_paste_margin" ),
+			Float( "solder_paste_margin_ratio" ),
+			Float( "clearance" ),
+			Float( "thermal_width" ),
+			Float( "thermal_gap" ),
 			Int( "zone_connect" ),
 		) )
 		self.nr = None
@@ -1106,12 +1332,15 @@ class Pad( KicadFatObj ):
 			"drill",
 			"layers",
 		), False )
+		if self.rect_delta.is_set():
+			self.write_objects( writer, ("rect_delta",), False )
 		# +++++ if net.is_set() or zone_connect.is_set()
 		#if self.get_obj( "net" ).is_set() or self.get_obj( "zone_connect" ).is_set()
 		#if self.obj_is_set( "net" ) or self.obj_is_set( "zone_connect" ):
 		if self.clearance.is_set() or self.net.is_set() or self.zone_connect.is_set():
 			writer.newline()
 			self.write_objects( writer, (
+				"solder_mask_margin",
 				"clearance",
 				"net",
 				"zone_connect",
@@ -1123,11 +1352,10 @@ class Pad( KicadFatObj ):
 		obj.set( "nr", self.nr )
 		obj.set( "kind", self.kind )
 		obj.set( "shape", self.shape )
-		# obj.set( "at", trans.rel_vector( self.at ) )
-		# obj.set( "at", self.at.clone() )
-		obj.set( "at", trans.add_rotation( self.at ) )
+		obj.set( "at", trans.add_flip_rot( self.at ) )
 		obj.set( "size", self.size.clone() )
-		obj.set( "drill", self.drill.clone() )
+		obj.set( "drill", self.drill.copy( trans ) )
+		obj.set( "rect_delta", self.rect_delta.clone() )
 		for layer in self.layers.values:
 			obj.layers.values.append( trans.layer( layer ) )
 		obj.set( "clearance", self.clearance.clone() )
@@ -1148,7 +1376,9 @@ class Model( KicadFatObj ):
 
 	def __init__( self, name ):
 		KicadFatObj.__init__( self, name, (
+			# is 'at' and 'offset' the same?
 			NamedVector3D( "at" ),
+			NamedVector3D( "offset" ),
 			NamedVector3D( "scale" ),
 			NamedVector3D( "rotate" ),
 		) )
@@ -1175,8 +1405,7 @@ class Model( KicadFatObj ):
 class Module( KicadFatObj ):
 
 	def __init__( self, name ):
-		self.texts = []
-		self.lines = []
+		self.graphics = []
 		self.pads = []
 		KicadFatObj.__init__( self, name, (
 			Text( "layer" ),
@@ -1186,25 +1415,37 @@ class Module( KicadFatObj ):
 			Text( "descr" ),
 			Text( "tags" ),
 			Text( "path" ),
+			Float( "solder_mask_margin" ),
+			Float( "clearance" ),
 			Text( "attr" ),
-			( "fp_text", self.texts, FpText ),
-			( "fp_line", self.lines, FpLine ),
-			( "fp_circle", self.lines, FpCircle ),
-			( "fp_arc", self.lines, FpArc ),
+			Int( "zone_connect" ),
+			Int( "autoplace_cost180" ),
+			Int( "autoplace_cost90" ),
+			( "fp_text", self.graphics, FpText ),
+			( "fp_line", self.graphics, FpLine ),
+			( "fp_circle", self.graphics, FpCircle ),
+			( "fp_arc", self.graphics, FpArc ),
+			( "fp_poly", self.graphics, FpPoly),
+			( "fp_curve", self.graphics, FpPoly),
 			( "pad", self.pads, Pad ),
 			Model( "model" ),
 		) )
 		self.name = None
+		self.locked = None
 
 	def tag_value( self, factory, value ):
 		if self.name == None:
 			self.name = value
+		elif self.locked == None:
+			self.locked = value
 		else:
 			factory.parse_error( "too many values for '%s'" % self.obj_name )
 
 	def write( self, writer ):
 		writer.begin( self )
 		writer.write_text( self.name )
+		if self.locked != None:
+			writer.write_text( self.locked )
 		self.write_objects( writer, (
 			"layer",
 			"tedit",
@@ -1214,24 +1455,54 @@ class Module( KicadFatObj ):
 			"descr",
 			"tags",
 			"path",
+			"solder_mask_margin",
+			"clearance",
 			"fp_text",
-			"fp_line",
 			"pad",
 		), False )
+
+		# extra fields
+		extra = ()
+		if self.zone_connect.is_set(): extra +=( "zone_connect" , )
+		if self.autoplace_cost90.is_set(): extra += ("autoplace_cost90" , )
+		if self.autoplace_cost180.is_set(): extra += ("autoplace_cost180" ,)
+		self.write_objects( writer, extra , False )
+
 		writer.end()
 		writer.newline( True )
 		writer.newline( True )
 
 	def is_inside( self, area ):
+		#p = False
+		#if self.name == "p_gen_conn:P_16_EDGE_PIN_HEADER":
+		#	p = True
+		#if p:
+		#	print( "%s\nArea: %s\nAt:   %s" % ( self.name, area, self.at ) )
 		area = area - self.at
+		#if p:
+		#	print( "A2:   %s" % area )
 		for pad in self.pads:
-			if not area.is_inside( pad.at.unrot() ):
+			# +++++ I believe unrot() is not needed here, at least removing
+			# it solves a bug. needs more testing...
+			# if not area.is_inside( pad.at.unrot() ):
+			#if p:
+			#	print( "Pad:  %s  (%s)" % ( pad.at, pad.nr ) )
+			pat = pad.at.rotate( self.at.get_angle() )
+			#if p:
+			#	print( "pat:  %s" % pat )
+			# if not area.is_inside( pad.at ):
+			if not area.is_inside( pat ):
+				#if p:
+				#	print( "False" )
 				return False
+		#if p:
+		#	print( "True" )
 		return True
 
 	def copy( self, trans ):
 		obj = Module( self.obj_name )
 		obj.set( "name", self.name )
+		obj.set( "locked", self.locked )
 		obj.set( "layer", trans.layer( self.layer ) )
 		obj.set( "tedit", self.tedit.clone() )
 		obj.set( "tstamp", self.tstamp.clone() )
@@ -1239,10 +1510,11 @@ class Module( KicadFatObj ):
 		obj.set( "descr", self.descr.clone() )
 		obj.set( "tags", self.tags.clone() )
 		obj.set( "path", self.path.clone() )
-		for text in self.texts:
-			obj.texts.append( text.copy( trans ) )
-		for line in self.lines:
-			obj.lines.append( line.copy( trans ) )
+		obj.set( "zone_connect", self.zone_connect.clone() )
+		obj.set( "autoplace_cost90", self.autoplace_cost90.clone() )
+		obj.set( "autoplace_cost180", self.autoplace_cost180.clone() )
+		for graphic in self.graphics:
+			obj.graphics.append( graphic.copy( trans ) )
 		for pad in self.pads:
 			obj.pads.append( pad.copy( trans ) )
 		return obj
@@ -1333,6 +1605,9 @@ class PcbPlotParams( KicadFatObj ):
 		KicadFatObj.__init__( self, name, (
 			Text( "layerselection" ),
 			Bool( "usegerberextensions" ),
+			Bool( "usegerberattributes" ),
+			Bool( "usegerberadvancedattributes" ),
+			Bool( "creategerberjobfile" ),
 			Bool( "excludeedgelayer" ),
 			Float( "linewidth" ),
 			Bool( "plotframeref" ),
@@ -1341,7 +1616,7 @@ class PcbPlotParams( KicadFatObj ):
 			Bool( "useauxorigin" ),
 			Int( "hpglpennumber" ),
 			Int( "hpglpenspeed" ),
-			Int( "hpglpendiameter" ),
+			Float( "hpglpendiameter" ),
 			Int( "hpglpenoverlay" ),
 			Bool( "psnegative" ),
 			Bool( "psa4output" ),
@@ -1404,9 +1679,11 @@ class Setup( KicadFatObj ):
 
 	def __init__( self, name ):
 		self.user_trace_width = []
+		self.user_via = []
 		KicadFatObj.__init__( self, name, (
 			Float( "last_trace_width" ),
 			( "user_trace_width", self.user_trace_width, Float ),
+			( "user_via", self.user_via, Vector ),
 			Float( "trace_clearance" ),
 			Float( "zone_clearance" ),
 			YesNo( "zone_45_only" ),
@@ -1430,6 +1707,7 @@ class Setup( KicadFatObj ):
 			Vector( "pad_size" ),
 			Float( "pad_drill" ),
 			Float( "pad_to_mask_clearance" ),
+			Float( "pad_to_paste_clearance" ),
 			Vector( "aux_axis_origin" ),
 			Vector( "grid_origin" ),
 			Text( "visible_elements" ),
@@ -1439,7 +1717,7 @@ class Setup( KicadFatObj ):
 	def init_defaults( self ):
 		self.last_trace_width.value = 0.25
 		self.user_trace_width.append( Float( "user_trace_width", 0.25 ) )
-		self.user_trace_width.append( Float( "user_trace_width", 0.5 ) )
+		self.user_via.append( Vector( "user_via", 0.6, 0.3 ) )
 		self.trace_clearance.value = 0.2
 		self.zone_clearance.value = 0.3
 		self.zone_45_only.value = False
@@ -1466,6 +1744,7 @@ class Setup( KicadFatObj ):
 		self.pad_size.y = 1.5
 		self.pad_drill.value = 0.6
 		self.pad_to_mask_clearance.value = 0.0
+		self.pad_to_paste_clearance.value = 0.0
 		self.aux_axis_origin.x = 0.0
 		self.aux_axis_origin.y = 0.0
 		self.grid_origin.x = 0.0
@@ -1477,7 +1756,7 @@ class Setup( KicadFatObj ):
 		writer.begin( self )
 		writer.newline()
 		self.write_objects( writer, (
-			"last_trace_width", "user_trace_width",
+			"last_trace_width", "user_trace_width", "user_via",
 			"trace_clearance", "zone_clearance", "zone_45_only",
 			"trace_min", "segment_width", "edge_width", "via_size",
 			"via_drill", "via_min_size", "via_min_drill", "uvia_size",
@@ -1485,8 +1764,8 @@ class Setup( KicadFatObj ):
 			"uvia_min_drill", "pcb_text_width", "pcb_text_size",
 			"mod_edge_width", "mod_text_size", "mod_text_width",
 			"pad_size", "pad_drill", "pad_to_mask_clearance",
-			"aux_axis_origin", "grid_origin", "visible_elements",
-			"pcbplotparams"
+			"pad_to_paste_clearance", "aux_axis_origin", "grid_origin",
+			"visible_elements", "pcbplotparams"
 		) )
 		writer.newline()
 		writer.end()
@@ -1494,17 +1773,20 @@ class Setup( KicadFatObj ):
 
 class Layer( KicadObj ):
 
-	def __init__( self, nr, name=None, kind=None ):
+	def __init__( self, nr, name=None, kind=None, hide=None ):
 		KicadObj.__init__( self, nr )
 		self.nr = int(nr)
 		self.name = name
 		self.kind = kind
+		self.hide = hide
 
 	def tag_value( self, factory, value ):
 		if self.name == None:
 			self.name = value
 		elif self.kind == None:
 			self.kind = value
+		elif self.hide == None:
+			self.hide = value
 		else:
 			factory.parse_error( "too many values for '%s'" % self.obj_name )
 
@@ -1521,6 +1803,15 @@ class Layers( KicadObj ):
 		KicadObj.__init__( self, name )
 		self.layers = {}
 		self.names = {}
+		self.internal_layer_count = 0
+
+	def clone( self ):
+		obj = Layers( self.obj_name )
+		obj.layers = self.layers.copy()
+		obj.names = self.names.copy()
+		for layer in self.layers.values():
+			self.layer_added( layer )
+		return obj
 
 	def tag_start( self, factory, name ):
 		obj = Layer( name )
@@ -1529,6 +1820,7 @@ class Layers( KicadObj ):
 
 	def tag_end( self, factory, obj ):
 		self.names[obj.name] = obj
+		self.layer_added( obj )
 
 	def init_defaults( self ):
 		for nr, name, kind in (
@@ -1556,6 +1848,16 @@ class Layers( KicadObj ):
 			obj = Layer( nr, name, kind )
 			self.layers[obj.nr] = obj
 			self.names[obj.name] = obj
+			self.layer_added( obj )
+
+	def layer_added( self, obj ):
+		if obj.name.startswith( "In" ) and obj.name.endswith( ".Cu" ):
+			n = int( obj.name[2:-3] )
+			if n > self.internal_layer_count:
+				self.internal_layer_count = n
+
+	def get_internal_layer_count( self ):
+		return self.internal_layer_count
 
 	def write( self, writer ):
 		writer.begin( self )
@@ -1585,16 +1887,6 @@ class TitleBlock( KicadFatObj ):
 	def append( self, obj ):
 		i = int(obj.values[0])
 		self.comments[i-1] = obj.values[1]
-
-	def clone( self ):
-		obj = TitleBlock( self.obj_name )
-		obj.title = self.title.clone()
-		obj.date = self.date.clone()
-		obj.rev = self.rev.clone()
-		obj.company = self.company.clone()
-		for i in range( 0, 4 ):
-			obj.comments[i] = self.comments[i]
-		return obj
 
 	def write( self, writer ):
 		writer.begin( self )
@@ -1683,24 +1975,41 @@ class NetsList:
 
 class KicadPcb( KicadFatObj ):
 
-	def __init__( self, name ):
+	def __init__( self, name, template=None ):
 		self.nets = NetsList()
 		self.net_classes = []
 		self.modules = []
 		self.graphics = []
 		self.segments = []
 		self.zones = []
+		if template == None:
+			version = Int( "version" )
+			host = List( "host" )
+			general = General( "general" )
+			page = Text( "page" )
+			title_block = TitleBlock( "title_block" )
+			layers = Layers( "layers" )
+			setup = Setup( "setup" )
+		else:
+			version = template.version.clone()
+			host = template.host.clone()
+			general = template.general.clone()
+			page = template.page.clone()
+			title_block = template.title_block.clone()
+			layers = template.layers.clone()
+			setup = template.setup.clone()
 		KicadFatObj.__init__( self, name, (
-			Int( "version" ),
-			List( "host" ),
-			General( "general" ),
-			Text( "page" ),
-			TitleBlock( "title_block" ),
-			Layers( "layers" ),
-			Setup( "setup" ),
+			version,
+			host,
+			general,
+			page,
+			title_block,
+			layers,
+			setup,
 			( "net", self.nets, Net ),
 			( "net_class", self.net_classes, NetClass ),
 			( "module", self.modules, Module ),
+			( "gr_circle", self.graphics, GrCircle ),
 			( "gr_arc", self.graphics, GrArc ),
 			( "gr_line", self.graphics, GrLine ),
 			( "gr_text", self.graphics, GrText ),
@@ -1712,6 +2021,9 @@ class KicadPcb( KicadFatObj ):
 
 	def finished_loading( self ):
 		pass
+
+	def get_internal_layer_count( self ):
+		return self.layers.get_internal_layer_count()
 
 	def write( self, writer ):
 		writer.begin( self )
@@ -1750,7 +2062,7 @@ class KicadPcb( KicadFatObj ):
 				if obj.is_inside( trans.src_area ):
 					dst_pcb.graphics.append( obj.copy( trans ) )
 		for obj in self.segments[:]:
-			if issubclass( obj.__class__, Segment ):
+			if isinstance( obj, Segment ):
 				if trans.accepts_layer( obj.layer ):
 					if obj.is_inside( trans.src_area ):
 						dst_pcb.segments.append( obj.copy( trans ) )
@@ -1782,7 +2094,7 @@ class Writer:
 		print( "wrote %s." % self.filename )
 
 	def begin( self, name ):
-		if issubclass( name.__class__, KicadObj ):
+		if isinstance( name, KicadObj ):
 			name = name.obj_name
 		if not self.do_indent():
 			self.ofd.write( " " )
@@ -1990,6 +2302,7 @@ class Transformer:
 		self.rotate = None
 		self.flip = None
 		self.clone_nets = True
+		self.swap_internal_layers = False
 		self.layer_filter_list = None
 		self.layer_filter_include = False
 		#
@@ -2021,11 +2334,17 @@ class Transformer:
 
 	def set_src_pcb( self, pcb ):
 		self.src_pcb = pcb
-		if self.dst_pcb == None:
+		if  self.dst_pcb == None:
 			self.dst_pcb = pcb
 
 	def set_dst_pcb( self, pcb ):
 		self.dst_pcb = pcb
+
+	def create_template( self ):
+		if self.src_pcb == None:
+			return False
+		self.dst_pcb = KicadPcb( self.src_pcb.obj_name, self.src_pcb )
+		return True
 
 	def set_src_area( self, area ):
 		self.src_area = area.clone().normalize()
@@ -2039,25 +2358,8 @@ class Transformer:
 	def set_flip( self, flip ):
 		self.flip = flip
 
-	def set_src_pcb( self, pcb ):
-		self.src_pcb = pcb
-		if self.dst_pcb == None:
-			self.dst_pcb = pcb
-
-	def set_dst_pcb( self, pcb ):
-		self.dst_pcb = pcb
-
-	def set_src_area( self, area ):
-		self.src_area = area.clone().normalize()
-
-	def set_dst_vector( self, vect ):
-		self.dst_vector = vect
-
-	def set_rotate( self, rotate ):
-		self.rotate = rotate
-
-	def set_flip( self, flip ):
-		self.flip = flip
+	def set_swap_internal_layers( self, swap_internal_layers ):
+		self.swap_internal_layers = swap_internal_layers
 
 	def recalculate( self ):
 		self.dx  = 0
@@ -2076,7 +2378,7 @@ class Transformer:
 		if self.rotate == 0:
 			if not self.flip:
 				# +x  --\  +x
-				# y   --/  y 
+				# y   --/  y
 				self.fxx = 1
 				self.fyy = 1
 				x = self.src_area.vector1.x
@@ -2112,7 +2414,7 @@ class Transformer:
 				x = self.src_area.vector2.x
 				y = self.src_area.vector2.y
 			else:
-				# +x  --\  y 
+				# +x  --\  y
 				# y   --/  +x
 				self.fxx = 1
 				self.fyy = -1
@@ -2120,15 +2422,15 @@ class Transformer:
 				y = self.src_area.vector2.y
 		elif self.rotate == 270:
 			if not self.flip:
-				# +x  --\  x 
-				# y   --/  +y 
+				# +x  --\  x
+				# y   --/  +y
 				self.fyx = -1
 				self.fxy = 1
 				x = self.src_area.vector2.x
 				y = self.src_area.vector1.y
 			else:
 				# +x  --\   x
-				# y   --/  y+ 
+				# y   --/  y+
 				self.fyx = -1
 				self.fxy = -1
 				x = self.src_area.vector2.x
@@ -2147,11 +2449,10 @@ class Transformer:
 		return self.src_area.is_inside( vect )
 
 	def rel_vector( self, vect ):
-		if not issubclass( vect.__class__, Vector ):
-			raise Exception( "unexpected class" )
+		check_instance( vect, Vector )
 		x = self.fxx * vect.x + self.fxy * vect.y
 		y = self.fyx * vect.x + self.fyy * vect.y
-		if issubclass( vect.__class__, VectorAngle ):
+		if isinstance( vect, VectorAngle ):
 			a = None
 			if vect.a != None:
 				a = self.fa * (vect.a - self.da)
@@ -2160,11 +2461,10 @@ class Transformer:
 		return Vector( vect.obj_name, x, y )
 
 	def vector( self, vect ):
-		if not issubclass( vect.__class__, Vector ):
-			raise Exception( "unexpected class" )
+		check_instance( vect, Vector )
 		x = self.fxx * vect.x + self.fxy * vect.y + self.dx
 		y = self.fyx * vect.x + self.fyy * vect.y + self.dy
-		if issubclass( vect.__class__, VectorAngle ):
+		if isinstance( vect, VectorAngle ):
 			a = None
 			if vect.a != None:
 				a = self.fa * (vect.a - self.da)
@@ -2173,19 +2473,37 @@ class Transformer:
 		return Vector( vect.obj_name, x, y )
 
 	def add_rotation( self, vect ):
-		if not issubclass( vect.__class__, Vector ):
-			raise Exception( "unexpected class" )
-		if not issubclass( vect.__class__, VectorAngle ):
+		check_instance( vect, Vector )
+		if not isinstance( vect, VectorAngle ):
 			return vect.clone()
 		a = self.fa * (vect.a - self.da)
 		a = (a + 720) % 360
 		return VectorAngle( vect.obj_name, vect.x, vect.y, a )
 
+	def add_flip_rot( self, vect ):
+		check_instance( vect, Vector )
+		v = vect.clone()
+		if isinstance( vect, VectorAngle ):
+			a = self.fa * (vect.a - self.da)
+			a = (a + 720) % 360
+			v.a = a
+		if self.flip:
+			v.x = -v.x
+		return v
+
+	def arc_angle( self, f ):
+		if not isinstance( f, Float ):
+			raise Exception( "unexpected class" )
+		f = f.clone()
+		if self.flip:
+			f.value = -f.value
+		return f
+
 	def accepts_layer( self, layer ):
 		if self.layer_filter_list == None:
 			return True
 		name = None
-		if issubclass( layer.__class__, Text ):
+		if isinstance( layer, Text ):
 			name = layer.value
 		else:
 			raise Exception( "unhandled class" )
@@ -2207,7 +2525,7 @@ class Transformer:
 		if type(layer) is int:
 			layer = self.src_pcb.layers.layers[layer].name
 			numeric = True
-		elif issubclass( layer.__class__, Text ):
+		elif isinstance( layer, Text ):
 			layer = layer.value
 			text = True
 		if self.flip:
@@ -2215,6 +2533,11 @@ class Transformer:
 				layer = "B." + layer[2:]
 			elif layer.startswith( "B." ):
 				layer = "F." + layer[2:]
+			elif layer.startswith( "In" ) and layer.endswith( ".Cu" ):
+				if self.swap_internal_layers:
+					n = int( layer[2:-3] )
+					n = self.src_pcb.get_internal_layer_count() - n + 1
+					layer = "In%d.Cu" % n
 		if numeric:
 			layer = self.dst_pcb.layers.names[layer].nr
 		elif text:
@@ -2226,11 +2549,11 @@ class Transformer:
 	def net( self, net ):
 		#if not self.clone_nets:
 		#	return net.clone()
-		if issubclass( net.__class__, Int ):
+		if isinstance( net, Int ):
 			nr = net.value
-		elif issubclass( net.__class__, Net ):
+		elif isinstance( net, Net ):
 			nr = net.nr
-		elif issubclass( net.__class__, Text ):
+		elif isinstance( net, Text ):
 			nr = self.src_pcb.nets.by_name[net.value].nr
 		else:
 			raise Exception( "unexpected class" )
@@ -2244,12 +2567,23 @@ class Transformer:
 			nr = self.dst_pcb.nets.by_name[newname].nr
 		else:
 			nr = self.dst_pcb.nets.create( newname )
-		if issubclass( net.__class__, Int ):
+		if isinstance( net, Int ):
 			return Int( net.obj_name, nr )
-		elif issubclass( net.__class__, Net ):
+		elif isinstance( net, Net ):
 			return Net( net.obj_name, nr, newname )
-		elif issubclass( net.__class__, Text ):
+		elif isinstance( net, Text ):
 			return Text( net.obj_name, newname )
+
+transformer_none = Transformer()
+
+
+class Variable:
+
+	def __init__( self, value ):
+		self.value = value
+
+	def __str__( self ):
+		return str(self.value)
 
 
 class Main:
@@ -2258,203 +2592,345 @@ class Main:
 		self.factory = KicadFactory()
 		self.trans = Transformer()
 		self.debugging = True
+		self.var_layer_name = Variable( "Edge.Cuts" )
+		self.var_line_thickness = Variable( 0.15 )
+		self.var_text_height = Variable( 1.5 )
+		self.var_text_width = Variable( 1.2 )
+		self.var_text_thickness = Variable( 0.15 )
 		self.cmd_defs = (
+			# 1. name
+			# 2. function
+			# 3. description of command
+			# 4. fixed arguments prepended to specified aguments
+			# 5. arguments, tuples of type, descr and default
 			(
 				"new",
 				self.new,
-				None,
-				None,
 				"Create a new empty destination PCB.",
+				None,
 				None,
 			),
 			(
 				"load",
 				self.load,
-				None,
-				( "string", ),
 				"Load the PCB from the specified file and use it as "
 				"\nsource. If no destination PCB exists this PCB also "
 				"\nbecomes the destination",
-				( "Filename", ),
+				None,
+				(
+					( "string", "Filename", None ),
+				),
 			),
 			(
 				"save",
 				self.save,
-				None,
-				( "string", ),
 				"Save the destination PCB to the specified file.",
-				( "Filename", ),
+				None,
+				(
+					( "string", "Filename", None ),
+				),
+			),
+			(
+				"create-template",
+				self.create_template,
+				"Create a template from the source PCB and set it"
+				"\nas destination PCB. The template will contain"
+				"\nonly the global configuration data of the source"
+				"\nPCB. Modules, traces, drawings. etc. will not"
+				"\nbe copied.",
+				None,
+				None,
 			),
 			(
 				"compat",
 				self.compat,
-				None,
-				( "string", ),
 				"Save files compatible to the specified kicad version.",
-				( "'%s'" % "', '".join( kicad_versions ), ),
+				None,
+				(
+					( "string", "'%s'" % "', '".join( kicad_versions ), None ),
+				),
 			),
 			(
 				"source-area",
 				self.source_area,
-				None,
-				( "float", "float", "float", "float", ),
 				"Copy set the source area.",
-				( "Left (X1)", "Top (Y1)", "Right (X2)", "Bottom (Y2)", ),
+				None,
+				(
+					( "float", "Left (X1)", None ),
+					( "float", "Top (Y1)", None ),
+					( "float", "Right (X2)", None ),
+					( "float", "Bottom (Y2)", None ),
+				),
 			),
 			(
 				"set-title",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The title of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-date",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The date of the PCB title block in the format YYYY-MM-DD.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-rev",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The rev of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-company",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The company of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-comment-1",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The comment 1 of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-comment-2",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The comment 2 of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-comment-3",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The comment 3 of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"set-comment-4",
 				self.set_title_block,
-				None,
-				( "string", ),
 				"The comment 4 of the PCB title block.",
-				( "string", ),
+				None,
+				(
+					( "string", "string", None ),
+				),
 			),
 			(
 				"clone-nets",
 				self.clone_nets,
-				None,
-				( "bool", ),
 				"Clone nets when set to true.",
-				( "bool", ),
+				None,
+				(
+					( "bool", "bool", None ),
+				),
 			),
 			(
 				"exclude-layer",
 				self.exclude_layer,
-				None,
-				( "string", ),
 				"Exclude the specified layer from copies."
-				"\nThis removes all included layers and adds the specified exclude.",
-				( "layer name", ),
+				"\nThis removes all included layers and adds"
+				"\nthe specified exclude.",
+				None,
+				(
+					( "string", "layer name", None ),
+				),
 			),
 			(
 				"include-layer",
 				self.include_layer,
-				None,
-				( "string", ),
 				"Include the specified layer in copies."
-				"\nThis removes all excluded layers and adds the specified include."
-				"The special name 'all' includes all layers.",
-				( "layer name", ),
+				"\nThis removes all excluded layers and adds"
+				"\nthe specified include. The special name 'all'"
+				"\nincludes all layers.",
+				None,
+				(
+					( "string", "layer name", None ),
+				),
+			),
+			(
+				"swap-internal-layers",
+				self.swap_internal_layers,
+				"Swap the internal copper layers in flipped copies.",
+				None,
+				(
+					( "bool", "swap", None ),
+				),
 			),
 			(
 				"copy",
 				self.copy,
-				( 0, False ),
-				( "float", "float" ),
 				"Copy the source area to the destination.",
-				( "destitnation X", "destination Y" ),
+				( 0, False ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
+			),
+			(
+				"grid-copy",
+				self.grid_copy,
+				"Copy the source area to an M*N grid at the destination.",
+				None,
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+					( "float", "grid distance X", None ),
+					( "float", "grid distance Y", None ),
+					( "int", "count of copies in X direction", None ),
+					( "int", "count of copies in Y direction", None ),
+					( "bool", "skip first copy if true", False ),
+				),
 			),
 			(
 				"rotate-right",
 				self.copy,
-				(  90, False ),
-				( "float", "float" ),
 				"Copy and rotate right.",
-				( "destitnation X", "destination Y" ),
+				(  90, False ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"rotate-180",
 				self.copy,
-				( 180, False ),
-				( "float", "float" ),
 				"Copy and rotate 180 degrees.",
-				( "destitnation X", "destination Y" ),
+				( 180, False ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"rotate-left",
 				self.copy,
-				( 270, False ),
-				( "float", "float" ),
 				"Copy and rotate left.",
-				( "destitnation X", "destination Y" ),
+				( 270, False ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"flip-copy",
 				self.copy,
-				( 0, True ),
-				( "float", "float" ),
 				"Copy and flip.",
-				( "destitnation X", "destination Y" ),
+				( 0, True ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"flip-rotate-right",
 				self.copy,
-				(  90, True ),
-				( "float", "float" ),
 				"Copy, flip and rotate right.",
-				( "destitnation X", "destination Y" ),
+				(  90, True ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"flip-rotate-180",
 				self.copy,
-				( 180, True ),
-				( "float", "float" ),
 				"Copy, flip and rotate 180 degrees.",
-				( "destitnation X", "destination Y" ),
+				( 180, True ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
 			),
 			(
 				"flip-rotate-left",
 				self.copy,
-				( 270, True ),
-				( "float", "float" ),
 				"Copy, flip and rotate left.",
-				( "destitnation X", "destination Y" ),
+				( 270, True ),
+				(
+					( "float", "destination X", None ),
+					( "float", "destination Y", None ),
+				),
+			),
+			(
+				"draw-line",
+				self.draw_line,
+				"Draw a line on the given layer.",
+				None,
+				(
+					( "float", "from (X1)", None ),
+					( "float", "from (Y1)", None ),
+					( "float", "to (X2)", None ),
+					( "float", "to (Y2)", None ),
+					( "string", "layer", self.var_layer_name ),
+					( "float", "thickness", self.var_line_thickness ),
+				),
+			),
+			(
+				"draw-text",
+				self.draw_text,
+				"Draw text on the given layer.",
+				None,
+				(
+					( "string", "text", None ),
+					( "float", "(X1)", None ),
+					( "float", "(Y1)", None ),
+					( "float", "angle", 0.0 ),
+					( "string", "layer", self.var_layer_name ),
+					( "float", "height", self.var_text_height ),
+					( "float", "width", self.var_text_width ),
+					( "float", "thickness", self.var_text_thickness ),
+				),
+			),
+			(
+				"set-layer",
+				self.set_layer,
+				"Sets the layer used for drawing when"
+				"\nnot explicitely specified.",
+				None,
+				(
+					( "string", "layer", None ),
+				),
+			),
+			(
+				"set-line-thickness",
+				self.set_line_thickness,
+				"Sets the line thickness used for drawing"
+				"\nwhen not explicitely specified.",
+				None,
+				(
+					( "float", "thickness", None ),
+				),
+			),
+			(
+				"set-text-font",
+				self.set_text_font,
+				"Sets the text font used for drawing when"
+				"\nnot explicitely specified.",
+				None,
+				(
+					( "float", "height", None ),
+					( "float", "width", None ),
+					( "float", "thickness", None ),
+				),
 			),
 		)
 		self.cmd_names = {}
@@ -2483,15 +2959,24 @@ class Main:
 		print( "  All coordinates are in millimeters." )
 		print( "\nCommands:" )
 		for cmd_def in self.cmd_defs:
-			name, func, fixed_args, arg_types, descr, arg_descr = cmd_def
+			name, func, descr, fixed_args, argdefs = cmd_def
 			lines = descr.split( "\n" )
-			print( "  %-20s%s" % ( name, lines[0] ) )
+			print( "  %-22s%s" % ( name, lines[0] ) )
 			for i in range( 1, len(lines) ):
-				print( "  %-20s%s" % ( "", lines[i] ) )
-			if arg_types != None:
+				print( "  %-22s%s" % ( "", lines[i] ) )
+			if argdefs != None:
 				print( "    Arguments:" )
-				for i in range( 0, len(arg_types) ):
-					print( "      %-16s%s" % ( arg_types[i], arg_descr[i] ) )
+				n_max = len(argdefs)
+				n_min = 0
+				while n_min < n_max:
+					if argdefs[n_min][2] != None:
+						break
+					n_min += 1
+				optval = ""
+				for argtype, argdesc, argdefault in argdefs:
+					if argdefault != None:
+						optval = " (optional, default=%s)" % argdefault
+					print( "      %-18s%s%s" % ( argtype, argdesc, optval ) )
 
 	def run_file( self, filename ):
 		ifd = None
@@ -2521,6 +3006,9 @@ class Main:
 						commands.append( cmd )
 		if not errors:
 			for func, cmd, args in commands:
+				for i in range( 0, len(args) ):
+					if isinstance( args[i], Variable ):
+						args[i] = args[i].value
 				if not func( cmd, args ):
 					print( "Command execution aborted." )
 					break
@@ -2562,21 +3050,35 @@ class Main:
 			print( "invalid command '%s'." % cmd )
 			return None
 		i = self.cmd_names[cmd]
-		name, func, fixed_args, arg_types, descr, arg_descr = self.cmd_defs[i]
-		n = 0
-		if arg_types != None:
-			n = len(arg_types)
-		if len(words) != n:
-			print( "Command %s expects %d arguments on line %d." % ( cmd, n, linenr ) )
+		name, func, desrc, fixed_args, argdefs = self.cmd_defs[i]
+		n = len(words)
+		n_min = n_max = 0
+		if argdefs != None:
+			n_max = len(argdefs)
+			while n_min < n_max:
+				if argdefs[n_min][2] != None:
+					break
+				n_min += 1
+		if n < n_min or n > n_max:
+			if n_min == n_max:
+				print( "Command %s expects %d arguments on line %d." % ( cmd, n_max, linenr ) )
+			else:
+				print( "Command %s expects between %d and %d arguments on line %d." % ( cmd, n_min, n_max, linenr ) )
 			return None
 		args = []
 		if fixed_args != None:
 			args = list( fixed_args )
 		for i in range( 0, n ):
-			argtype = arg_types[i]
+			argtype = argdefs[i][0]
 			arg = words[i]
 			if argtype == "string":
 				pass
+			elif argtype == "int":
+				try:
+					arg = int( arg )
+				except:
+					print( "Invalid int argument '%s' on line %d." % ( arg, linenr ) )
+					return None
 			elif argtype == "float":
 				try:
 					arg = float( arg )
@@ -2595,6 +3097,9 @@ class Main:
 				print( "Unhandled argument type '%s' on line %d." % ( argtype, linenr ) )
 				return None
 			args.append( arg )
+		# append default values for unspecified args
+		for i in range( n, n_max ):
+			args.append( argdefs[i][2] )
 		return ( func, cmd, args )
 
 	def set_title_block( self, cmd, args ):
@@ -2626,10 +3131,19 @@ class Main:
 		try:
 			pcb = self.factory.parse_file( args[0] )
 			if pcb == None:
-				raise Exception( "error" )
+				raise Exception( "error loading PCB file" )
 			self.trans.set_src_pcb( pcb )
 		except:
 			print( "Loading PCB failed." )
+			self.print_exc()
+			return False
+		return True
+
+	def create_template( self, cmd, args ):
+		try:
+			self.trans.create_template()
+		except:
+			print( "Creating template PCB failed." )
 			self.print_exc()
 			return False
 		return True
@@ -2698,6 +3212,15 @@ class Main:
 			return False
 		return True
 
+	def swap_internal_layers( self, cmd, args ):
+		try:
+			self.trans.set_swap_internal_layers( args[0] )
+		except:
+			print( "Setting parameter swap-internal-layers failed." )
+			self.print_exc()
+			return False
+		return True
+
 	def copy( self, cmd, args ):
 		try:
 			rotate = args[0]
@@ -2714,8 +3237,92 @@ class Main:
 			return False
 		return True
 
+	def grid_copy( self, cmd, args ):
+		try:
+			dest_x = args[0]
+			dest_y = args[1]
+			grid_x = args[2]
+			grid_y = args[3]
+			xstart = 0
+			if args[4]:
+				xstart = 1
+			self.trans.set_rotate( 0 )
+			self.trans.set_flip( False )
+			for y in range( 0, args[5] ):
+				for x in range( xstart, args[4] ):
+					dest = Vector( "v", dest_x + x * grid_x, dest_y + y * grid_y )
+					self.trans.set_dst_vector( dest )
+					self.trans.recalculate()
+					self.trans.copy()
+				xstart = 0
+		except:
+			print( "Copying failed." )
+			self.print_exc()
+			return False
+		return True
+
+	def draw_line( self, cmd, args ):
+		try:
+			from_vector = Vector( "start", args[0], args[1] )
+			to_vector = Vector( "end", args[2], args[3] )
+			layer = args[4]
+			width = args[5]
+			obj = GrLine( "gr_line" )
+			obj.set( "start", from_vector )
+			obj.set( "end", to_vector )
+			obj.set( "angle", Int( "angle", 90) )
+			obj.set( "layer", Text( "layer", layer ) )
+			obj.set( "width", Float( "width", width ) )
+			self.trans.dst_pcb.graphics.append( obj )
+		except:
+			print( "Drawing line failed." )
+			self.print_exc()
+			return False
+		return True
+
+	def draw_text( self, cmd, args ):
+		try:
+			text = args[0]
+			at_vector = VectorAngle( "at", args[1], args[2], args[3] )
+			layer = args[4]
+			height = args[5]
+			width = args[6]
+			thickness = args[7]
+			obj = GrText( "gr_text" )
+			print( "text", text )
+			obj.text = text
+			obj.set( "at", at_vector )
+			obj.set( "layer", Text( "layer", layer ) )
+			font = Font( "font" )
+			font.set( "size", Vector( "size", height, width ) )
+			font.set( "thickness", Float( "thickness", thickness ) )
+			effects = Effects( "effects" )
+			effects.set( "font", font )
+			if layer.startswith( "B." ):
+				effects.justify.values.append( "mirror" )
+			obj.set( "effects", effects )
+			self.trans.dst_pcb.graphics.append( obj )
+		except:
+			print( "Drawing text failed." )
+			self.print_exc()
+			return False
+		return True
+
+	def set_layer( self, cmd, args ):
+		self.var_layer_name.value = args[0]
+		return True
+
+	def set_line_thickness( self, cmd, args ):
+		self.var_line_thickness.value = args[0]
+		return True
+
+	def set_text_font( self, cmd, args ):
+		self.var_text_height.value = args[0]
+		self.var_text_width.value = args[1]
+		self.var_text_thickness.value = args[2]
+		return True
+
 
 if __name__ == "__main__":
 	m = Main()
 	m.run()
-
