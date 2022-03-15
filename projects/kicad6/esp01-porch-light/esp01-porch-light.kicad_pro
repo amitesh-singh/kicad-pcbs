@@ -384,11 +384,15 @@
         "nets": [
           "GPIO0",
           "GPIO2",
-          "Net-(Q1-Pad2)"
+          "Net-(Q1-Pad2)",
+          "RELAY_IN",
+          "unconnected-(U2-Pad4)",
+          "unconnected-(U2-Pad5)",
+          "unconnected-(U2-Pad7)"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.45,
+        "track_width": 0.6,
         "via_diameter": 1.0,
         "via_drill": 0.2,
         "wire_width": 6.0
