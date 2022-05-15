@@ -1,0 +1,28 @@
+work_dir = /media/ami/50DCD45DDCD43EC2/repos/kicad-pcbs/projects/kicad6/stlinkv2withtrace
+in_pcb_file = stlinkv2withtrace.kicad_pcb
+root_schematic_file = stlinkv2withtrace.kicad_sch
+store to sheet[] = stlinkv2withtrace.kicad_sch
+/1aa124d6-bc67-4965-9b5f-66ffc49fd887 ('#PWR03', (11176, 10414), '')
+/5549a117-8a09-4155-8430-af6adf42f74b ('R1', (11049, 8001), '')
+/5e3c3336-024b-4173-8be2-1ac0d5d973db ('U1', (14097, 8763), '')
+/64149735-cfa1-4212-814e-1e5f7c08c20d ('R2', (9779, 6731), '')
+/8b777775-7b35-4c3c-8522-1809c1b51d79 ('#PWR01', (9398, 7239), '')
+/8df00fb1-6a03-44bb-a466-f9d9737ffe7f ('#FLG03', (9271, 6477), '')
+/9959c68a-7d2a-4f14-b245-3548992673f3 ('J2', (9906, 8001), '')
+/9d83f4f2-c5fa-46b5-a38e-7509a2fac0a0 ('R3', (9779, 6984), '')
+/a29f8df0-3fae-4edf-8d9c-bd5a875b13e3 ('J3', (8636, 6731), '')
+/baccc23b-52bc-4efd-b225-48d6918d9eaa ('#PWR02', (11303, 11049), '')
+/e2553323-5216-4e52-b3a3-ac9a7d7837d9 ('#FLG01', (11176, 10795), '')
+/efc551af-b076-4f30-b3b7-5800eb177e11 ('#FLG02', (11684, 11049), '')
+U1 /5e3c3336-024b-4173-8be2-1ac0d5d973db
+  path = /5e3c3336-024b-4173-8be2-1ac0d5d973db   sheet =    ref = U1   pos = (14097, 8763)   new_pos = (211455000, 131445000)
+R3 /9d83f4f2-c5fa-46b5-a38e-7509a2fac0a0
+  path = /9d83f4f2-c5fa-46b5-a38e-7509a2fac0a0   sheet =    ref = R3   pos = (9779, 6984)   new_pos = (146685000, 104760000)
+R2 /64149735-cfa1-4212-814e-1e5f7c08c20d
+  path = /64149735-cfa1-4212-814e-1e5f7c08c20d   sheet =    ref = R2   pos = (9779, 6731)   new_pos = (146685000, 100965000)
+R1 /5549a117-8a09-4155-8430-af6adf42f74b
+  path = /5549a117-8a09-4155-8430-af6adf42f74b   sheet =    ref = R1   pos = (11049, 8001)   new_pos = (165735000, 120015000)
+J3 /a29f8df0-3fae-4edf-8d9c-bd5a875b13e3
+  path = /a29f8df0-3fae-4edf-8d9c-bd5a875b13e3   sheet =    ref = J3   pos = (8636, 6731)   new_pos = (129540000, 100965000)
+J2 /9959c68a-7d2a-4f14-b245-3548992673f3
+  path = /9959c68a-7d2a-4f14-b245-3548992673f3   sheet =    ref = J2   pos = (9906, 8001)   new_pos = (148590000, 120015000)
