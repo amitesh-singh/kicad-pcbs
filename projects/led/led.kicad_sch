@@ -475,6 +475,89 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -803,6 +886,28 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 127 41.91)
+		(end 190.5 71.12)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 1a70e0ef-c5d0-4938-b699-4cb58d9f6cfe)
+	)
+	(text "CNC sample project - first"
+		(exclude_from_sim no)
+		(at 141.478 45.212 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e08fce65-0749-40ee-833d-3601c9dd7483")
+	)
 	(junction
 		(at 160.02 63.5)
 		(diameter 0)
@@ -947,7 +1052,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 123.19 60.96 0)
+		(at 180.34 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -956,7 +1061,7 @@
 		(fields_autoplaced yes)
 		(uuid "108df906-d003-4d61-8d52-2c210655d272")
 		(property "Reference" "#FLG01"
-			(at 123.19 59.055 0)
+			(at 180.34 48.895 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -965,7 +1070,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 123.19 55.88 0)
+			(at 180.34 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -973,7 +1078,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -982,7 +1087,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -991,7 +1096,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1006,6 +1111,70 @@
 			(project ""
 				(path "/c7dc96e4-6e5e-4093-850b-98ec6b01f332"
 					(reference "#FLG01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 186.69 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3ac487ad-209c-45a0-931e-18bf9b055bae")
+		(property "Reference" "H2"
+			(at 189.23 67.3099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 189.23 69.8499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+			(at 186.69 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 186.69 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 186.69 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/c7dc96e4-6e5e-4093-850b-98ec6b01f332"
+					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -1225,7 +1394,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 114.3 60.96 180)
+		(at 171.45 50.8 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1234,7 +1403,7 @@
 		(fields_autoplaced yes)
 		(uuid "8e369084-e5af-4a0e-98b3-4cad600e0553")
 		(property "Reference" "#FLG02"
-			(at 114.3 62.865 0)
+			(at 171.45 52.705 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1243,7 +1412,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 114.3 66.04 0)
+			(at 171.45 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1251,7 +1420,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1260,7 +1429,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1269,7 +1438,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1291,7 +1460,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 123.19 60.96 0)
+		(at 180.34 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1300,7 +1469,7 @@
 		(fields_autoplaced yes)
 		(uuid "919c00a0-d4c6-416c-9c1d-2ccf51631246")
 		(property "Reference" "#PWR02"
-			(at 123.19 67.31 0)
+			(at 180.34 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1309,7 +1478,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 123.19 66.04 0)
+			(at 180.34 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1317,7 +1486,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1326,7 +1495,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1335,7 +1504,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 123.19 60.96 0)
+			(at 180.34 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1357,7 +1526,7 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 114.3 60.96 0)
+		(at 171.45 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1366,7 +1535,7 @@
 		(fields_autoplaced yes)
 		(uuid "b717ec90-7dd7-4ff6-8fa6-7ae134646f87")
 		(property "Reference" "#PWR01"
-			(at 114.3 64.77 0)
+			(at 171.45 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1375,7 +1544,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 114.3 55.88 0)
+			(at 171.45 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1383,7 +1552,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1392,7 +1561,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1401,7 +1570,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 114.3 60.96 0)
+			(at 171.45 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1416,6 +1585,70 @@
 			(project ""
 				(path "/c7dc96e4-6e5e-4093-850b-98ec6b01f332"
 					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 130.81 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cca75d2a-eb88-407a-934b-f4333d1a0301")
+		(property "Reference" "H1"
+			(at 133.35 66.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 133.35 68.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+			(at 130.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 130.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 130.81 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/c7dc96e4-6e5e-4093-850b-98ec6b01f332"
+					(reference "H1")
 					(unit 1)
 				)
 			)

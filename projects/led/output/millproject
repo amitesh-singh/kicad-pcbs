@@ -14,14 +14,17 @@ output-dir=./
 # Place a 5x7cm board in the lower right quadrant of the coordinate system
 # This will allow you to probe the fixed jaw of the vise for (0,0) on the CNC.
 
-mirror-axis=6.275    # set this to half of your board width
+#mirror-axis=27.5  # set this to half of your board width
 
 # Drilling
 zdrill=-2.5         # drilling depth
 drill-feed=200      # Vertical mm/min feed
 drill-speed=24000   # Spindle RPM
-onedrill=true       # Use a single drill for all holes
+onedrill=true       # Use a single drill for all holes, this will not work when we want to do mounting holes of dia 2.2mm
 nog81=true          # replace G81 with G0+G1 (no G81 in GRBL)
+# IMPORTANT
+milldrill=true
+milldrill-diameter=1.0
 
 # Milling
 zwork=-0.1          # V-bit plunge depth
