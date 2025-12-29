@@ -22,7 +22,8 @@ drill-feed=200      # Vertical mm/min feed
 drill-speed=24000   # Spindle RPM
 onedrill=true       # Use a single drill for all holes, this will not work when we want to do mounting holes of dia 2.2mm
 nog81=true          # replace G81 with G0+G1 (no G81 in GRBL)
-# IMPORTANT
+
+# This is for drilling mounting holes (2.2mm) using a 1mm drill bit
 milldrill=true
 milldrill-diameter=1.0
 
