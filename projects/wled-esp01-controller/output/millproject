@@ -1,0 +1,54 @@
+back=wled-esp01-controller-B_Cu.gbr
+drill=wled-esp01-controller.drl
+outline=wled-esp01-controller-Edge_Cuts.gbr
+
+# Generic
+metric=true         # use metric units for parameters
+metricoutput=true   # use metric units for output
+nog64=true          # do not set an explicit g64
+nom6=true           # do not emit m6
+zsafe=2             # The height in mm at which the bit can move freely without obstruction
+zchange=35          # Tool changing height in mm
+output-dir=./
+
+# Place a 5x7cm board in the lower right quadrant of the coordinate system
+# This will allow you to probe the fixed jaw of the vise for (0,0) on the CNC.
+
+#mirror-axis=27.5  # set this to half of your board width
+
+# Milling
+zwork=-0.1          # V-bit plunge depth
+#mill-diameters=0.11 # 60 deg V-bit dia at -0.1 plunge depth
+#mill-diameters=0.08 # 45 deg V-bit dia at -0.1 plunge depth
+mill-diameters=0.15 # 30 deg V-bit dia at -0.1 plunge depth
+mill-speed=24000    # Spindle RPM
+mill-feed=600       # Horizontal feedrate in mm/min
+mill-vertfeed=100   # Plunge rate in mm/min
+#voronoi=true        # cuts the milling time significantly, but check with this on and off if everything looks ok
+#preserve-thermal-reliefs = true # has effect only if voronoi=true
+#fill-outline=true
+# isolation-width to 10 actually clears out all non-copper islands
+#isolation-width=10
+# this one works well to clear out the copper between smd components and through hole
+isolation-width=0.8
+
+
+# Drilling
+zdrill=-2.5         # drilling depth
+drill-feed=200      # Vertical mm/min feed
+drill-speed=24000   # Spindle RPM
+onedrill=true       # Use a single drill for all holes, this will not work when we want to do mounting holes of dia 2.2mm
+nog81=true          # replace G81 with G0+G1 (no G81 in GRBL)
+
+# This is for drilling mounting holes (2.2mm) using a 1mm drill bit
+milldrill=true
+milldrill-diameter=1.0
+
+
+# Cutting
+zcut=-2.5
+cutter-diameter=2
+cut-feed=80
+cut-infeed=100
+cut-speed=24000
+cut-side=back
