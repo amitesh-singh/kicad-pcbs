@@ -12,3 +12,7 @@ export KISYS3DMOD="/usr/share/kicad/3dmodels"
 # links
 - [https://grabcad.com/library](https://grabcad.com/library)
 
+# Add-ons
+
+- Fused Filament Design
+- KiCadStepup
