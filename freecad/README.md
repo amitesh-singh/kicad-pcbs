@@ -14,5 +14,6 @@ export KISYS3DMOD="/usr/share/kicad/3dmodels"
 
 # Add-ons
 
-- Fused Filament Design
+- FusedFilamentDesign
 - KiCadStepup
+- Fasternet workbench
