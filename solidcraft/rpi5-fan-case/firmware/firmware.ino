@@ -3,8 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 
-constexpr int board_led = 1;
-constexpr int pwm_pin   = 2;
+constexpr int board_led = 2;
+constexpr int pwm_pin   = 1;
 constexpr int PWM_FREQ  = 25000;  // 25 kHz, standard PC fan PWM frequency
 constexpr int PWM_RANGE = 255;    // analogWriteRange
 
@@ -205,7 +205,7 @@ void handle_root() {
 // ---------- setup / loop ----------
 
 void setup() {
-    // Serial.begin(115200);  // GPIO1 (TX) used as board_led
+    // Serial.begin(115200);
 
     analogWriteFreq(PWM_FREQ);
     analogWriteRange(PWM_RANGE);
@@ -266,5 +266,6 @@ void loop() {
     server.handleClient();
     ota_server.handleClient();
     ElegantOTA.loop();
+
     update_led();
 }
