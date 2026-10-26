@@ -3,8 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 
-constexpr int board_led = 2;
-constexpr int pwm_pin   = 1;
+constexpr int board_led = 2;  // GPIO2 — onboard LED (ESP-01S)
+constexpr int pwm_pin   = 1;  // GPIO1 — Tx
 constexpr int PWM_FREQ  = 25000;  // 25 kHz, standard PC fan PWM frequency
 constexpr int PWM_RANGE = 255;    // analogWriteRange
 
@@ -16,7 +16,9 @@ int fan_speed = 0;  // 0-100 percent
 
 void set_fan(int percent) {
     fan_speed = constrain(percent, 0, 100);
-    int duty = map(fan_speed, 0, 100, 0, PWM_RANGE);
+    // NPN transistor inverts: HIGH from ESP pulls FAN_PWM low.
+    // Invert so 100% speed = full PWM high on the fan wire.
+    int duty = map(fan_speed, 0, 100, PWM_RANGE, 0);
     analogWrite(pwm_pin, duty);
 }
 
@@ -206,11 +208,11 @@ void handle_root() {
 
 void setup() {
     // Serial.begin(115200);
-
+    pinMode(pwm_pin, FUNCTION_3);
     analogWriteFreq(PWM_FREQ);
     analogWriteRange(PWM_RANGE);
-    pinMode(pwm_pin, OUTPUT);
-    analogWrite(pwm_pin, 0);  // fan off at boot
+    //pinMode(pwm_pin, OUTPUT);
+    analogWrite(pwm_pin, 255);  // fan off at boot
 
     pinMode(board_led, OUTPUT);
     digitalWrite(board_led, HIGH);  // off at boot (active-low)
