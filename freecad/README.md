@@ -17,3 +17,15 @@ export KISYS3DMOD="/usr/share/kicad/3dmodels"
 - FusedFilamentDesign
 - KiCadStepup
 - Fasternet workbench
+- Nxt
+
+## Viewer
+
+- f3d
+
+https://github.com/f3d-app/f3d
+
+supports freeCAD file
+```
+f3d ./*.FcStd
+```
