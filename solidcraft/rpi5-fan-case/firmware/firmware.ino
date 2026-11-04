@@ -2,6 +2,7 @@
 #include <ElegantOTA.h>
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
+#include <ESP8266mDNS.h>
 
 constexpr int board_led = 2;  // GPIO2 — onboard LED (ESP-01S)
 constexpr int pwm_pin   = 1;  // GPIO1 — Tx
@@ -233,6 +234,8 @@ void setup() {
         // Serial.println("Connected: " + WiFi.localIP().toString());
     }
 
+    if (!MDNS.begin("rpi-fan-controller")) {
+    }
     // Fan control API
     server.on("/",           HTTP_GET,  handle_root);
     server.on("/api/speed",  HTTP_GET,  handle_get_speed);
@@ -245,6 +248,7 @@ void setup() {
     ElegantOTA.begin(&ota_server);
 
     // Serial.println("Fan controller ready");
+    MDNS.addService("http", "tcp", 80);
 }
 
 void update_led() {
@@ -265,6 +269,7 @@ void update_led() {
 }
 
 void loop() {
+    MDNS.update();
     server.handleClient();
     ota_server.handleClient();
     ElegantOTA.loop();
