@@ -1,0 +1,22 @@
+Circuit: * Z:\home\ami\work\repos\kicad-pcbs\solidcraft\rpi5-fan-case\rpi5-fan-pwm-controller\lt-spice-sim.asc
+
+Limiting rise time of source v2 to 0.01
+Limiting fall time of source v2 to 0.01
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Nov 01 20:30:26 2026
+Total elapsed time: 0.060 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2662
+traniter = 2652
+tranpoints = 1180
+accept = 1144
+rejected = 36
+matrix size = 7
+fillins = 0
+solver = Normal
+Matrix Compiler1: 214 bytes object code size  0.1/0.1/[0.1]
+Matrix Compiler2: off

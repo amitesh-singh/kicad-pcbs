@@ -1371,9 +1371,33 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 19.05 95.25)
+		(end 152.4 168.91)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "08a55143-429c-4f3f-b3dc-835767ebbff9")
+	)
+	(rectangle
+		(start 20.32 16.51)
+		(end 153.67 90.17)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "47a14418-8309-4dce-998d-79c9c351d595")
+	)
 	(text "ESP01S\n"
 		(exclude_from_sim no)
-		(at 157.734 118.872 0)
+		(at 124.714 69.342 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1383,7 +1407,7 @@
 	)
 	(text "Without 10k pullup on tx pin, esp01s (blue led) does not boot.\nIt boots with 10k pullup when nothing is connected to tx pin.\n\n "
 		(exclude_from_sim no)
-		(at 84.074 88.138 0)
+		(at 51.054 38.608 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1391,9 +1415,29 @@
 		)
 		(uuid "2c8d6b58-d4c5-44d7-9abf-87aafa4ac28b")
 	)
+	(text "v0.2\n"
+		(exclude_from_sim no)
+		(at 77.47 165.1 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "2d8b756c-5414-4bec-a772-a03f2d54e05f")
+	)
 	(text "LM2596 DC-DC"
 		(exclude_from_sim no)
-		(at 141.478 84.582 0)
+		(at 107.188 113.792 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "74de1ebf-3c6c-40c0-b2ea-21ab37d57b63")
+	)
+	(text "LM2596 DC-DC"
+		(exclude_from_sim no)
+		(at 108.458 35.052 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1401,21 +1445,65 @@
 		)
 		(uuid "ab8b8af7-1e83-468e-88c7-6badd719c678")
 	)
+	(text "ESP01S\n"
+		(exclude_from_sim no)
+		(at 123.444 148.082 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "bf64d6de-782f-49b9-b915-b4f97f060e5a")
+	)
+	(text "v0.1\n"
+		(exclude_from_sim no)
+		(at 71.882 84.836 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "fc203ca3-1a78-4135-9628-331bfc3d4871")
+	)
 	(junction
-		(at 82.55 109.22)
+		(at 38.1 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "012eebac-761f-4370-b0aa-acc43e6033e0")
+	)
+	(junction
+		(at 38.1 130.81)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "177dedc0-2de2-4954-9359-2cd80dfbd7bb")
+	)
+	(junction
+		(at 116.84 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1edaa7d0-8bd9-41c7-b97c-18bb71d0e528")
+	)
+	(junction
+		(at 54.61 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2fc7913f-5c37-418f-be23-ae8d3da4a19c")
+	)
+	(junction
+		(at 49.53 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b2820bd3-e522-4fad-bb10-04d5f46701e7")
 	)
 	(junction
-		(at 151.13 91.44)
+		(at 118.11 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c0385a57-48e9-4a58-b408-af95b859d0f4")
 	)
 	(wire
 		(pts
-			(xy 151.13 80.01) (xy 151.13 91.44)
+			(xy 118.11 30.48) (xy 118.11 41.91)
 		)
 		(stroke
 			(width 0)
@@ -1425,7 +1513,17 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 109.22) (xy 140.97 109.22)
+			(xy 54.61 135.89) (xy 54.61 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cbef34a-ff2d-475d-81f3-9e9b2d0be334")
+	)
+	(wire
+		(pts
+			(xy 102.87 59.69) (xy 107.95 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1435,7 +1533,17 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 99.06) (xy 116.84 104.14)
+			(xy 116.84 120.65) (xy 116.84 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ab4df1e-8252-4ea6-aa3c-c2ded8e0148e")
+	)
+	(wire
+		(pts
+			(xy 83.82 49.53) (xy 83.82 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1445,7 +1553,37 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 114.3) (xy 116.84 123.19)
+			(xy 101.6 138.43) (xy 106.68 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e14e47b-288e-48d7-8a7d-9513b97409f6")
+	)
+	(wire
+		(pts
+			(xy 54.61 151.13) (xy 54.61 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31bb98d3-db68-450d-aaa5-745d031d2ebf")
+	)
+	(wire
+		(pts
+			(xy 80.01 104.14) (xy 85.09 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32459553-d465-47e8-ace8-8f8bfcd9e7fc")
+	)
+	(wire
+		(pts
+			(xy 83.82 64.77) (xy 83.82 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1455,7 +1593,27 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 91.44) (xy 135.89 92.71)
+			(xy 82.55 143.51) (xy 82.55 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38ea6ab0-e4ab-492f-8d37-fb42d6b46865")
+	)
+	(wire
+		(pts
+			(xy 38.1 124.46) (xy 38.1 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "44d8d49d-3a95-43fe-94db-996dfbe06e97")
+	)
+	(wire
+		(pts
+			(xy 102.87 41.91) (xy 102.87 43.18)
 		)
 		(stroke
 			(width 0)
@@ -1465,7 +1623,77 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 91.44) (xy 171.45 91.44)
+			(xy 33.02 130.81) (xy 38.1 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a483736-6d38-475f-bd50-70844158c330")
+	)
+	(wire
+		(pts
+			(xy 116.84 120.65) (xy 137.16 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ef29770-6e72-42dc-aa50-16fdb3131393")
+	)
+	(wire
+		(pts
+			(xy 113.03 120.65) (xy 116.84 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "591452d1-5d0f-40bf-959c-5b7981e1555d")
+	)
+	(wire
+		(pts
+			(xy 54.61 138.43) (xy 62.23 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60c4ce33-4282-4f7d-82a3-73c30c44842e")
+	)
+	(wire
+		(pts
+			(xy 137.16 120.65) (xy 137.16 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "665770aa-50ce-4678-88ad-e1c0539e0834")
+	)
+	(wire
+		(pts
+			(xy 54.61 138.43) (xy 54.61 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7373d85e-538b-499e-96e3-08abcfedac0f")
+	)
+	(wire
+		(pts
+			(xy 38.1 114.3) (xy 38.1 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78315aa3-b99d-448f-830b-3f0091c8ad84")
+	)
+	(wire
+		(pts
+			(xy 118.11 41.91) (xy 138.43 41.91)
 		)
 		(stroke
 			(width 0)
@@ -1475,7 +1703,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 109.22) (xy 82.55 109.22)
+			(xy 44.45 59.69) (xy 49.53 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1485,7 +1713,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 109.22) (xy 109.22 109.22)
+			(xy 71.12 59.69) (xy 76.2 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1495,7 +1723,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 91.44) (xy 171.45 104.14)
+			(xy 138.43 41.91) (xy 138.43 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1505,7 +1733,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 80.01) (xy 151.13 80.01)
+			(xy 111.76 30.48) (xy 118.11 30.48)
 		)
 		(stroke
 			(width 0)
@@ -1515,7 +1743,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 109.22) (xy 96.52 109.22)
+			(xy 49.53 59.69) (xy 63.5 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1525,7 +1753,37 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 91.44) (xy 151.13 99.06)
+			(xy 38.1 130.81) (xy 46.99 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0d26d5c-f6df-4ada-be1a-2f2e68b057a5")
+	)
+	(wire
+		(pts
+			(xy 82.55 128.27) (xy 82.55 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b43e4ecd-97f1-4940-928a-089e24e6994e")
+	)
+	(wire
+		(pts
+			(xy 69.85 138.43) (xy 74.93 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b72c6a9d-9b3f-49c7-b851-e02372117eb4")
+	)
+	(wire
+		(pts
+			(xy 118.11 41.91) (xy 118.11 49.53)
 		)
 		(stroke
 			(width 0)
@@ -1535,7 +1793,37 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 102.87) (xy 82.55 109.22)
+			(xy 38.1 114.3) (xy 54.61 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce5dc9f1-e8c4-4ea2-b389-217f8008434d")
+	)
+	(wire
+		(pts
+			(xy 110.49 109.22) (xy 116.84 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0599c33-63fc-4fb1-927c-68e75b328690")
+	)
+	(wire
+		(pts
+			(xy 38.1 110.49) (xy 38.1 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d94faa98-2b5e-4276-90cd-b6a655623c9b")
+	)
+	(wire
+		(pts
+			(xy 49.53 53.34) (xy 49.53 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1545,7 +1833,17 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 91.44) (xy 135.89 91.44)
+			(xy 137.16 140.97) (xy 137.16 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbddec31-3660-4ece-8944-0be848535a91")
+	)
+	(wire
+		(pts
+			(xy 106.68 41.91) (xy 102.87 41.91)
 		)
 		(stroke
 			(width 0)
@@ -1555,7 +1853,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 111.76) (xy 171.45 114.3)
+			(xy 138.43 62.23) (xy 138.43 64.77)
 		)
 		(stroke
 			(width 0)
@@ -1565,7 +1863,27 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 91.44) (xy 151.13 91.44)
+			(xy 116.84 109.22) (xy 116.84 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebea177c-9be7-49c9-8397-0763a0036501")
+	)
+	(wire
+		(pts
+			(xy 101.6 120.65) (xy 101.6 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eca1012a-dcd9-4051-b91a-a598e7cf57e3")
+	)
+	(wire
+		(pts
+			(xy 114.3 41.91) (xy 118.11 41.91)
 		)
 		(stroke
 			(width 0)
@@ -1575,7 +1893,27 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 74.93) (xy 119.38 74.93)
+			(xy 54.61 114.3) (xy 54.61 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f138c718-a080-490f-9ac9-6758acbff9f6")
+	)
+	(wire
+		(pts
+			(xy 105.41 120.65) (xy 101.6 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2cb7a27-c889-4971-badb-7fd64970c1de")
+	)
+	(wire
+		(pts
+			(xy 81.28 25.4) (xy 86.36 25.4)
 		)
 		(stroke
 			(width 0)
@@ -1583,8 +1921,18 @@
 		)
 		(uuid "f872e739-e845-4dc9-a0ee-033fedece9cb")
 	)
+	(label "PWM"
+		(at 33.02 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0eaea9ee-08f6-4137-a008-8bacfd936de7")
+	)
 	(label "FAN_PWM"
-		(at 135.89 109.22 180)
+		(at 102.87 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1594,7 +1942,7 @@
 		(uuid "373c4ef5-991c-4309-8e3f-e1a9d3cb5e01")
 	)
 	(label "FAN_PWM"
-		(at 116.84 99.06 0)
+		(at 83.82 49.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1604,7 +1952,27 @@
 		(uuid "54f5428a-93ad-46cb-b159-6960128ad0bb")
 	)
 	(label "PWM"
-		(at 77.47 109.22 180)
+		(at 101.6 138.43 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "70e808ee-30a1-4eae-a39b-4afad865ebf4")
+	)
+	(label "FAN_PWM"
+		(at 82.55 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e62aa42-560e-4a22-bfb5-7e6bc88d2711")
+	)
+	(label "PWM"
+		(at 44.45 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1614,8 +1982,164 @@
 		(uuid "c7e54741-d1c4-4751-a586-3d3cb2f68863")
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 137.16 143.51 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "000ab49a-1c4b-489d-be7a-c2909df5ca1c")
+		(property "Reference" "#PWR014"
+			(at 137.16 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 137.16 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.16 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 137.16 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "08827536-f313-4626-98e4-dac641926d34")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 101.6 121.92 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0bcac4ba-f2b7-4c49-9c78-8877d24bec7f")
+		(property "Reference" "#PWR012"
+			(at 101.6 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 101.6 127 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 101.6 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6dcf3af9-f1aa-4675-87a9-43f4203b5446")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "RF_Module:ESP-01")
-		(at 151.13 109.22 0)
+		(at 118.11 59.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1626,7 +2150,7 @@
 		(fields_autoplaced yes)
 		(uuid "14bb225d-33f9-421e-ace9-0d4b7b345438")
 		(property "Reference" "U1"
-			(at 153.2733 96.52 0)
+			(at 120.2533 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1637,7 +2161,7 @@
 			)
 		)
 		(property "Value" "ESP-01"
-			(at 153.2733 99.06 0)
+			(at 120.2533 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1648,7 +2172,7 @@
 			)
 		)
 		(property "Footprint" "RF_Module:ESP-01"
-			(at 151.13 109.22 0)
+			(at 118.11 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1659,7 +2183,7 @@
 			)
 		)
 		(property "Datasheet" "https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/docs/_media_old/esp-01_product_specification_en.pdf"
-			(at 147.828 115.57 0)
+			(at 114.808 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1670,7 +2194,7 @@
 			)
 		)
 		(property "Description" "802.11 b/g/n Wi-Fi Module based on ESP8266"
-			(at 151.384 113.792 0)
+			(at 118.364 64.262 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1715,7 +2239,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 100.33 109.22 270)
+		(at 67.31 59.69 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1725,7 +2249,7 @@
 		(dnp no)
 		(uuid "1f032dd7-e6d7-4aca-8727-79450410a093")
 		(property "Reference" "R1"
-			(at 100.076 106.426 90)
+			(at 67.056 56.896 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1735,7 +2259,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 100.076 109.22 90)
+			(at 67.056 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1745,7 +2269,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 107.442 90)
+			(at 67.31 57.912 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1756,7 +2280,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 109.22 0)
+			(at 67.31 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1767,7 +2291,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 100.33 109.22 0)
+			(at 67.31 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1794,7 +2318,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 82.55 99.06 0)
+		(at 49.53 49.53 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1804,7 +2328,7 @@
 		(dnp no)
 		(uuid "27260a11-b5b9-452c-bf61-000ea5b9d3d4")
 		(property "Reference" "R2"
-			(at 84.328 98.806 0)
+			(at 51.308 49.276 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1815,7 +2339,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 82.55 100.584 90)
+			(at 49.53 51.054 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1826,7 +2350,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 80.772 99.06 90)
+			(at 47.752 49.53 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1837,7 +2361,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 82.55 99.06 0)
+			(at 49.53 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1848,7 +2372,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 82.55 99.06 0)
+			(at 49.53 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1875,7 +2399,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 143.51 91.44 90)
+		(at 110.49 41.91 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1885,7 +2409,7 @@
 		(dnp no)
 		(uuid "2ded0469-a572-4431-b046-3842264bcb47")
 		(property "Reference" "C1"
-			(at 143.51 87.63 90)
+			(at 110.49 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1895,7 +2419,7 @@
 			)
 		)
 		(property "Value" "100uF"
-			(at 143.51 95.25 90)
+			(at 110.49 45.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1905,7 +2429,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 90.4748 0)
+			(at 114.3 40.9448 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1916,7 +2440,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 91.44 0)
+			(at 110.49 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1927,7 +2451,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 143.51 91.44 0)
+			(at 110.49 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1954,7 +2478,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 151.13 119.38 0)
+		(at 118.11 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1965,7 +2489,7 @@
 		(fields_autoplaced yes)
 		(uuid "337d4f75-2f00-4a01-baae-49bf0140fa98")
 		(property "Reference" "#PWR02"
-			(at 151.13 125.73 0)
+			(at 118.11 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1976,7 +2500,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 151.13 124.46 0)
+			(at 118.11 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1986,7 +2510,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 119.38 0)
+			(at 118.11 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1997,7 +2521,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 119.38 0)
+			(at 118.11 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2008,7 +2532,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 151.13 119.38 0)
+			(at 118.11 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2031,8 +2555,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 171.45 107.95 0)
+		(lib_id "power:GND")
+		(at 97.79 114.3 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2041,31 +2565,30 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "49bb64e0-d498-4440-91db-1b8a1482b9b5")
-		(property "Reference" "C2"
-			(at 175.26 106.6799 0)
+		(uuid "43fb1b1a-f32f-4414-809e-dd3ab1b3e818")
+		(property "Reference" "#PWR011"
+			(at 97.79 120.65 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "22pF"
-			(at 175.26 109.2199 0)
+		(property "Value" "GND"
+			(at 97.79 119.38 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 172.4152 111.76 0)
+			(at 97.79 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2076,7 +2599,86 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 171.45 107.95 0)
+			(at 97.79 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 97.79 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "63274b06-168c-4f4f-9338-a1bfb0f00b58")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 138.43 58.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "49bb64e0-d498-4440-91db-1b8a1482b9b5")
+		(property "Reference" "C2"
+			(at 142.24 57.1499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22pF"
+			(at 142.24 59.6899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 139.3952 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2087,7 +2689,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 171.45 107.95 0)
+			(at 138.43 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2113,8 +2715,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 132.08 85.09 0)
+		(lib_id "Device:R")
+		(at 66.04 138.43 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2122,11 +2724,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9b8acd17-2447-49ae-bfad-456b337c51d4")
-		(property "Reference" "#PWR06"
-			(at 132.08 91.44 0)
-			(hide yes)
+		(uuid "49e1572d-7897-4f49-bdaa-7dffb4aa3192")
+		(property "Reference" "R4"
+			(at 65.786 136.398 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2135,8 +2735,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 132.08 90.17 0)
+		(property "Value" "1k"
+			(at 65.786 138.43 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2146,7 +2746,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 132.08 85.09 0)
+			(at 66.04 136.652 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2157,7 +2757,267 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 132.08 85.09 0)
+			(at 66.04 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 66.04 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8d436bb3-94af-44f4-a68b-ab828ae88b0f")
+		)
+		(pin "1"
+			(uuid "f75c063d-f4b5-4907-884c-0230bf28a860")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RF_Module:ESP-01")
+		(at 116.84 138.43 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4e5bfb3b-82c2-43db-94df-188846f7a44b")
+		(property "Reference" "U4"
+			(at 118.9833 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ESP-01"
+			(at 118.9833 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "RF_Module:ESP-01"
+			(at 116.84 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/docs/_media_old/esp-01_product_specification_en.pdf"
+			(at 113.538 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "802.11 b/g/n Wi-Fi Module based on ESP8266"
+			(at 117.094 143.002 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "7"
+			(uuid "0baaf03b-ca7c-4bae-ae72-35b96096b030")
+		)
+		(pin "8"
+			(uuid "658a832c-b2b4-4186-84f3-9a4723bbc4bc")
+		)
+		(pin "5"
+			(uuid "36a7d2b5-a9e1-448d-8e93-d6cb4942cc6c")
+		)
+		(pin "4"
+			(uuid "82f46e7a-b8ec-4bd1-b919-dcc225310659")
+		)
+		(pin "6"
+			(uuid "7cb257e8-486c-4ba6-b562-d2041e620225")
+		)
+		(pin "3"
+			(uuid "1271f284-55d7-4275-9478-2063a68f66a0")
+		)
+		(pin "2"
+			(uuid "695b8b39-8d2e-46da-b1b3-d6a722ebd6c7")
+		)
+		(pin "1"
+			(uuid "f0a8d05c-73db-4ec6-bae7-29d49edc4f54")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 109.22 120.65 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "98fec67c-b5e0-4fb8-9eb7-9839ac5b425e")
+		(property "Reference" "C3"
+			(at 109.22 116.84 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100uF"
+			(at 109.22 124.46 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 113.03 119.6848 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 109.22 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5b6576f6-3abe-4130-9bf0-928ae4da33a3")
+		)
+		(pin "2"
+			(uuid "8e5e54cb-ac46-4976-81cd-11d27fe669f4")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 99.06 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9b8acd17-2447-49ae-bfad-456b337c51d4")
+		(property "Reference" "#PWR06"
+			(at 99.06 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 99.06 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 99.06 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2168,7 +3028,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 132.08 85.09 0)
+			(at 99.06 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2192,7 +3052,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 116.84 123.19 0)
+		(at 83.82 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2203,7 +3063,7 @@
 		(fields_autoplaced yes)
 		(uuid "a30fcc56-e3a5-4a8a-9676-44eceb98e058")
 		(property "Reference" "#PWR01"
-			(at 116.84 129.54 0)
+			(at 83.82 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2214,7 +3074,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 116.84 128.27 0)
+			(at 83.82 78.74 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2224,7 +3084,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 123.19 0)
+			(at 83.82 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2235,7 +3095,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 123.19 0)
+			(at 83.82 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2246,7 +3106,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 123.19 0)
+			(at 83.82 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2269,8 +3129,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Regulator_Switching:LM2596S-3.3")
-		(at 132.08 77.47 0)
+		(lib_id "power:GND")
+		(at 54.61 151.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2279,9 +3139,197 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b565f40d-7d0a-4e72-858a-b9d9b2c8e202")
-		(property "Reference" "U2"
-			(at 132.08 67.31 0)
+		(uuid "a48e573d-75c2-40cb-b554-01212e34c4f8")
+		(property "Reference" "#PWR015"
+			(at 54.61 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 54.61 156.21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 54.61 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 54.61 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "29f498c1-647b-4dfb-8bbc-34892f5d91a6")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:2N3904")
+		(at 80.01 138.43 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a562cdf4-d779-434c-9cdb-75449c03af2a")
+		(property "Reference" "Q2"
+			(at 85.09 137.1599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2N3904"
+			(at 85.09 139.6999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 85.09 140.335 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF"
+			(at 80.01 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"
+			(at 80.01 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "NPN"
+			(at 80.01 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=E 2=B 3=C"
+			(at 80.01 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "de3c5464-2df7-4427-9938-a5ce7ff9b058")
+		)
+		(pin "1"
+			(uuid "0541dc02-02c0-47ff-b7c3-3e12d36f0cc1")
+		)
+		(pin "3"
+			(uuid "715b5baa-619f-435d-a5c1-127c790b9c41")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Regulator_Switching:LM2596S-3.3")
+		(at 97.79 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b28cc3c8-8a1e-44ba-8959-8817ca48749f")
+		(property "Reference" "U3"
+			(at 97.79 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2291,7 +3339,7 @@
 			)
 		)
 		(property "Value" "LM2596S-3.3"
-			(at 132.08 69.85 0)
+			(at 97.79 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2301,7 +3349,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-			(at 133.35 83.82 0)
+			(at 99.06 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2314,7 +3362,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-			(at 132.08 77.47 0)
+			(at 97.79 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2325,7 +3373,98 @@
 			)
 		)
 		(property "Description" "3.3V 3A Step-Down Voltage Regulator, TO-263"
-			(at 132.08 77.47 0)
+			(at 97.79 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "1f1b3e6d-39b3-41a6-aff2-01afc7f13577")
+		)
+		(pin "3"
+			(uuid "6279c2fa-c859-4d09-8580-ef76e1971de7")
+		)
+		(pin "1"
+			(uuid "b0da1828-042f-4679-82f0-f88ab9e50914")
+		)
+		(pin "2"
+			(uuid "f3b2089c-3eb9-45bf-a1ee-d33a5676dfbb")
+		)
+		(pin "5"
+			(uuid "2d14c65e-2347-4b16-8487-7f7839d11985")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Regulator_Switching:LM2596S-3.3")
+		(at 99.06 27.94 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b565f40d-7d0a-4e72-858a-b9d9b2c8e202")
+		(property "Reference" "U2"
+			(at 99.06 17.78 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2596S-3.3"
+			(at 99.06 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+			(at 100.33 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+			(at 99.06 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "3.3V 3A Step-Down Voltage Regulator, TO-263"
+			(at 99.06 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2361,7 +3500,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 171.45 114.3 0)
+		(at 82.55 152.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2370,9 +3509,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "becbdcf6-f982-4a57-8de6-7e5c13237069")
-		(property "Reference" "#PWR07"
-			(at 171.45 120.65 0)
+		(uuid "bb6c6d9e-dce1-4116-990b-a682dc7db214")
+		(property "Reference" "#PWR010"
+			(at 82.55 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2383,7 +3522,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 171.45 119.38 0)
+			(at 82.55 157.48 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2393,7 +3532,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 171.45 114.3 0)
+			(at 82.55 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2404,7 +3543,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 171.45 114.3 0)
+			(at 82.55 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2415,7 +3554,85 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 171.45 114.3 0)
+			(at 82.55 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a87648ff-6110-44df-8357-6ccf2cebca80")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 138.43 64.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "becbdcf6-f982-4a57-8de6-7e5c13237069")
+		(property "Reference" "#PWR07"
+			(at 138.43 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 138.43 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 138.43 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2439,7 +3656,7 @@
 	)
 	(symbol
 		(lib_id "Transistor_BJT:2N3904")
-		(at 114.3 109.22 0)
+		(at 81.28 59.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2450,7 +3667,7 @@
 		(fields_autoplaced yes)
 		(uuid "bede6ff8-4452-4728-9769-aaf3fe06098e")
 		(property "Reference" "Q1"
-			(at 119.38 107.9499 0)
+			(at 86.36 58.4199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2461,7 +3678,7 @@
 			)
 		)
 		(property "Value" "2N3904"
-			(at 119.38 110.4899 0)
+			(at 86.36 60.9599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2472,7 +3689,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 119.38 111.125 0)
+			(at 86.36 61.595 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2485,7 +3702,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF"
-			(at 114.3 109.22 0)
+			(at 81.28 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2497,7 +3714,7 @@
 			)
 		)
 		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"
-			(at 114.3 109.22 0)
+			(at 81.28 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2508,7 +3725,7 @@
 			)
 		)
 		(property "Sim.Device" "NPN"
-			(at 114.3 109.22 0)
+			(at 81.28 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2519,7 +3736,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=E 2=B 3=C"
-			(at 114.3 109.22 0)
+			(at 81.28 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2549,7 +3766,7 @@
 	)
 	(symbol
 		(lib_id "power:+12V")
-		(at 114.3 74.93 0)
+		(at 81.28 25.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2560,7 +3777,7 @@
 		(fields_autoplaced yes)
 		(uuid "c3ef79c0-be1b-4e68-9e2d-91f1e85a98d3")
 		(property "Reference" "#PWR05"
-			(at 114.3 78.74 0)
+			(at 81.28 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2571,7 +3788,7 @@
 			)
 		)
 		(property "Value" "+12V"
-			(at 114.3 69.85 0)
+			(at 81.28 20.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2581,7 +3798,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 74.93 0)
+			(at 81.28 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2592,7 +3809,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 74.93 0)
+			(at 81.28 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2603,7 +3820,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 114.3 74.93 0)
+			(at 81.28 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2627,7 +3844,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 135.89 92.71 0)
+		(at 102.87 43.18 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2638,7 +3855,7 @@
 		(fields_autoplaced yes)
 		(uuid "c8859f9a-5c71-48ca-8956-5a1eadaf9bc7")
 		(property "Reference" "#PWR04"
-			(at 135.89 99.06 0)
+			(at 102.87 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2649,7 +3866,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 135.89 97.79 0)
+			(at 102.87 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2659,7 +3876,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 92.71 0)
+			(at 102.87 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2670,7 +3887,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 135.89 92.71 0)
+			(at 102.87 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2681,7 +3898,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 92.71 0)
+			(at 102.87 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2705,7 +3922,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 82.55 95.25 0)
+		(at 49.53 45.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2716,7 +3933,7 @@
 		(fields_autoplaced yes)
 		(uuid "cb9b348f-3492-44d9-b3ac-23c8fad3a58b")
 		(property "Reference" "#PWR03"
-			(at 82.55 99.06 0)
+			(at 49.53 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2727,7 +3944,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 82.55 90.17 0)
+			(at 49.53 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2737,7 +3954,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 82.55 95.25 0)
+			(at 49.53 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2748,7 +3965,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 82.55 95.25 0)
+			(at 49.53 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2759,7 +3976,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 82.55 95.25 0)
+			(at 49.53 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2776,6 +3993,594 @@
 			(project "rpi5-fan-pwm-controller"
 				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 80.01 104.14 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cfc7beb4-a049-42dc-adc7-ebb519699017")
+		(property "Reference" "#PWR09"
+			(at 80.01 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V"
+			(at 80.01 99.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 80.01 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d619875a-1cdf-47c5-bab6-068eb0d8b642")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 54.61 144.78 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d36ddf6b-2e77-41bc-8f47-b2fab81ad591")
+		(property "Reference" "R6"
+			(at 50.546 144.272 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 54.61 146.304 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 52.832 144.78 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 54.61 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "6780295b-2d0f-4128-b404-d6fc7c499212")
+		)
+		(pin "1"
+			(uuid "223ac2bf-01e7-4547-a5f6-cf538da5f5dc")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 38.1 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d4b2199d-682e-4946-8364-d688c5d2e0c7")
+		(property "Reference" "#PWR08"
+			(at 38.1 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 38.1 105.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 38.1 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c7fb5f86-cde2-4417-83b5-3b7bb2f9ecc2")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 38.1 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e8338bf2-d9be-460a-9427-aec5cc7d5005")
+		(property "Reference" "R3"
+			(at 39.878 120.396 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 38.1 122.428 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 36.322 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 38.1 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f13ea37c-1f7a-4dd6-b53f-e1c12b6a6562")
+		)
+		(pin "1"
+			(uuid "37c088ca-1f13-4c12-b317-794a826c56b5")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:2N3904")
+		(at 52.07 130.81 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "eaf198ef-55f4-49c7-8d6e-96d901643f50")
+		(property "Reference" "Q3"
+			(at 57.15 129.5399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2N3904"
+			(at 57.15 132.0799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 57.15 132.715 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF"
+			(at 52.07 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"
+			(at 52.07 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "NPN"
+			(at 52.07 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=E 2=B 3=C"
+			(at 52.07 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "859a7969-a9e6-4772-b5d0-7664356e4b36")
+		)
+		(pin "1"
+			(uuid "8c99609e-7972-43af-be55-4258175cc478")
+		)
+		(pin "3"
+			(uuid "3cdb14f0-42ba-43f0-b2bc-d28707e22cc1")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "Q3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 137.16 137.16 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ed4c916d-763c-41ca-b5d5-0e56ea971bd5")
+		(property "Reference" "C4"
+			(at 140.97 135.8899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22pF"
+			(at 140.97 138.4299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.1252 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 137.16 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3407ce2f-b558-4a63-96be-3ad2b859a087")
+		)
+		(pin "1"
+			(uuid "3244fcf3-ced6-4111-adcb-78a7286fa447")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 116.84 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f2e46a36-fe3f-4019-a0c4-006be0003dda")
+		(property "Reference" "#PWR013"
+			(at 116.84 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 116.84 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 116.84 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1482eb27-9a27-428b-b97c-97d696dce463")
+		)
+		(instances
+			(project "rpi5-fan-pwm-controller"
+				(path "/00f91f37-a6f0-4f19-bc76-1c78999adf46"
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)

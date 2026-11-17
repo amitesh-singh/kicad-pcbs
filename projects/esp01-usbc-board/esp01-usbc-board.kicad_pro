@@ -557,7 +557,7 @@
       "netlist": "",
       "plot": "gerber/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "esp01-usbc-board.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
