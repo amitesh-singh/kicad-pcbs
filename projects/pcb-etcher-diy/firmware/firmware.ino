@@ -3,16 +3,28 @@
  *
  * Wiring
  * ------
- *   D1 (GPIO5)  -> 100R -> NMOS gate (logic-level, e.g. IRLZ44N / AO3400 / IRLML6344)
+ *   D2 (GPIO4)  -> 100R -> NMOS gate (logic-level, e.g. IRLZ44N / AO3400 / IRLML6344)
  *                  + 100k gate->GND pulldown (keeps motor off while the ESP boots)
  *   NMOS source -> GND (common with the NodeMCU GND)
  *   NMOS drain  -> motor (-);  motor (+) -> USB 5V (VIN)
  *   Flyback diode (1N5819 / SS14) across the motor: cathode to 5V, anode to drain
  *   100-470uF cap across the motor supply, + 100nF across the motor terminals
- *   D2 (GPIO4)  -> buzzer (+), buzzer (-) -> GND
- *                  (passive buzzer, or small active buzzer <= ~12mA; use a
- *                   transistor for anything bigger)
- *   GPIO2       -> on-board ESP-12E LED (active LOW) - blinks while motor spins
+ *
+ *   Buzzer (passive, high-side PNP switch - 2N3906)
+ *   D1 (GPIO5)  -> 2.2k -> 2N3906 base
+ *   2N3906 emitter   -> 3V3
+ *   2N3906 collector -> buzzer (+);  buzzer (-) -> GND
+ *                  The PNP is ACTIVE LOW: pin LOW = buzzer powered, pin HIGH =
+ *                  off. So the firmware idles D1 HIGH (setup() and buzzerOff()),
+ *                  and tone() toggles it to make sound. Never leave D1 LOW when
+ *                  idle - that holds the transistor on and the buzzer sits on
+ *                  DC (silent for a passive buzzer, but wastes current).
+ *                  Keep the emitter on 3V3, not 5V: a 3.3V GPIO HIGH cannot
+ *                  fully turn off a PNP whose emitter is at 5V.
+ *                  2N3906 TO-92 pinout (flat face towards you): E-B-C.
+ *
+ *   D4 (GPIO2)  -> on-board ESP-12E LED (active LOW) - blink currently DISABLED
+ *                  (updateLed() call and PIN_LED init are commented out)
  *
  * Usage
  * -----
@@ -20,6 +32,10 @@
  *   Then open http://etcher.local/ (or the IP printed on Serial @115200).
  *   If no network is available the device stays reachable at 192.168.4.1
  *   via its own "PCB-Etcher" AP.
+ *
+ *   Buzzer: short chirps on start/stop, a tick for the last 3 s, and when the
+ *   timer finishes the "done" melody REPEATS until you start the timer again or
+ *   tick "Mute buzzer" in the web UI. A manual Stop only chirps once.
  *
  * Libraries: WiFiManager (tzapu), ESP8266 core.
  */
@@ -30,9 +46,9 @@
 #include <WiFiManager.h>
 
 // ---------------------------------------------------------------- pins
-static const uint8_t PIN_MOTOR  = 5;   // D1
-static const uint8_t PIN_BUZZER = 4;   // D2
-static const uint8_t PIN_LED    = 2;   // ESP-12E module LED, active LOW
+static const uint8_t PIN_MOTOR  = D2;   // D2
+static const uint8_t PIN_BUZZER = D1;   // D1
+static const uint8_t PIN_LED    = D4;   // ESP-12E module LED, active LOW
 
 // ------------------------------------------------------------- tunables
 static const uint16_t PWM_RANGE        = 1023;
@@ -77,26 +93,44 @@ static uint8_t     melodyLen = 0;
 static uint8_t     melodyIdx = 0;
 static uint32_t    noteEndMs = 0;
 
+// After the timer finishes, MEL_DONE repeats until the timer is re-run or the
+// buzzer is muted.
+static bool        alarm = false;
+static const uint32_t ALARM_GAP_MS = 1500;   // pause between repeats
+
 #define PLAY(m) playMelody(m, sizeof(m) / sizeof(m[0]))
+
+// Buzzer is driven through a PNP (2N3906): pin HIGH = transistor off = silent.
+// noTone() leaves the pin LOW, which would switch the PNP ON, so always
+// restore the idle level afterwards.
+static const uint8_t BUZZER_IDLE = HIGH;
+static void buzzerOff() {
+  noTone(PIN_BUZZER);
+  digitalWrite(PIN_BUZZER, BUZZER_IDLE);
+}
 
 static void playMelody(const Note *m, uint8_t n) {
   if (muted) return;
   melody = m; melodyLen = n; melodyIdx = 0; noteEndMs = millis();
-  noTone(PIN_BUZZER);
+  buzzerOff();
 }
 
 static void updateBuzzer() {
   if (!melody) return;
   if ((int32_t)(millis() - noteEndMs) < 0) return;
   if (melodyIdx >= melodyLen) {
-    noTone(PIN_BUZZER);
-    digitalWrite(PIN_BUZZER, LOW);
+    buzzerOff();
+    if (alarm && !muted) {                 // timer finished: repeat until restart/mute
+      melodyIdx = 0;
+      noteEndMs = millis() + ALARM_GAP_MS;
+      return;
+    }
     melody = nullptr;
     return;
   }
   const Note &n = melody[melodyIdx++];
   if (n.freq) tone(PIN_BUZZER, n.freq, n.ms);
-  else        noTone(PIN_BUZZER);
+  else        buzzerOff();
   noteEndMs = millis() + n.ms;
 }
 
@@ -156,6 +190,7 @@ static void startRun() {
   if (running) return;
   running = true;
   startMs = millis();
+  alarm = false;                 // re-running the timer silences the alarm
   PLAY(MEL_START);
   Serial.printf("START speed=%u%% duration=%lus\n", speedPct, (unsigned long)durationS);
 }
@@ -163,6 +198,7 @@ static void startRun() {
 static void stopRun(bool finished) {
   if (!running) return;
   running = false;
+  alarm = finished && !muted;
   if (finished) PLAY(MEL_DONE); else PLAY(MEL_STOP);
   Serial.println(finished ? "DONE" : "STOP");
 }
@@ -252,7 +288,7 @@ function render(){
     $('state').className='run';
   }else{
     $('time').textContent=idleSecs?fmt(idleSecs):'--:--';
-    $('state').textContent='Stopped';$('state').className='';
+    $('state').textContent=st.alarm?'Done! Mute buzzer or Start to silence':'Stopped';$('state').className='';
   }
   $('start').disabled=st.running; $('stop').disabled=!st.running;
   $('min').disabled=st.running;
@@ -293,13 +329,13 @@ refresh();setInterval(refresh,500);
 </script></body></html>)rawliteral";
 
 static void sendStatus() {
-  char buf[200];
+  char buf[240];
   snprintf(buf, sizeof(buf),
     "{\"running\":%s,\"speed\":%u,\"duration\":%lu,\"remaining\":%lu,\"elapsed\":%lu,"
-    "\"mute\":%s,\"rssi\":%d,\"ip\":\"%s\"}",
+    "\"mute\":%s,\"alarm\":%s,\"rssi\":%d,\"ip\":\"%s\"}",
     running ? "true" : "false", speedPct, (unsigned long)durationS,
     (unsigned long)remainingS(), (unsigned long)elapsedS(),
-    muted ? "true" : "false",
+    muted ? "true" : "false", alarm ? "true" : "false",
     WiFi.status() == WL_CONNECTED ? WiFi.RSSI() : 0,
     (WiFi.status() == WL_CONNECTED ? WiFi.localIP() : WiFi.softAPIP()).toString().c_str());
   server.sendHeader("Cache-Control", "no-store");
@@ -325,7 +361,7 @@ static void handleSpeed() {
 
 static void handleMute() {
   if (server.hasArg("value")) muted = server.arg("value").toInt() != 0;
-  if (muted) { melody = nullptr; noTone(PIN_BUZZER); digitalWrite(PIN_BUZZER, LOW); }
+  if (muted) { alarm = false; melody = nullptr; buzzerOff(); }
   sendStatus();
 }
 
@@ -341,10 +377,11 @@ static void setupWeb() {
 }
 
 // -------------------------------------------------------------- setup
-void setup() {
+void setup() 
+{
   // Motor OFF before anything else.
   pinMode(PIN_MOTOR, OUTPUT);  digitalWrite(PIN_MOTOR, LOW);
-  pinMode(PIN_BUZZER, OUTPUT); digitalWrite(PIN_BUZZER, LOW);
+  pinMode(PIN_BUZZER, OUTPUT); digitalWrite(PIN_BUZZER, HIGH); //pnp 2n3906 is connected - disable the buzzer initially
   pinMode(PIN_LED, OUTPUT);    digitalWrite(PIN_LED, HIGH);   // LED off (active LOW)
 
   Serial.begin(115200);
@@ -376,6 +413,6 @@ void loop() {
   MDNS.update();
   updateTimer();
   updateMotor();
-  updateLed();
+  updateLed(); 
   updateBuzzer();
 }
