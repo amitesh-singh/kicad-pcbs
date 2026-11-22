@@ -44,6 +44,7 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include <WiFiManager.h>
+#include <ElegantOTA.h>
 
 // ---------------------------------------------------------------- pins
 static const uint8_t PIN_MOTOR  = D2;   // D2
@@ -57,7 +58,7 @@ static const uint8_t  MIN_DUTY_PCT     = 30;    // duty at "speed 1" - raise if 
 static const uint16_t RAMP_UP_STEP     = 12;    // PWM counts per 10 ms  (~1 s 0->100%) limits USB inrush
 static const uint16_t RAMP_DOWN_STEP   = 40;
 static const uint32_t MAX_DURATION_S   = 2UL * 60 * 60;
-static const uint8_t  DEFAULT_SPEED    = 60;    // %
+static const uint8_t  DEFAULT_SPEED    = 45;    // %
 static const uint32_t DEFAULT_DURATION = 10UL * 60;  // seconds
 
 static const char *HOSTNAME = "etcher";
@@ -65,6 +66,7 @@ static const char *AP_NAME  = "PCB-Etcher";
 
 // --------------------------------------------------------------- state
 ESP8266WebServer server(80);
+ESP8266WebServer ota_server(81);
 
 static bool     running    = false;
 static uint32_t startMs    = 0;
@@ -271,7 +273,7 @@ input[type=number]{width:90px;background:#10141a;color:var(--fg);border:1px soli
 </main>
 <script>
 const $=id=>document.getElementById(id);
-let st={running:false}, dragging=false, timer=null;
+let st={running:false}, dragging=false, timer=null, edited=false;  // edited: user changed the timer field, don't overwrite it from the poll
 
 async function api(path,params){
   const r=await fetch(path+'?'+new URLSearchParams(params||{}),{method:'POST'});
@@ -302,7 +304,7 @@ async function refresh(){
   try{
     const first=!st.ip;
     st=await api('/api/status');
-    if(first||(!st.running&&document.activeElement!==$('min'))) $('min').value=+(st.duration/60).toFixed(2);
+    if(first||(!st.running&&!edited&&document.activeElement!==$('min'))) $('min').value=+(st.duration/60).toFixed(2);
     $('conn').style.color='#2ecc71';
   }catch(e){$('conn').style.color='#ff5a5f';}
   render();
@@ -318,12 +320,12 @@ $('sp').addEventListener('change',async()=>{
 });
 $('start').onclick=async()=>{
   const secs=Math.round((parseFloat($('min').value)||0)*60);
-  st=await api('/api/start',{duration:secs,speed:$('sp').value});render();
+  st=await api('/api/start',{duration:secs,speed:$('sp').value});edited=false;render();
 };
 $('stop').onclick=async()=>{st=await api('/api/stop');render();};
 $('mute').onchange=async()=>{await api('/api/mute',{value:$('mute').checked?1:0});};
-$('min').oninput=render;
-document.querySelectorAll('.pre button').forEach(b=>b.onclick=()=>{$('min').value=b.dataset.m;render();});
+$('min').oninput=()=>{edited=true;render();};
+document.querySelectorAll('.pre button').forEach(b=>b.onclick=()=>{$('min').value=b.dataset.m;edited=true;render();});
 
 refresh();setInterval(refresh,500);
 </script></body></html>)rawliteral";
@@ -402,6 +404,10 @@ void setup()
   Serial.print("IP: ");
   Serial.println(WiFi.status() == WL_CONNECTED ? WiFi.localIP() : WiFi.softAPIP());
 
+  //OTA
+  ota_server.begin();
+  ElegantOTA.begin(&ota_server);
+
   if (MDNS.begin(HOSTNAME)) MDNS.addService("http", "tcp", 80);
 
   setupWeb();
@@ -415,4 +421,8 @@ void loop() {
   updateMotor();
   updateLed(); 
   updateBuzzer();
+
+  // OTA loop
+  ota_server.handleClient();
+  ElegantOTA.loop();
 }
